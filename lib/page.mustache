@@ -21,8 +21,17 @@
 		 {{/items}}
 	</span>
 	{{/stars}}
-
 	<br/>
+
+	{{#summary}}
+	<h2><span class="glyphicon glyphicon-compressed"></span> Qualification Summary</h2>
+	<ul>
+		{{#points}}
+		<li>{{{.}}}</li>
+		{{/points}}
+	</ul>
+	{{/summary}}
+
 	{{#github_projects}}
 	<h2><span class="gh-ico black-gh-ico"></span>GitHub Projects</h2>
 	<ul>
@@ -151,6 +160,39 @@
 	</ul>
 	{{/research_experience}}
 
+	{{#patents}}
+	<h2><span class="glyphicon glyphicon-file"></span> Patents</h2>
+	<ul>
+		{{#items}}
+		<li>{{patent_id}} 
+			<a href="{{url}}">{{title}},</a> 
+			issued {{date}}.
+		</li>
+		{{/items}}
+	</ul>
+	{{/patents}}
+
+	{{#papers}}
+	<h2><span class="glyphicon glyphicon-edit"></span> Publications</h2>
+	<ul>
+		{{#items}}
+		<li>{{authors}} 
+			<a href="{{url}}">{{title}},</a> 
+			 {{misc}}.
+		</li>
+		{{/items}}
+	</ul>
+	{{/papers}}
+
+	{{#memberships}}
+	<h2><span class="glyphicon glyphicon-globe"></span> Memberships</h2>
+	<ul>
+		{{#committees}}
+		<li><a href="{{url}}">{{name}}</a></li>
+		{{/committees}}
+	</ul>	
+	{{/memberships}}
+	
 	{{#extra_curricular}}
 	<h2><span class="glyphicon glyphicon-music"></span> Extra Curricular Awards</h2>
 	<ul>

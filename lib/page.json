@@ -2,18 +2,23 @@
     "name": "Prateek Agarwal",
     "linkedin_url": "http://www.linkedin.com/in/prat0318",
     "github_url": "http://github.com/prat0318",
-    "show_pdf_url": true,
     "tabs": [
         {
+            "name": "Pdf",
+            "url": "public/resume.pdf",
+            "_blank": true
+        },
+        {
             "name": "Projects",
-            "url": "http://github.com/prat0318"
+            "url": "http://github.com/prat0318",
+            "_blank": true
         },
         {
             "name": "Caricatures",
-            "url": "caricature.html"
+            "url": "caricature.html",
+            "_blank": false
         }
     ],
-    "show_footer": true,
     "bio_data": {
         "email": "prat0318 @ cs.utexas.edu",
         "phone": "+1 (512) 698-3649",

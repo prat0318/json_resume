@@ -1,0 +1,19 @@
+<h1>
+	<a href="/"><span class="glyphicon glyphicon-user"></span> {{name}}</a>
+	{{#linkedin_url}}
+	<a target="_blank" href="{{linkedin_url}}"><img border="0" src="public/images/link-linkedin-64-gray.png" id="link-linkedin" width="20"></a>
+	{{/linkedin_url}}
+	{{#github_url}}
+	<a target="_blank" href="{{github_url}}"><img border="0" src="public/images/github.png" id="github-header" class="gray" width="22"></a>
+	{{/github_url}}
+</h1>
+<ul class="nav">
+	{{#tabs}}
+	<li><a {{#_blank}}target="_blank"{{/_blank}} href="{{url}}">{{name}}</a></li>
+	{{/tabs}}
+</ul>
+<script>
+	$(document).ready(function() {
+		$(document).attr('title', '{{name}}');
+	});
+</script>
