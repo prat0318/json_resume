@@ -15,25 +15,26 @@
     ],
     "show_footer": true,
     "bio_data": {
-        "name": "Prateek Agarwal",
-        "email": "prat0318 @ gmail.com",
+        "email": "prat0318 @ cs.utexas.edu",
         "phone": "+1 (512) 698-3649",
         "website": "http://prat0318.github.io",
-        "stars": [
-            {
-                "name": "Ruby"
-            },
-            {
-                "name": "Python"
-            },
-            {
-                "name": "Git"
-            },
-            {
-                "name": "Cartooning",
-                "last": "true"
-            }
-        ],
+        "stars": {
+            "items": [
+                {
+                    "name": "Ruby"
+                },
+                {
+                    "name": "Python"
+                },
+                {
+                    "name": "Git"
+                },
+                {
+                    "name": "Cartooning",
+                    "last": true
+                }
+            ]
+        },
         "github_projects": {
             "details": [
                 {
@@ -223,6 +224,10 @@
                         {
                             "name": "Multicore Programming",
                             "url": "http://www.cs.utexas.edu/~pingali/CS395T/2013fa"
+                        },
+                        {
+                            "name": "",
+                            "url": ""
                         }
                     ]
                 }

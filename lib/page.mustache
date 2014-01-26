@@ -16,10 +16,9 @@
 	<h1 class="emphnext">{{name}}</h1><br/>
 	{{#stars}}
 	<span class="stars">
-		{{name}}
-		{{^last}}
-			<span class="glyphicon glyphicon-star-empty"></span>&nbsp;
-		{{/last}}
+		 {{#items}}
+		 {{name}} {{^last}}<span class="glyphicon glyphicon-star-empty"></span>{{/last}}
+		 {{/items}}
 	</span>
 	{{/stars}}
 
@@ -31,7 +30,9 @@
 		<li><a href="https://github.com/{{project_name}}">{{project_name}}</a>
 		{{#tagline}} &raquo; {{{tagline}}}{{/tagline}}
 			<ul>
-				{{#description}}<li>{{{.}}}</li>{{/description}}
+				{{#description}}
+				<li>{{{.}}}</li>
+				{{/description}}
 			</ul>
 		</li>
 	{{/details}}
@@ -43,7 +44,9 @@
 	<ul class="languages">
 		{{#details}}
 		<li>{{type}}: 
-			{{#items}}<span class="label label-default">{{.}}</span>{{/items}}
+			{{#items}}
+			<span class="label label-default">{{.}}</span>
+			{{/items}}
 		</li>
 		{{/details}}
 	</ul>
@@ -66,7 +69,9 @@
 	{{#acad_achievements}}
 	<h2><span class="glyphicon glyphicon-tower"></span> Academic Achievements</h2>
 	<ul>
-		{{#items}}<li>{{{.}}}</li>{{/items}}
+		{{#items}}
+		<li>{{{.}}}</li>
+		{{/items}}
 	</ul>
 	{{/acad_achievements}}
 
@@ -77,15 +82,19 @@
 		<li>{{title}} at {{{organisation}}}
 			<span class="right">({{from}} – {{to}})</span>
 			<ul>
-				{{#details}}<li>{{{.}}}</li>{{/details}}
+				{{#details}}
+				<li>{{{.}}}</li>
+				{{/details}}
 				{{#technology_used}}
 				<li>Technologies got to work on: 
-					{{#tools}}<span class="label label-default">{{.}}</span>{{/tools}}
+					{{#tools}}
+					<span class="label label-default">{{.}}</span>
+					{{/tools}}
 				</li>
 				{{/technology_used}}
 			</ul>
-		</li>	
-		{{/items}}			
+		</li>
+		{{/items}}
 	</ul>
 	{{/experience}}
 
@@ -94,12 +103,16 @@
 	<ul>
 		{{#items}}
 		<li>
-			{{headline}}
+			{{{headline}}}
 			<ul>
-				{{#points}}<li>{{{.}}}</li>{{/points}}
+				{{#points}}
+				<li>{{{.}}}</li>
+				{{/points}}
 				{{#technology_used}}
 				<li>Technologies got to work on: 
-					{{#tools}}<span class="label label-default">{{.}}</span>{{/tools}}
+					{{#tools}}
+					<span class="label label-default">{{.}}</span>
+					{{/tools}}
 				</li>
 				{{/technology_used}}			
 			</ul>
@@ -113,7 +126,9 @@
 	<table class="table">
 		{{#rows}}
 		<tr>
-			{{#columns}}<td><a href="{{url}}">{{name}}</a></td>{{/columns}}
+			{{#columns}}
+			<td><a href="{{url}}">{{name}}</a></td>
+			{{/columns}}
 		</tr>
 		{{/rows}}
 	</table>
@@ -127,7 +142,9 @@
 			{{title}} at {{{organisation}}}
 			<span class="right">({{from}} – {{to}})</span>
 			<ul>
-				{{#points}}<li>{{{.}}}</li>{{/points}}				
+				{{#points}}
+				<li>{{{.}}}</li>
+				{{/points}}
 			</ul>
 		</li>
 		{{/items}}
@@ -137,7 +154,9 @@
 	{{#extra_curricular}}
 	<h2><span class="glyphicon glyphicon-music"></span> Extra Curricular Awards</h2>
 	<ul>
-		{{#items}}<li>{{{.}}}</li>{{/items}}
+		{{#items}}
+		<li>{{{.}}}</li>
+		{{/items}}
 	</ul>
 	{{/extra_curricular}}
 
