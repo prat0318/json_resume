@@ -2,240 +2,144 @@
 {{#bio_data}}
 	<div class="contact-details">
 		{{#email}}
-		<span class="glyphicon glyphicon-envelope"></span>{{email}}<br/>
+		<span class="glyphicon glyphicon-envelope"></span> {{email}}<br/>
 		{{/email}}
 		{{#phone}}
-		<span class="glyphicon glyphicon-earphone"></span>{{phone}}<br/>
+		<span class="glyphicon glyphicon-earphone"></span> {{phone}}<br/>
 		{{/phone}}
 		{{#website}}
 		<span class="glyphicon glyphicon-globe"></span>
-		<a href="{{website}}">{{website}}</a>
+		<a href="{{website}}"> {{website}}</a>
 		{{/website}}
 	</div>
 	
 	<h1 class="emphnext">{{name}}</h1><br/>
+	{{#stars}}
 	<span class="stars">
 		{{name}}
 		{{^last}}
-			<span class="glyphicon glyphicon-star-empty"></span>
+			<span class="glyphicon glyphicon-star-empty"></span>&nbsp;
 		{{/last}}
 	</span>
+	{{/stars}}
 
 	<br/>
+	{{#github_projects}}
 	<h2><span class="gh-ico black-gh-ico"></span>GitHub Projects</h2>
 	<ul>
-		<li><a href="https://github.com/prat0318/gitator">prat0318/gitator</a> &raquo; Live at <a href="http://gitator.com">Gitator.com</a>.
+	{{#details}}
+		<li><a href="https://github.com/{{project_name}}">{{project_name}}</a>
+		{{#tagline}} &raquo; {{{tagline}}}{{/tagline}}
 			<ul>
-				<li>Finds relevant repositories based on an user's GitHub profile.</li>
-				<li> Written in Ruby on Sinatra, designed in Bootstrap.</li>
+				{{#description}}<li>{{{.}}}</li>{{/description}}
 			</ul>
 		</li>
-		<li><a href="https://github.com/prat0318/prat0318.github.io">prat0318/prat0318.github.io</a>
-			<ul>
-				<li>Static personal page design with CSS and Bootstrap</li>
-			</ul>
-		</li>
+	{{/details}}
 	</ul>
+	{{/github_projects}}
 
+	{{#skills}}
 	<h2><span class="glyphicon glyphicon-th-list"></span> Technical skills</h2>
 	<ul class="languages">
-		<li>Programming languages: 
-			<span class="label label-default">Ruby</span>
-			<span class="label label-default">Python</span>
-			<span class="label label-default">Java</span>
-			<span class="label label-default">C++</span>
-			<span class="label label-default">Javascript</span>
-			<span class="label label-default">PHP</span>
+		{{#details}}
+		<li>{{type}}: 
+			{{#items}}<span class="label label-default">{{.}}</span>{{/items}}
 		</li>
-		<li>Web Frameworks: 
-			<span class="label label-default">Sinatra</span>
-			<span class="label label-default">Django</span>
-			<span class="label label-default">Rails</span>
-			<span class="label label-default">Apache</span>
-		</li>
-		<li>Databases: 
-			<span class="label label-default">MySQL</span>
-			<span class="label label-default">PostgreSQL</span>
-			<span class="label label-default">IBM Informix</span>
-			<span class="label label-default">IBM DB2</span>
-		</li>
+		{{/details}}
 	</ul>
+	{{/skills}}
 
+	{{#education}}
 	<h2><span class="glyphicon glyphicon-book"></span> Education</h2>
 	<table class="table education">
 		<tr>
 			<th>Degree</th><th>Major</th><th>Institution</th><th>Year of Graduation</th><th>GPA</th>
 		</tr>
+		{{#schools}}
 		<tr>
-			<td>Master of Science</td><td>Computer Science</td><td>University of Texas at Austin</td><td>2015</td><td>3.33/4</td>
+			<td>{{degree}}</td><td>{{major}}</td><td>{{institution}}</td><td>{{graduation_year}}</td><td>{{gpa}}</td>
 		</tr>
-		<tr>
-			<td>Bachelor of Technology (Hons.)</td><td>Computer Science</td><td>Indian Institute of Technology, Kharagpur (IN)</td><td>2009</td><td>8.91/10</td>
-		</tr>
+		{{/schools}}
 	</table>
+	{{/education}}
 
+	{{#acad_achievements}}
 	<h2><span class="glyphicon glyphicon-tower"></span> Academic Achievements</h2>
 	<ul>
-		<li>Was among the top 5% in the institute merit list of the undergraduate batch at IIT Kharagpur.</li>
-		<li>Secured 383rd Rank in IIT-JEE 2005, an exam conducted by Indian Institute of Technology(s).</li>
+		{{#items}}<li>{{{.}}}</li>{{/items}}
 	</ul>
+	{{/acad_achievements}}
 
+	{{#experience}}
 	<h2><span class="glyphicon glyphicon-briefcase"></span> Professional Experience</h2>
 	<ul>
-		<li>Graduate Research Assistant at CTR, UT Austin
-			<span class="right">(Sept. 2013 – Jan. 2014)</span>
+		{{#items}}
+		<li>{{title}} at {{{organisation}}}
+			<span class="right">({{from}} – {{to}})</span>
 			<ul>
-				<li>Developed a common web interface <a href="http://unitydatabase.com">www.unitydatabase.com</a> to search through different datasets and output aggregate results and ensuring easy pluggability of new datasets.
+				{{#details}}<li>{{{.}}}</li>{{/details}}
+				{{#technology_used}}
+				<li>Technologies got to work on: 
+					{{#tools}}<span class="label label-default">{{.}}</span>{{/tools}}
 				</li>
-				<li>Technologies got to on: 
-					<span class="label label-default">Python</span>
-					<span class="label label-default">Django</span>
-					<span class="label label-default">South</span>
-					<span class="label label-default">PostgreSQL</span>
-				</li>
+				{{/technology_used}}
 			</ul>
-		</li>
-		<li>SDE II (Software Development Engineer II) at Flipkart, India
-			<span class="right">(Apr. 2013 – Jul. 2013)</span>
-			<ul>
-				<li> Wrote a ruby gem <i>Morsel</i> to traverse through active record trees to purge old records.
-					<ul><li>
-						It helped in limiting the production database size and keeping the data clean.
-						</li>
-					</ul>
-			</ul>
-		</li>
-		<li>Software Development Engineer at Flipkart, India
-			<span class="right">(Jun. 2011 – Mar. 2013)</span>
-			<ul>
-				<li>
-					Was part of a team which developed the warehouse module in RoR framework from scratch. It now scales to around 10X as compared to the ERP system existed.
-				</li>
-				<li>
-					Designed warehouse stock snapshots and stock ledger framework using Pig scripts to make the supply chain system legally compliant.
-				</li>
-				<li>Technologies got to on: 
-					<span class="label label-default">Ruby</span>
-					<span class="label label-default">Pig</span>
-					<span class="label label-default">Python</span>
-					<span class="label label-default">Active Records</span>
-					<span class="label label-default">MySQL</span>
-				</li>						
-			</ul>
-		</li>
-		<li>Software Engineer at IBM Software Labs, India
-			<span class="right">(Jul. 2009 – Jun. 2011)</span>
-			<ul>
-				<li>
-				 Handled high priority issues for JDBC client driver for IBM Informix database.
-				</li>
-				<li>
-				 Developed performance tests for pureQuery Hibernate accelerator’s binding and static features and showcased its improvements over traditional DB2 JDBC driver.
-				</li>
-				<li>
-				 Was awarded Smart CADian award for resolving an obscure deadlock situation, making Informix JDBC driver more robust.
-				</li>
-				<li>Technologies got to on: 
-					<span class="label label-default">Java</span>
-					<span class="label label-default">IBM Informix</span>
-					<span class="label label-default">IBM DB2</span>
-				</li>						
-			</ul>
-		</li>				
+		</li>	
+		{{/items}}			
 	</ul>
+	{{/experience}}
 
+	{{#other_projects}}
 	<h2><span class="glyphicon glyphicon-cog"></span> Other Personal Projects</h2>
 	<ul>
+		{{#items}}
 		<li>
-			Developed gurukools.com<sub><i>(offline now)</i></sub> to connect alumni and current students of a campus.
+			{{headline}}
 			<ul>
-				<li>
-				 Basic framework was a privately hosted IRC daemon to which a client connects through a web login. The motivation was to design a web interface which abstracts IRC technicalities from the user.
+				{{#points}}<li>{{{.}}}</li>{{/points}}
+				{{#technology_used}}
+				<li>Technologies got to work on: 
+					{{#tools}}<span class="label label-default">{{.}}</span>{{/tools}}
 				</li>
-				<li>
-				 Learned about mail servers, COMET, long polling, trusted connections during development.
-				</li>
-				<li>
-				 Wrote couple of bots in Tcl scripting language for channel moderation and word games.
-				</li>
-				<li>Technologies got to on: 
-					<span class="label label-default">PHP</span>
-					<span class="label label-default">JavaScipt</span>
-					<span class="label label-default">MySQL</span>
-					<span class="label label-default">Eggdrop</span>
-					<span class="label label-default">Lua</span>
-				</li>			
+				{{/technology_used}}			
 			</ul>
 		</li>
-		<li>
-			Designed product <i>Omerta</i>, a multi-user chat room application in j2me using Sun Wireless Toolkit platform.
-			<ul>
-				<li>
-					Was awarded 1<sup>st</sup> position for the product in <a href="http://www.ecell-iitkgp.org/envision.php">Envision</a>, Product Innovation Contest, IIT KGP.
-				</li>
-				<li>
-					Was awarded 1<sup>st</sup> position for the product in Javawise, J2ME s/w Development Contest at IIT Kharagpur, 2008 and 2009 continuously.
-				</li>
-			</ul>
-		</li>
+		{{/items}}
 	</ul>
+	{{/other_projects}}
 
+	{{#courses}}
 	<h2><span class="glyphicon glyphicon-bookmark"></span> Graduate Courses Taken</h2>
 	<table class="table">
+		{{#rows}}
 		<tr>
-			<td><a href="http://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/13F/">Distributed Computing</a></td>
-			<td><a href="http://www.cs.utexas.edu/users/dsb/cs392f/">Feature Oriented Programming</a>
+			{{#columns}}<td><a href="{{url}}">{{name}}</a></td>{{/columns}}
 		</tr>
-		<tr>
-			<td><a href="http://www.cs.utexas.edu/~pingali/CS395T/2013fa/">Multicore Programming</a></td><td></td>
-		</tr>
+		{{/rows}}
 	</table>
+	{{/courses}}
 
+	{{#research_experience}}
 	<h2><span class="glyphicon glyphicon-pencil"></span> Research Experience</h2>
 	<ul>
+		{{#items}}
 		<li>
-			Designing and Formal modelling of embedded systems for project Sanyog.
-			<span class="right">(Jul. 2008 – May 2009)</span>
+			{{title}} at {{{organisation}}}
+			<span class="right">({{from}} – {{to}})</span>
 			<ul>
-				<li>
-					 Undergraduate project under the guidance of Prof. Anupam Basu.
-				</li>
-				<li>
-					 Skills Developed: Low level system design, theorem verification using Prolog and Coq
-				</li>
+				{{#points}}<li>{{{.}}}</li>{{/points}}				
 			</ul>
 		</li>
-		<li>
-			Summer Intern at Network Systems Lab, IIT Kharagpur
-			<span class="right">(May 2008 – Jun. 2008)</span>
-			<ul>
-				<li>
-					Design and simulation of currently published Pull-based Freshness Schemes in C++.
-				</li>
-			</ul>
-		</li>
-		<li>
-			Summer Intern at telemedicine Lab, IIT Kharagpur
-			<span class="right">(May 2007 – Jun. 2007)</span>
-			<ul>
-				<li>
-					Under the supervision of Prof. A. K. Majumdar and Prof. J. Mukhopadhyay
-				</li>
-				<li>
-					Web based medical image browsing and annotation tools for PDA devices in .NET platform.
-				</li>
-			</ul>
-		</li>
+		{{/items}}
 	</ul>
+	{{/research_experience}}
 
+	{{#extra_curricular}}
 	<h2><span class="glyphicon glyphicon-music"></span> Extra Curricular Awards</h2>
 	<ul>
-		<li>
-			Was awarded 2<sup>nd</sup> position in Bionetics, Coding Event, Genesis 09 at IIT Kharagpur.
-		</li>
-		<li>
-			Microsoft Student Partner of IIT Kharagpur from the period July 08 – June 09.
-		</li>
+		{{#items}}<li>{{{.}}}</li>{{/items}}
 	</ul>
+	{{/extra_curricular}}
 
+{{/bio_data}}
 </div><!-- End Page -->

@@ -1,0 +1,270 @@
+{
+    "name": "Prateek Agarwal",
+    "linkedin_url": "http://www.linkedin.com/in/prat0318",
+    "github_url": "http://github.com/prat0318",
+    "show_pdf_url": true,
+    "tabs": [
+        {
+            "name": "Projects",
+            "url": "http://github.com/prat0318"
+        },
+        {
+            "name": "Caricatures",
+            "url": "caricature.html"
+        }
+    ],
+    "show_footer": true,
+    "bio_data": {
+        "name": "Prateek Agarwal",
+        "email": "prat0318 @ gmail.com",
+        "phone": "+1 (512) 698-3649",
+        "website": "http://prat0318.github.io",
+        "stars": [
+            {
+                "name": "Ruby"
+            },
+            {
+                "name": "Python"
+            },
+            {
+                "name": "Git"
+            },
+            {
+                "name": "Cartooning",
+                "last": "true"
+            }
+        ],
+        "github_projects": {
+            "details": [
+                {
+                    "project_name": "prat0318/gitator",
+                    "tagline": "Live at <a href='http://gitator.com'>Gitator.com</a>.",
+                    "description": [
+                        "Finds relevant repositories based on an user's GitHub profile.",
+                        "Written in Ruby on Sinatra, designed in Bootstrap."
+                    ]
+                },
+                {
+                    "project_name": "prat0318/prat0318.github.io",
+                    "tagline": "",
+                    "description": [
+                        "Static personal page design with CSS and Bootstrap"
+                    ]
+                }
+            ]
+        },
+        "skills": {
+            "details": [
+                {
+                    "type": "Programming Languages",
+                    "items": [
+                        "Ruby",
+                        "Python",
+                        "Java",
+                        "C++",
+                        "Javascript",
+                        "PHP"
+                    ]
+                },
+                {
+                    "type": "Web Frameworks",
+                    "items": [
+                        "Sinatra",
+                        "Django",
+                        "Rails",
+                        "Apache"
+                    ]
+                },
+                {
+                    "type": "Databases",
+                    "items": [
+                        "MySQL",
+                        "PostgreSQL",
+                        "IBM Informix",
+                        "IBM DB2"
+                    ]
+                }
+            ]
+        },
+        "education": {
+            "schools": [
+                {
+                    "degree": "Master of Science",
+                    "major": "Computer Science",
+                    "institution": "University of Texas at Austin",
+                    "graduation_year": 2015,
+                    "gpa": "3.33/4"
+                },
+                {
+                    "degree": "Bachelor of Technology (Hons.)",
+                    "major": "Computer Science",
+                    "institution": "Indian Insitute of Technology, Kharagpur (IN)",
+                    "graduation_year": 2009,
+                    "gpa": "8.91/10"
+                }
+            ]
+        },
+        "acad_achievements": {
+            "items": [
+                "Was among the top 5% in the institute merit list of the undergraduate batch at IIT Kharagpur.",
+                "Secured 383rd Rank in IIT-JEE 2005, an exam conducted by Indian Institute of Technology(s)."
+            ]
+        },
+        "experience": {
+            "items": [
+                {
+                    "title": "Graduate Research Assistant",
+                    "organisation": "CTR, UT Austin",
+                    "from": "Sept. 2013",
+                    "to": "Jan. 2014",
+                    "details": [
+                        "Developed a common web interface <a href='http://unitydatabase.com'>www.unitydatabase.com</a> to search through different datasets and output aggregate results and ensuring easy pluggability of new datasets."
+                    ],
+                    "technology_used": {
+                        "tools": [
+                            "Python",
+                            "Django",
+                            "South",
+                            "PostgreSQL"
+                        ]
+                    }
+                },
+                {
+                    "title": "SDE II (Software Development Engineer II)",
+                    "organisation": "Flipkart, India",
+                    "from": "Apr. 2013",
+                    "to": "Jul. 2013",
+                    "details": [
+                        "Wrote a ruby gem <i>Morsel</i> to traverse through active record trees to purge old records.<ul><li>It helped in limiting the production database size and keeping the data clean.</li></ul>"
+                    ]
+                },
+                {
+                    "title": "Software Development Engineer",
+                    "organisation": "Flipkart, India",
+                    "from": "Jun. 2011",
+                    "to": "Mar. 2013",
+                    "details": [
+                        "Was part of a team which developed the warehouse module in RoR framework from scratch. It now scales to around 10X as compared to the ERP system existed.",
+                        "Designed warehouse stock snapshots and stock ledger framework using Pig scripts to make the supply chain system legally compliant."
+                    ],
+                    "technology_used": {
+                        "tools": [
+                            "Ruby",
+                            "Java",
+                            "Pig",
+                            "Active Records",
+                            "MySQL"
+                        ]
+                    }
+                },
+                {
+                    "title": "Software Engineer",
+                    "organisation": "IBM Software Labs, India",
+                    "from": "Jul. 2009",
+                    "to": "Jun. 2011",
+                    "details": [
+                        "Handled high priority issues for JDBC client driver for IBM Informix database.",
+                        "Developed performance tests for pureQuery Hibernate accelerator’s binding and static features and showcased its improvements over traditional DB2 JDBC driver.",
+                        "Was awarded Smart CADian award for resolving an obscure deadlock situation, making Informix JDBC driver more robust."
+                    ],
+                    "technology_used": {
+                        "tools": [
+                            "Java",
+                            "IBM Informix",
+                            "IBM DB2"
+                        ]
+                    }
+                }
+            ]
+        },
+        "other_projects": {
+            "items": [
+                {
+                    "headline": "Developed gurukools.com<sub><i>(offline now)</i></sub> to connect alumni and current students of a campus.",
+                    "points": [
+                        "Basic framework was a privately hosted IRC daemon to which a client connects through a web login. The motivation was to design a web interface which abstracts IRC technicalities from the user.",
+                        "Learned about mail servers, COMET, long polling, trusted connections during development.",
+                        "Wrote couple of bots in Tcl scripting language for channel moderation and word games."
+                    ],
+                    "technology_used": {
+                        "tools": [
+                            "PHP",
+                            "JavaScipt",
+                            "MySQL",
+                            "Eggdrop"
+                        ]
+                    }                    
+                },
+                {
+                    "headline": "Designed product <i>Omerta</i>, a multi-user chat room application in j2me using Sun Wireless Toolkit platform.",
+                    "points": [
+                        "Was awarded 1<sup>st</sup> position for the product in <a href='http://www.ecell-iitkgp.org/envision.php'>Envision</a>, Product Innovation Contest, IIT KGP.",
+                        "Was awarded 1<sup>st</sup> position for the product in Javawise, J2ME s/w Development Contest at IIT Kharagpur, 2008 and 2009 continuously."
+                    ]
+                }                
+            ]
+        },
+        "courses": {
+            "rows": [
+                {
+                    "columns" : [
+                        {
+                            "name": "Distributed Computing",
+                            "url": "http://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/13F/"
+                        },
+                        {
+                            "name": "Feature Oriented Programming",
+                            "url": "http://www.cs.utexas.edu/users/dsb/cs392f"
+                        }
+                    ]
+                },
+                {
+                    "columns" : [
+                        {
+                            "name": "Multicore Programming",
+                            "url": "http://www.cs.utexas.edu/~pingali/CS395T/2013fa"
+                        }
+                    ]
+                }
+            ]
+        },
+        "research_experience": {
+            "items": [
+                {
+                    "title":"Undergraduate project",
+                    "organisation": "Sanyog Lab, IIT Kharagpur",
+                    "from": "Jul. 2008",
+                    "to": "May 2009",
+                    "points": [
+                        "Designing and Formal modelling of embedded systems for project Sanyog.",
+                        "Skills Developed: Low level system design, theorem verification using Prolog and Coq"
+                    ]
+                },
+                {
+                    "title":"Summer Intern",
+                    "organisation": "Network Systems Lab, IIT Kharagpur",
+                    "from": "May 2008",
+                    "to": "Jun. 2008",
+                    "points": [
+                        "Design and simulation of currently published Pull-based Freshness Schemes in C++."
+                    ]
+                },
+                {
+                    "title":"Summer Intern",
+                    "organisation": "Telemedicine Lab, IIT Kharagpur",
+                    "from": "May 2007",
+                    "to": "Jun. 2007",
+                    "points": [
+                        "Web based medical image browsing and annotation tools for PDA devices in .NET platform."
+                    ]
+                }
+            ]
+        },
+        "extra_curricular": {
+            "items": [
+                "Was awarded 2<sup>nd</sup> position in Bionetics, Coding Event, Genesis 09 at IIT Kharagpur.",
+                "Microsoft Student Partner of IIT Kharagpur from the period July 08 – June 09."
+            ]
+        }
+    }
+}
