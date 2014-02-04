@@ -210,7 +210,7 @@
                 }                
             ]
         },
-        "courses": {
+        "grad_courses": {
             "rows": [
                 {
                     "columns" : [

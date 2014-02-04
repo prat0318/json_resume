@@ -33,7 +33,7 @@
 	{{/summary}}
 
 	{{#github_projects}}
-	<h2><span class="glyphicon gh-ico black-gh-ico" style="width:22px"></span>GitHub Projects</h2>
+	<h2><img src="public/images/github.png" style="width:22px"></img> GitHub Projects</h2>
 	<ul>
 	{{#details}}
 		<li><a href="https://github.com/{{project_name}}">{{project_name}}</a>
@@ -65,11 +65,11 @@
 	<h2><span class="glyphicon glyphicon-book"></span> Education</h2>
 	<table class="table education">
 		<tr>
-			<th>Degree</th><th>Major</th><th>Institution</th><th>Year of Graduation</th><th>GPA</th>
+			<th>Degree</th><th>Major</th><th>Institution</th><th nowrap>Graduation Year</th><th>GPA</th>
 		</tr>
 		{{#schools}}
 		<tr>
-			<td>{{degree}}</td><td>{{major}}</td><td>{{institution}}</td><td>{{graduation_year}}</td><td>{{gpa}}</td>
+			<td>{{degree}}</td><td>{{major}}</td><td>{{institution}}</td><td align="center">{{graduation_year}}</td><td>{{gpa}}</td>
 		</tr>
 		{{/schools}}
 	</table>
@@ -130,9 +130,9 @@
 	</ul>
 	{{/other_projects}}
 
-	{{#courses}}
+	{{#grad_courses}}
 	<h2><span class="glyphicon glyphicon-bookmark"></span> Graduate Courses Taken</h2>
-	<table class="table">
+	<table class="table education">
 		{{#rows}}
 		<tr>
 			{{#columns}}
@@ -141,7 +141,20 @@
 		</tr>
 		{{/rows}}
 	</table>
-	{{/courses}}
+	{{/grad_courses}}
+
+	{{#undergrad_courses}}
+	<h2><span class="glyphicon glyphicon-bookmark"></span> Undergraduate Courses Taken</h2>
+	<table class="table education">
+		{{#rows}}
+		<tr>
+			{{#columns}}
+			<td><a href="{{url}}">{{name}}</a></td>
+			{{/columns}}
+		</tr>
+		{{/rows}}
+	</table>
+	{{/undergrad_courses}}
 
 	{{#research_experience}}
 	<h2><span class="glyphicon glyphicon-pencil"></span> Research Experience</h2>
