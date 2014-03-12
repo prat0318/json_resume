@@ -65,11 +65,11 @@
 	<h2><span class="glyphicon glyphicon-book"></span> Education</h2>
 	<table class="table education">
 		<tr>
-			<th>Degree</th><th>Major</th><th>Institution</th><th nowrap>Graduation Year</th><th>GPA</th>
+			<th>Degree</th><th>Major</th><th>Institution</th><th nowrap>Graduation Year</th>{{#show_gpa}}<th>GPA</th>{{/show_gpa}}
 		</tr>
 		{{#schools}}
 		<tr>
-			<td>{{degree}}</td><td>{{major}}</td><td>{{institution}}</td><td align="center">{{graduation_year}}</td><td>{{gpa}}</td>
+			<td>{{degree}}</td><td>{{major}}</td><td>{{institution}}</td><td align="center">{{graduation_year}}</td>{{#show_gpa}}<td>{{gpa}}</td>{{/show_gpa}}
 		</tr>
 		{{/schools}}
 	</table>
