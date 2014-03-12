@@ -50,3 +50,19 @@ describe "#padder" do
     expect(formatter.hash['bio_data']).to eq({})
   end
 end 
+
+describe "#gpa_purger" do
+  it 'removes gpa if not opted for' do
+    hash = {'bio_data' => {'education' => {'show_gpa' => false, 'schools' => []}}}
+    formatter = JsonResume::Formatter.new hash
+    formatter.purge_gpa
+    expect(formatter.hash['bio_data']['education']['show_gpa']).to be_nil
+  end
+
+  it 'removes gpa if gpa not mentioned' do
+    hash = {'bio_data' => {'education' => {'show_gpa' => true, 'schools' => [{}]}}}
+    formatter = JsonResume::Formatter.new hash
+    formatter.purge_gpa
+    expect(formatter.hash['bio_data']['education']['show_gpa']).to be_nil
+  end
+end

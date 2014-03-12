@@ -44,6 +44,14 @@ module JsonResume
       self
     end
 
+    def is_false? item
+      item == false || item == 'false'
+    end
+
+    def purge_gpa
+     @hash["bio_data"]["education"].delete("show_gpa") if is_false?(@hash["bio_data"]["education"]["show_gpa"]) || @hash["bio_data"]["education"]["schools"].all? {|sch| sch["gpa"].nil? || sch["gpa"].empty?} 
+    end
+
 		def format
       cleanse
      
@@ -51,6 +59,9 @@ module JsonResume
 			["grad_courses", "undergrad_courses"].each { |course| add_padding(course) }
 
       add_last_marker_on_stars
+
+      purge_gpa
+      self
 		end
 	end
 end    

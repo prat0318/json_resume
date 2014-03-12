@@ -1,3 +1,4 @@
+require_relative 'formatter'
 require 'json'
 
 module JsonResume
@@ -16,6 +17,10 @@ module JsonResume
 				raise Exception, "Either you entered a file without .json extension or JSON string is wrong: "+e.message
 			end
 		end
+
+    def format!
+      @hash = JsonResume::Formatter.new(@hash).format.hash
+    end
 	end
 end    
 

@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'json_resume/reader'
+require 'json_resume/formatter'
 
 describe "#reader" do
   context "when given a json file name" do
@@ -14,6 +15,13 @@ describe "#reader" do
     it 'reads in the string' do
       reader = JsonResume::Reader.new "{\"test\":1}"
       expect(reader.hash).to eq({"test"=>1})
+    end
+  end
+
+  context "when doing a format!" do
+    it 'updates the hash with the formatted hash' do
+      JsonResume::Formatter.any_instance.should_receive(:format).and_return(double(:hash =>{}))
+      JsonResume::Reader.new("{\"test\":1}").format!
     end
   end
 end
