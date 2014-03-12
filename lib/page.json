@@ -23,23 +23,7 @@
         "email": "prat0318 @ cs.utexas.edu",
         "phone": "+1 (512) 698-3649",
         "website": "http://prat0318.github.io",
-        "stars": {
-            "items": [
-                {
-                    "name": "Ruby"
-                },
-                {
-                    "name": "Python"
-                },
-                {
-                    "name": "Git"
-                },
-                {
-                    "name": "Cartooning",
-                    "last": true
-                }
-            ]
-        },
+        "stars": ["Ruby","Python","Git","Cartooning"],
         "github_projects": {
             "details": [
                 {
@@ -210,34 +194,20 @@
                 }                
             ]
         },
-        "grad_courses": {
-            "rows": [
-                {
-                    "columns" : [
-                        {
-                            "name": "Distributed Computing",
-                            "url": "http://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/13F/"
-                        },
-                        {
-                            "name": "Feature Oriented Programming",
-                            "url": "http://www.cs.utexas.edu/users/dsb/cs392f"
-                        }
-                    ]
-                },
-                {
-                    "columns" : [
-                        {
-                            "name": "Multicore Programming",
-                            "url": "http://www.cs.utexas.edu/~pingali/CS395T/2013fa"
-                        },
-                        {
-                            "name": "",
-                            "url": ""
-                        }
-                    ]
-                }
-            ]
-        },
+        "grad_courses": [
+            {
+                "name": "Distributed Computing",
+                "url": "http://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/13F/"
+            },
+            {
+                "name": "Feature Oriented Programming",
+                "url": "http://www.cs.utexas.edu/users/dsb/cs392f"
+            },
+            {
+                "name": "Multicore Programming",
+                "url": "http://www.cs.utexas.edu/~pingali/CS395T/2013fa"
+            }
+        ],
         "research_experience": {
             "items": [
                 {
