@@ -12,6 +12,7 @@ module JsonResume
 		
 		def initialize(json_input)
 			@reader = Reader.new(json_input)
+			@reader.format!
 		end
 	end
 end
