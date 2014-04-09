@@ -221,8 +221,20 @@
             {
                 "name": "Multicore Programming",
                 "url": "http://www.cs.utexas.edu/~pingali/CS395T/2013fa"
+            },
+            {
+                "name": "Database Systems",
+                "url": "http://www.cs.utexas.edu/users/dsb/cs386d/"
+            },
+            {
+                "name": "Engineering Programming Languages",
+                "url": "#"
+            },
+            {
+                "name": "Introduction to Mathematical Logic",
+                "url": "http://www.cs.utexas.edu/users/vl/teaching/388L"
             }
-        ],
+         ],
         "research_experience": {
             "items": [
                 {
