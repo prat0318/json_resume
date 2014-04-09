@@ -14,6 +14,11 @@
             "_blank": true
         },
         {
+            "name": "2048-Tetris",
+            "url": "http://prat0318.github.io/2048-tetris",
+            "_blank": true
+        },
+        {
             "name": "Caricatures",
             "url": "caricature.html",
             "_blank": false
@@ -27,18 +32,27 @@
         "github_projects": {
             "details": [
                 {
+                    "project_name": "prat0318/2048-tetris",
+                    "tagline": "Live at <a href='http://2048-tetris.com'>2048-tetris.com</a>",
+                    "description": [
+                        "Wrote a Tetris variant of 2048 game, 1M+ unique visits",
+                        "Made it to the front page of Hacker News for a day(~150 pts), mentioned in TechCrunch."
+                    ]
+                },
+                {
                     "project_name": "prat0318/gitator",
-                    "tagline": "Live at <a href='http://gitator.com'>Gitator.com</a>.",
+                    "tagline": "Live at <a href='http://gitator.com'>Gitator.com</a>",
                     "description": [
                         "Finds relevant repositories based on an user's GitHub profile.",
                         "Written in Ruby on Sinatra, designed in Bootstrap."
                     ]
                 },
                 {
-                    "project_name": "prat0318/prat0318.github.io",
-                    "tagline": "",
+                    "project_name": "prat0318/json_resume",
+                    "tagline": "Create pretty resumes from json format to .html, .md, etc.",
                     "description": [
-                        "Static personal page design with CSS and Bootstrap"
+                        "Static personal page and resume design using Mustache.",
+                        "Current resume is generated using json_resume."
                     ]
                 }
             ]
