@@ -1,0 +1,196 @@
+% resume.tex
+%
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+% (c) 2007-2010 Todd C. Miller <Todd.Miller@courtesan.com> http://www.courtesan.com/todd
+%
+% This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+\documentclass[letterpaper,11pt]{article}
+
+%-----------------------------------------------------------
+\usepackage[empty]{fullpage}
+\usepackage{color}
+\definecolor{mygrey}{gray}{0.80}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Adjust margins to 0.5in on all sides
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{7.0in}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+%-----------------------------------------------------------
+
+
+\begin{document}
+
+\begin{tabular*}{7.5in}{l@{\extracolsep{\fill}}r}
+\textbf{\large Todd C. Miller}  & 410.814.6877 (phone)\\
+1231 Riverside Ave &  Todd.Miller@courtesan.com \\
+Baltimore, MD  21230& http://www.courtesan.com/todd\\
+\end{tabular*}
+\\
+
+\vspace{0.1in}
+
+\resheading{Education}
+\begin{itemize}
+\item
+	\ressubheading{University of Colorado}{Boulder, CO}{Bachelor of Science in Computer Science}{Sep. 1989 - Dec. 1997}
+	\begin{itemize}
+		\resitem{Senior Thesis: Scientific Visualization Tool for Chemical Engineering Data}
+	\end{itemize}
+
+\end{itemize}
+
+\resheading{Work Experience}
+\begin{itemize}
+\item
+	\ressubheading{Quest Software, Inc.}{Lindon, UT}{Software Developer 4}{May 2010 - Present}
+	\begin{itemize}
+		\resitem{Added support for I/O (keystroke) logging to the Sudo privilege delegation utility and implemented a utility to search and replay the I/O logs.}
+		\resitem{Designed and implemented a plugin architecture for the Sudo privilege delegation utility to support third-party policy and logging modules.}
+		\resitem{Added support for sudoers policy evaluation to the Quest Privilege Manager product.}
+		\resitem{Responsibilities also included development and maintenance of Sudo including release engineering.}
+	\end{itemize}
+\item
+	\ressubheading{Message Systems, Inc.}{Columbia, MD}{Lead Software Engineer}{August 2009 - April 2010}
+	\begin{itemize}
+		\resitem{Team lead for the Momentum mail transport agent project.}
+		\resitem{Responsibilities include design, development and testing of the MTA, as well as release engineering, mentoring of other team members and interfacing with support staff.}
+	\end{itemize}
+	\ressubheading{Message Systems, Inc.}{Columbia, MD}{Email Infrastructure Software Engineer}{March 2008 - August 2009}
+	\begin{itemize}
+		\resitem{Part of a small team developing the Momentum mail transport agent.}
+		\resitem{Responsibilities include general development and testing of the MTA as well as release engineering.}
+	\end{itemize}
+
+\item
+	\ressubheading{Tresys Technology, LLC.}{Columbia, MD}{Principal Engineer}{May 2007 - March 2008}
+	\begin{itemize}
+		\resitem{Principal Engineer of the Funded Research \& Development team.}
+		\resitem{Responsible for oversight of multiple projects within the FR\&D group, which specializes in researching techniques to increase the usability of Security Enhanced Linux (SELinux).}
+		\resitem{Provide technical oversight and guidance for research tasks.}
+	\end{itemize}
+
+\item
+	\ressubheading{SPARTA, Inc.}{Columbia, MD}{Principal Engineer}{Sep. 2005 - Mar. 2007}
+	\begin{itemize}
+		\resitem{Led a small team of developers responsible for the production of a security-enhanced version of Apple's Mac OS X operating system, utilizing type enforcement and mandatory access controls.}
+		\resitem{Extended the SELinux FLASK architecture to secure Mach inter-process communication as present in Mac OS X.}
+		\resitem{Extended and enhanced the TrustedBSD MAC Framework for the Darwin kernel, portions of which appear in Mac OS 10.5 (Leopard).}
+	\end{itemize}
+
+\item 
+	\ressubheading{Looking Glass Systems, LLC.}{Boulder, CO}{Senior Programmer and System Administrator}{Feb. 2005 - Sep. 2005}
+	\begin{itemize}
+		\resitem{Served as part of a team to design and develop an agent-based monitoring system for Windows and {\sc UNIX} systems.}
+		\resitem{Responsible for the design and implementation of an agent for UNIX-like systems that interoperates with the LG Vision server software.}
+		\resitem{Was also responsible for the installation and maintenance of network and computing resources.}
+	\end{itemize}
+
+\item
+	\ressubheading{GratiSoft, Inc.}{Boulder, CO}{President}{Oct. 2003 - Feb. 2005}
+	\begin{itemize}
+		\resitem{GratiSoft provided commercial support for the Sudo root privilege control package as well as consulting services for OpenBSD and other Open Source software.}
+		% XXX - more detail here too
+	\end{itemize}
+
+\item
+	\ressubheading{Distributed Systems Lab, University of Pennsylvania}{Philadelphia, PA}{Sr. Systems Programmer}{Dec. 2001 - Oct. 2003}
+	\begin{itemize}
+		\resitem{Added KeyNote trust-management support to the Apache web server.}
+		\resitem{Continued to enhance the OpenBSD operating system on a daily basis.}
+		% XXX - list some OpenBSD things I worked on
+	\end{itemize}
+
+\item
+	\ressubheading{Computer Science Operations Group, University of Colorado}{Boulder, CO}{Sr. System Administrator}{Oct. 1993 - Dec. 2001}
+	\begin{itemize}
+		\resitem{One of three full-time {\sc UNIX} system and network administrators in charge of the {\sc UNIX} computing resources for the Computer Science Department.}
+		\resitem{Managed a network of approximately 350 {\sc UNIX} workstations and X-terminals located in undergraduate, masters, and research labs as well as in faculty offices.}
+		\resitem{Responsible for day-to-day operation of department-wide computer resources and computer support.}
+		%Put more stuff back?
+	\end{itemize}
+
+\item
+	\ressubheading{Undergraduate Operations Group}{Boulder, CO}{Manager}{Sep. 1992 - Apr. 1993}
+	\begin{itemize}
+		\resitem{Assigned as Manager and Senior System/Network Administrator for a lab of 70 workstations.}
+		\resitem{Supervised four part-time student employees and several student volunteers.}
+		\resitem{Responsible for day-to-day operation of the lab, including user support.}
+	\end{itemize}
+
+\item
+	\ressubheading{{\sc \bf UUNET} Technologies}{Falls Church, VA}{Assistant Postmaster}{May 1992 - Aug. 1992}
+	\begin{itemize}
+		\resitem{Helped administer mail, news, and {\sc UUCP} on Sun SPARC workstations.}
+		\resitem{Wrote a database to track information requests from potential customers.}
+		\resitem{Ported programs from BSD Networking Release 2 to SunOS 4.1.2.}
+		\resitem{Implemented secure versions of Kermit, xmodem, ymodem, and zmodem for {\sc UUNET}'s dial-up software archive.}
+		%\resitem{Extended the "runas" program to support command line argument rewriting.}
+	\end{itemize}
+
+\item
+	\ressubheading{Undergraduate Computer Lab, University of Colorado}{Boulder, CO}{System Administrator}{Jan. 1991 - Apr. 1992}
+	\begin{itemize}
+		\resitem{Responsibilities included hardware and software installations, network troubleshooting, and user support.}
+		\resitem{Assisted in the administration of the Computer Science Department's research network of {\sc UNIX} workstations.}
+	\end{itemize}
+
+\end{itemize}
+
+\pagebreak
+
+\resheading{Skills}
+
+\begin{description}
+\item[Languages:]
+C/C++, Perl, Java, Bourne Shell, Korn Shell, C Shell, Sed, Awk
+\item[Operating Systems:]
+OpenBSD, FreeBSD, Mac OS X, Solaris, Tru64 {\sc UNIX}, {\sc HP-UX}, {\sc IRIX}, Linux, SELinux
+\item[Security:]
+Extensive experience writing secure code and auditing code for security-related errors
+\item[Workstations:]
+Sun Microsystems, Digital, Hewlett-Packard, Silicon Graphics, {\sc IBM}, Apple
+\item[Miscellaneous:]
+Excellent troubleshooting and debugging skills
+\end{description}
+
+\resheading{Open Source Projects}
+
+\begin{description}
+\item[2007--Present] One of four upstream maintainers of the SELinux tool chain.
+\item[2001--Present] Major contributor to ISC cron (formerly Vixie cron).
+\item[1996--Present] Core member of the OpenBSD operating system project.  Participated in multiple security audits of the OpenBSD code base.  Responsible for the OpenBSD C library and large portions of the OpenBSD user space.
+\item[1993--Present] Lead developer of the \emph{Sudo} root privilege control package.
+\item[1993--Present] Contributor to other various and sundry Open Source projects.
+\end{description}
+
+\resheading{Publications}
+
+\begin{description}
+\item["Security-Enhanced Darwin: Porting SELinux to Mac OS X",]
+\emph{Proceedings from the Third Annual Security Enhanced Linux Symposium} in Baltimore, MD, 2007.
+\item["{\sc \bf UNIX} System Administration Handbook, Third Edition",]
+contributing author.
+\item["strlcpy and strlcat:  Consistent, Safe, String Copy and Concatenation",]
+\emph{Proceedings from the USENIX Annual Technical Conference} in Monterey, CA, 1999.
+\item["satool:  A System Administrators Cockpit",]
+\emph{Proceedings from the USENIX LISA VII Conference (Large Installation Systems Administration)} in Monterey, CA, 1993.
+\end{description}
+
+\end{document}

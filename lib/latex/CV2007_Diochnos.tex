@@ -6,18 +6,23 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[11pt]{moderncv}
+\documentclass[11pt,a4paper]{moderncv}
 
-\moderncvstyle{classic}       % idem
+\moderncvtheme[black]{classic}
 
-\firstname{Dimitrios}
-\familyname{I.~Diochnos}
-\title{Computer . Scientist}
-%\address{Office 1211\\ Science and Engineering Offices\\ 851 South Morgan street\\ Chicago, IL 60606, U.S.A}  % for classic style
+\usepackage[utf8]{inputenc}
+
+\name{Prateek}{\\Agarwal}
+%\firstname{Dimitrios I. Diochnos}
+%\familyname{I.~Diochnos}
+\title{\small Ruby $\star$ Python}
 \phone{+1 312 413 8263}
 \email{diochnos [AT] math.uic.edu}
+\homepage{www.johndoe.com} 
+\social[linkedin]{john.doe}
+\social[github]{jdoe}     
 \extrainfo{\url{http://www.di.uoa.gr/\textasciitilde stud1098}}
-%\quote{Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius -- and a lot of courage -- to move in the opposite direction.}% also optional
+%\quote{Latex . Ruby . Git} 
 
 % the ConTeXt symbol
 \def\ConTeXt{%
@@ -36,6 +41,7 @@
 %----------------------------------------------------------------------------------
 \begin{document}
 \maketitle
+\vspace*{-1cm}
 
 \section{\textsc{Education}}
 \cventry{2007 -- now}{Working for my Ph.D.~in Mathematical Computer Science.}{Department of Mathematics, Statistics, and Computer Science}{University of Illinois at Chicago}{USA. \newline %\hspace{\fill}
