@@ -1,5 +1,6 @@
 {
-    "name": "Prateek Agarwal",
+    "firstname": "Prateek",
+    "familyname": "Agarwal",
     "linkedin_url": "http://www.linkedin.com/in/prat0318",
     "github_url": "http://github.com/prat0318",
     "tabs": [
@@ -33,7 +34,7 @@
             "details": [
                 {
                     "project_name": "prat0318/2048-tetris",
-                    "tagline": "Live at <a href='http://2048-tetris.com'>2048-tetris.com</a>",
+                    "tagline": "Live at [2048-tetris.com]{http://2048-tetris.com}",
                     "description": [
                         "Wrote a Tetris variant of 2048 game, 1M+ unique visits",
                         "Made it to the front page of Hacker News for a day(~150 pts), mentioned in TechCrunch."
@@ -41,7 +42,7 @@
                 },
                 {
                     "project_name": "prat0318/gitator",
-                    "tagline": "Live at <a href='http://gitator.com'>Gitator.com</a>",
+                    "tagline": "Live at [Gitator.com]{http://gitator.com}",
                     "description": [
                         "Finds relevant repositories based on an user's GitHub profile.",
                         "Written in Ruby on Sinatra, designed in Bootstrap."
@@ -123,7 +124,7 @@
                     "from": "Sept. 2013",
                     "to": "Jan. 2014",
                     "details": [
-                        "Developed a common web interface <a href='http://unitydatabase.com'>www.unitydatabase.com</a> to search through different datasets and output aggregate results and ensuring easy pluggability of new datasets."
+                        "Developed a common web interface <<http://unitydatabase.com>> to search through different datasets and output aggregate results and ensuring easy pluggability of new datasets."
                     ],
                     "technology_used": {
                         "tools": [
