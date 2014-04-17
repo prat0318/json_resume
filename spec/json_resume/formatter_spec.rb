@@ -17,6 +17,22 @@ describe "#cleanser" do
   end
 end
 
+describe '#urlformatter' do
+  context 'when given a link for html output' do
+    it 'converts link to href' do
+      hash = {"key1"=> "non-empty", "key2" => {"key3" => ["test [Hello]{http://google.com}"]}}
+      formatter = JsonResume::Formatter.new hash
+      expect(formatter.format_url.hash).to eq({"key1"=> "non-empty", "key2" => {"key3" => ['test <a href="http://google.com">Hello</a>']}})
+    end
+    it 'converts autolink to href' do
+      hash = {"key1"=> "non-empty", "key2" => {"key3" => ["test <<http://google.com>>"]}}
+      formatter = JsonResume::Formatter.new hash
+      expect(formatter.format_url.hash).to eq({"key1"=> "non-empty", "key2" => {"key3" => ['test <a href="http://google.com">http://google.com</a>']}})
+
+    end
+  end
+end
+
 describe "#padder" do
   it 'pads a row if items are odd' do
     hash = {'bio_data' => {'test' => [

@@ -14,12 +14,11 @@ module JsonResume
       @hash = hash
 
       #recursively defined proc
-			@hash_proc = Proc.new { |k,v| v ||= k
-										case v
-										when Hash, Array then v.delete_if(&@hash_proc); v.empty?
-										else v.empty?
-										end 
-								}
+			@hash_proc = Proc.new do |k,v| 
+                    v = k if v.nil? #hack to make it common for hash and array
+										v.delete_if(&@hash_proc) if [Hash,Array].any? { |x| v.instance_of? x }
+                    v.empty?
+                  end
 		end
 
     def add_padding(course)
@@ -44,6 +43,17 @@ module JsonResume
       self
     end
 
+    def format_url
+			format_proc = Proc.new do |k,v| 
+                      v = k if v.nil?
+                      v.each{|x| format_proc.call(x)} if [Hash,Array].any? {|x| v.instance_of? x}
+                      v.gsub! /\[(.*?)\]{(.*?)}/, '<a href="\2">\1</a>' if v.instance_of? String
+                      v.gsub! /<<(\S*?)>>/, '<a href="\1">\1</a>' if v.instance_of? String
+                    end
+      @hash.each{|x| format_proc.call(x)}
+      self
+    end
+
     def is_false? item
       item == false || item == 'false'
     end
@@ -54,7 +64,9 @@ module JsonResume
 
 		def format
       cleanse
-     
+
+      format_url #href
+
       #make odd listed courses to even
 			["grad_courses", "undergrad_courses"].each { |course| add_padding(course) }
 
