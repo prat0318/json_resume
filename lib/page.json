@@ -141,7 +141,7 @@
                     "from": "Apr. 2013",
                     "to": "Jul. 2013",
                     "details": [
-                        "Wrote a ruby gem <i>Morsel</i> to traverse through active record trees to purge old records.<ul><li>It helped in limiting the production database size and keeping the data clean.</li></ul>"
+                        "Wrote a ruby gem <i>Morsel</i> to traverse through active record trees to purge old records. It helped in limiting the production database size and keeping the data clean."
                     ]
                 },
                 {

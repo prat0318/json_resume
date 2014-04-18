@@ -19,7 +19,12 @@ module JsonResume
 		end
 
     def format!
-      @hash = JsonResume::Formatter.new(@hash, @output_type).format.hash
+      formatters = {
+        :latex => JsonResume::FormatterLatex,
+        :html => JsonResume::FormatterHtml,
+      }
+      type = @output_type.to_sym
+      @hash = formatters[type].new(@hash).format.hash
     end
 	end
 end    

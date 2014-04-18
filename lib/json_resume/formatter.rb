@@ -10,9 +10,8 @@ module JsonResume
 	class Formatter
     attr_reader :hash
     
-		def initialize(hash, type)
+		def initialize(hash)
       @hash = hash
-      @output_type = type 
 
       #recursively defined proc
 			@hash_proc = Proc.new do |k,v| 
@@ -44,17 +43,18 @@ module JsonResume
       self
     end
 
-    def format_url
+    def format_to_output_type
 			format_proc = Proc.new do |k,v| 
                       v = k if v.nil?
                       v.each{|x| format_proc.call(x)} if [Hash,Array].any? {|x| v.instance_of? x}
-                      if v.instance_of? String
-                        self.send('format_link_for_' + @output_type, v)
-                        self.send('format_autolink_for_' + @output_type, v)
-                      end
+                      format_string! v if v.instance_of? String
                     end
       @hash.each{|x| format_proc.call(x)}
       self
+    end
+
+    def format_string str
+      raise NotImplementedError.new("format_string not impl in formatter")
     end
 
     def is_false? item
@@ -68,7 +68,7 @@ module JsonResume
 		def format
       cleanse
 
-      format_url #href
+      format_to_output_type 
 
       #make odd listed courses to even
 			["grad_courses", "undergrad_courses"].each { |course| add_padding(course) }
@@ -79,21 +79,6 @@ module JsonResume
       self
 		end
 
-    def format_link_for_html str
-        str.gsub! /\[(.*?)\]{(.*?)}/, '<a href="\2">\1</a>'
-    end
-
-    def format_link_for_latex str
-        str.gsub! /\[(.*?)\]{(.*?)}/, '{\color{see} \href{\2}{\1}}'
-    end
-
-    def format_autolink_for_html str
-        str.gsub! /<<(\S*?)>>/, '<a href="\1">\1</a>'
-    end
-
-    def format_autolink_for_latex str
-        str.gsub! /<<(\S*?)>>/, '{\color{see} \url{\1}}'
-    end
 
 	end
 end    
