@@ -10,8 +10,9 @@ module JsonResume
 	class Formatter
     attr_reader :hash
     
-		def initialize(hash)
+		def initialize(hash, type)
       @hash = hash
+      @output_type = type 
 
       #recursively defined proc
 			@hash_proc = Proc.new do |k,v| 
@@ -47,8 +48,10 @@ module JsonResume
 			format_proc = Proc.new do |k,v| 
                       v = k if v.nil?
                       v.each{|x| format_proc.call(x)} if [Hash,Array].any? {|x| v.instance_of? x}
-                      v.gsub! /\[(.*?)\]{(.*?)}/, '<a href="\2">\1</a>' if v.instance_of? String
-                      v.gsub! /<<(\S*?)>>/, '<a href="\1">\1</a>' if v.instance_of? String
+                      if v.instance_of? String
+                        self.send('format_link_for_' + @output_type, v)
+                        self.send('format_autolink_for_' + @output_type, v)
+                      end
                     end
       @hash.each{|x| format_proc.call(x)}
       self
@@ -75,6 +78,23 @@ module JsonResume
       purge_gpa
       self
 		end
+
+    def format_link_for_html str
+        str.gsub! /\[(.*?)\]{(.*?)}/, '<a href="\2">\1</a>'
+    end
+
+    def format_link_for_latex str
+        str.gsub! /\[(.*?)\]{(.*?)}/, '{\color{see} \href{\2}{\1}}'
+    end
+
+    def format_autolink_for_html str
+        str.gsub! /<<(\S*?)>>/, '<a href="\1">\1</a>'
+    end
+
+    def format_autolink_for_latex str
+        str.gsub! /<<(\S*?)>>/, '{\color{see} \url{\1}}'
+    end
+
 	end
 end    
 

@@ -5,12 +5,12 @@ module JsonResume
 	class Reader
 		attr_accessor :hash
 
-		def initialize(json_input)
+		def initialize(json_input, output_type="html")
 			@json_string = case json_input
 						   when /\.json$/i then File.read(json_input)
 						   else json_input
 						   end
-
+      @output_type = output_type
 			begin
 				@hash = JSON.parse(@json_string)
 			rescue JSON::ParserError => e
@@ -19,7 +19,7 @@ module JsonResume
 		end
 
     def format!
-      @hash = JsonResume::Formatter.new(@hash).format.hash
+      @hash = JsonResume::Formatter.new(@hash, @output_type).format.hash
     end
 	end
 end    
