@@ -19,9 +19,14 @@ describe "#reader" do
   end
 
   context "when doing a format!" do
-    it 'updates the hash with the formatted hash' do
-      expect_any_instance_of(JsonResume::Formatter).to receive(:format).and_return(double(:hash =>{}))
+    it 'updates the hash by calling the proper formatter' do
+      expect_any_instance_of(JsonResume::FormatterHtml).to receive(:format).and_return(double(:hash =>{}))
       JsonResume::Reader.new("{\"test\":1}").format!
+    end
+
+    it 'updates the hash by calling the proper formatter(Latex)' do
+      expect_any_instance_of(JsonResume::FormatterLatex).to receive(:format).and_return(double(:hash =>{}))
+      JsonResume::Reader.new("{\"test\":1}", "latex").format!
     end
   end
 end
