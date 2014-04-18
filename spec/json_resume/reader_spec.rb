@@ -20,7 +20,7 @@ describe "#reader" do
 
   context "when doing a format!" do
     it 'updates the hash with the formatted hash' do
-      JsonResume::Formatter.any_instance.should_receive(:format).and_return(double(:hash =>{}))
+      expect_any_instance_of(JsonResume::Formatter).to receive(:format).and_return(double(:hash =>{}))
       JsonResume::Reader.new("{\"test\":1}").format!
     end
   end
