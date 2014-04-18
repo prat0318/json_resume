@@ -1,4 +1,5 @@
-require_relative 'formatter'
+require_relative 'formatter_html'
+require_relative 'formatter_latex'
 require 'json'
 
 module JsonResume

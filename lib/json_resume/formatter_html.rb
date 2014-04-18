@@ -1,4 +1,4 @@
-require 'json_resume/formatter'
+require_relative 'formatter'
 
 module JsonResume
  class FormatterHtml < Formatter
