@@ -21,17 +21,8 @@ module JsonResume
                   end
 		end
 
-    def add_padding(course)
-      unless @hash["bio_data"][course].nil?
-        course_hash = @hash["bio_data"][course]
-        course_hash << { "name"=>"", "url"=>"" } if course_hash.size % 2 == 1 
-        @hash["bio_data"][course] = {
-          "rows" => course_hash.each_slice(2).to_a.map{ |i| { "columns" => i } }
-        }
-      end
-		end
-
     def add_last_marker_on_stars
+      return if @hash['bio_data']['stars'].nil?
 			@hash["bio_data"]["stars"] = {
         "items" => @hash["bio_data"]["stars"].map{ |i| { "name" => i } }
       }
@@ -62,20 +53,21 @@ module JsonResume
     end
 
     def purge_gpa
-     @hash["bio_data"]["education"].delete("show_gpa") if is_false?(@hash["bio_data"]["education"]["show_gpa"]) || @hash["bio_data"]["education"]["schools"].all? {|sch| sch["gpa"].nil? || sch["gpa"].empty?} 
+      return if @hash['bio_data']['education'].nil?
+      @hash["bio_data"]["education"].delete("show_gpa") if is_false?(@hash["bio_data"]["education"]["show_gpa"]) || @hash["bio_data"]["education"]["schools"].all? {|sch| sch["gpa"].nil? || sch["gpa"].empty?} 
     end
 
 		def format
+      return if @hash["bio_data"].nil?
+      
       cleanse
 
       format_to_output_type 
 
-      #make odd listed courses to even
-			["grad_courses", "undergrad_courses"].each { |course| add_padding(course) }
-
       add_last_marker_on_stars
 
       purge_gpa
+
       self
 		end
 
