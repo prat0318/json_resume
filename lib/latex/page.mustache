@@ -1,0 +1,50 @@
+{{=<% %>=}}
+\documentclass[11pt,a4paper]{moderncv}
+
+\moderncvtheme[black]{classic}
+
+\usepackage[utf8]{inputenc}
+
+<%#bio_data%>
+\firstname{<%firstname%>}
+\familyname{<%familyname%>}
+\title{\small <%#stars%><%#items%><%name%><%^last%> $\star$ <%/last%><%/items%><%/stars%>}
+<%#phone%>\phone{<%.%>}<%/phone%>
+<%#email%>\email{<%.%>}<%/email%>
+<%#website%>\homepage{<%& .%>}<%/website%>
+<%#linkedin_url%>\social[linkedin]{<%& .%>}<%/linkedin_url%>
+<%#github_url%>\social[github]{<%& .%>}<%/github_url%>
+
+% the ConTeXt symbol
+\def\ConTeXt{%
+  C%
+  \kern-.0333emo%
+  \kern-.0333emn%
+  \kern-.0667em\TeX%
+  \kern-.0333emt}
+
+% command and color used in this document, independently from moderncv 
+\definecolor{see}{rgb}{0.5,0.5,0.5}% for web links
+\newcommand{\up}[1]{\ensuremath{^\textrm{\scriptsize#1}}}% for text subscripts
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+\vspace*{-1cm}
+
+\section{\textsc{Education}}
+%    \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+<%#education%>
+<%#schools%>
+\cventry{<%graduation_year%>}{<%degree%><%#major%>, <%major%><%/major%>}{<%institution%>}{}{GPA: <%gpa%>}{}
+<%/schools%>
+<%/education%>
+
+<%/bio_data%>
+\end{document}
+
+
+%% end of file `page.tex'.
+
