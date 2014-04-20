@@ -121,6 +121,7 @@
                 {
                     "title": "Graduate Research Assistant",
                     "organisation": "CTR, UT Austin",
+		    "location": "",
                     "from": "Sept. 2013",
                     "to": "Jan. 2014",
                     "details": [
@@ -137,7 +138,8 @@
                 },
                 {
                     "title": "SDE II (Software Development Engineer II)",
-                    "organisation": "Flipkart, India",
+                    "organisation": "Flipkart",
+		    "location": "India",
                     "from": "Apr. 2013",
                     "to": "Jul. 2013",
                     "details": [
@@ -146,7 +148,8 @@
                 },
                 {
                     "title": "Software Development Engineer",
-                    "organisation": "Flipkart, India",
+                    "organisation": "Flipkart",
+		    "location": "India",
                     "from": "Jun. 2011",
                     "to": "Mar. 2013",
                     "details": [
@@ -165,7 +168,8 @@
                 },
                 {
                     "title": "Software Engineer",
-                    "organisation": "IBM Software Labs, India",
+                    "organisation": "IBM Software Labs",
+		    "location": "India",
                     "from": "Jul. 2009",
                     "to": "Jun. 2011",
                     "details": [
