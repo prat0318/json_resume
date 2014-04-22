@@ -21,6 +21,11 @@ module JsonResume
                   end
 		end
 
+    def add_linkedin_github_url
+      @hash["linkedin_url"] = "http://linkedin.com/in/" + @hash["linkedin_id"] if @hash["linkedin_id"]
+      @hash["github_url"] = "http://github.com/" + @hash["github_id"] if @hash["github_id"]
+    end
+
     def add_last_marker_on_stars
       return if @hash['bio_data']['stars'].nil?
 			@hash["bio_data"]["stars"] = {
@@ -67,6 +72,8 @@ module JsonResume
       add_last_marker_on_stars
 
       purge_gpa
+
+      add_linkedin_github_url
 
       self
 		end

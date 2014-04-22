@@ -1,5 +1,5 @@
 <h1>
-	<a href="/"><span class="glyphicon glyphicon-user"></span> {{name}}</a>
+	<a href="/"><span class="glyphicon glyphicon-user"></span> {{firstname}} {{familyname}}</a>
 	{{#linkedin_url}}
 	<a target="_blank" href="{{linkedin_url}}"><img border="0" src="public/images/link-linkedin-64-gray.png" id="link-linkedin" width="20"></a>
 	{{/linkedin_url}}
@@ -14,6 +14,6 @@
 </ul>
 <script>
 	$(document).ready(function() {
-		$(document).attr('title', '{{name}}');
+		$(document).attr('title', '{{firstname}}{{familyname}}');
 	});
 </script>
