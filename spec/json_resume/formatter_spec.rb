@@ -27,6 +27,30 @@ describe "#format_to_output_type" do
   end
 end
 
+describe "#add_linkedin_github_url" do
+  it 'creates linkedin url if id present' do
+    hash = {"linkedin_id"=>"xyz"}
+    formatter = JsonResume::Formatter.new hash 
+    formatter.add_linkedin_github_url
+    expect(formatter.hash["linkedin_url"]).to eq("http://linkedin.com/in/xyz")
+  end
+
+  it 'creates github url if github id present' do
+    hash = {"github_id"=>"xyz"}
+    formatter = JsonResume::Formatter.new hash 
+    formatter.add_linkedin_github_url
+    expect(formatter.hash["github_url"]).to eq("http://github.com/xyz")
+  end
+  
+  it 'doesnt create url if id isnt present' do
+    hash = {}
+    formatter = JsonResume::Formatter.new hash
+    formatter.add_linkedin_github_url
+    expect(formatter.hash["linkedin_url"]).to be_nil
+    expect(formatter.hash["github_url"]).to be_nil
+  end
+end
+
 describe "#gpa_purger" do
   it 'removes gpa if not opted for' do
     hash = {'bio_data' => {'education' => {'show_gpa' => false, 'schools' => []}}}
