@@ -6,8 +6,8 @@ module JsonResume
 	class Reader
 		attr_accessor :hash
 
-		def initialize(json_input, output_type)
-      output_type ||= "html"        #default html, others latex, mdown
+		def initialize(json_input, options)
+      output_type = options[:output_type] || "html" #default html, others latex, md
 			@json_string = case json_input
 						   when /\.json$/i then File.read(json_input)
 						   else json_input

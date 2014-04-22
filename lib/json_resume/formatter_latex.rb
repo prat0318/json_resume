@@ -4,8 +4,8 @@ module JsonResume
   class FormatterLatex < Formatter
 
     def format_linkedin_github_url
-     @hash["linkedin_url"].gsub! /.*\/(.*?)\/?$/, '\1' if @hash["linkedin_url"] 
-     @hash["github_url"].gsub! /.*\/(.*?)\/?$/, '\1' if @hash["github_url"] 
+     @hash["linkedin_url"].gsub! /.*\/(.+?)\/?$/, '\1' if @hash["linkedin_url"] 
+     @hash["github_url"].gsub! /.*\/(.+?)\/?$/, '\1' if @hash["github_url"] 
     end
 
     def format_link! str

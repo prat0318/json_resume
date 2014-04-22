@@ -12,7 +12,7 @@ module JsonResume
 		attr_accessor :reader
 		
 		def initialize(json_input, options)
-			@reader = Reader.new(json_input, options[:output_type])
+			@reader = Reader.new(json_input, options)
 			@reader.format!
 		end
 	end
