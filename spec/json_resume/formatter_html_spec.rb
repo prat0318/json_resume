@@ -41,21 +41,21 @@ describe '#urlformatter' do
     it 'converts link to href' do
       formatter = JsonResume::FormatterHtml.new({})
       str = "test [Hello]{http://google.com}"
-      formatter.format_link! str 
+      formatter.format_link str 
       expect(str).to eq('test <a href="http://google.com">Hello</a>')
     end
 
     it 'converts autolink to url' do
       formatter = JsonResume::FormatterHtml.new({})
       str = "test <<http://google.com>>"
-      formatter.format_autolink! str 
+      formatter.format_autolink str 
       expect(str).to eq('test <a href="http://google.com">http://google.com</a>')
     end
     
     it 'converts links and autolinks to url' do
       formatter = JsonResume::FormatterHtml.new({})
       str = "test <<http://google.com>> [Hello]{http://google.com} <<http://google.com>>"
-      formatter.format_string! str 
+      formatter.format_string str 
       expect(str).to eq('test <a href="http://google.com">http://google.com</a> <a href="http://google.com">Hello</a> <a href="http://google.com">http://google.com</a>')
     end
   end
@@ -65,21 +65,21 @@ describe "#emphasis_formatting" do
   it 'italicizes on _text_' do
     formatter = JsonResume::FormatterHtml.new({})
     str = "Last word should be _italicized_"
-    formatter.format_emphasis! str
+    formatter.format_emphasis str
     expect(str).to eq('Last word should be <i>italicized</i>')
   end
 
   it 'bolds on **text**' do
     formatter = JsonResume::FormatterHtml.new({})
     str = "Last word should be **bold**"
-    formatter.format_emphasis! str
+    formatter.format_emphasis str
     expect(str).to eq('Last word should be <b>bold</b>')
   end
 
   it 'italicizes and bolds if given both' do
     formatter = JsonResume::FormatterHtml.new({})
     str = "Last word should _be **bold and italicized**_"
-    formatter.format_emphasis! str
+    formatter.format_emphasis str
     expect(str).to eq('Last word should <i>be <b>bold and italicized</b></i>')
   end
 end

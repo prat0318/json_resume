@@ -43,7 +43,7 @@ module JsonResume
 			format_proc = Proc.new do |k,v| 
                       v = k if v.nil?
                       v.each{|x| format_proc.call(x)} if [Hash,Array].any? {|x| v.instance_of? x}
-                      format_string! v if v.instance_of? String
+                      format_string v if v.instance_of? String
                     end
       @hash.each{|x| format_proc.call(x)}
       self

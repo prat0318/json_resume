@@ -21,8 +21,8 @@ describe "#format_to_output_type" do
   it 'should make format calls to all valid strings' do
     hash = {"key1"=> "non-empty", "key2" => {"key3" => ["test [Hello]{http://google.com}"]}}
     formatter = JsonResume::Formatter.new hash 
-    expect(formatter).to receive(:format_string!).with("non-empty")
-    expect(formatter).to receive(:format_string!).with("test [Hello]{http://google.com}")
+    expect(formatter).to receive(:format_string).with("non-empty")
+    expect(formatter).to receive(:format_string).with("test [Hello]{http://google.com}")
     formatter.format_to_output_type
   end
 end
