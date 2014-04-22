@@ -61,6 +61,29 @@ describe '#urlformatter' do
   end
 end
 
+describe "#emphasis_formatting" do
+  it 'italicizes on _text_' do
+    formatter = JsonResume::FormatterHtml.new({})
+    str = "Last word should be _italicized_"
+    formatter.format_emphasis! str
+    expect(str).to eq('Last word should be <i>italicized</i>')
+  end
+
+  it 'bolds on **text**' do
+    formatter = JsonResume::FormatterHtml.new({})
+    str = "Last word should be **bold**"
+    formatter.format_emphasis! str
+    expect(str).to eq('Last word should be <b>bold</b>')
+  end
+
+  it 'italicizes and bolds if given both' do
+    formatter = JsonResume::FormatterHtml.new({})
+    str = "Last word should _be **bold and italicized**_"
+    formatter.format_emphasis! str
+    expect(str).to eq('Last word should <i>be <b>bold and italicized</b></i>')
+  end
+end
+
 describe "#format" do
   it 'calls parent format method' do
     formatter = JsonResume::FormatterHtml.new({'bio_data' => {}})

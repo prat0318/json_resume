@@ -26,4 +26,26 @@ describe '#urlformatter' do
   end
 end
 
+describe "#emphasis_formatting" do
+  it 'italicizes on _text_' do
+    formatter = JsonResume::FormatterLatex.new({})
+    str = "Last word should be _italicized_"
+    formatter.format_emphasis! str
+    expect(str).to eq('Last word should be \textit{italicized}')
+  end
+
+  it 'bolds on **text**' do
+    formatter = JsonResume::FormatterLatex.new({})
+    str = "Last word should be **bold**"
+    formatter.format_emphasis! str
+    expect(str).to eq('Last word should be \textbf{bold}')
+  end
+
+  it 'italicizes and bolds if given both' do
+    formatter = JsonResume::FormatterLatex.new({})
+    str = "Last word should _be **bold and italicized**_"
+    formatter.format_emphasis! str
+    expect(str).to eq('Last word should \textit{be \textbf{bold and italicized}}')
+  end
+end
 

@@ -11,9 +11,15 @@ module JsonResume
         str.gsub! /<<(\S*?)>>/, '{\color{see} \url{\1}}'
     end
 
+    def format_emphasis! str
+      str.gsub! /_(.+?)_/, '\textit{\1}'
+      str.gsub! /\*\*(.+?)\*\*/, '\textbf{\1}'
+    end
+
     def format_string! str
       format_link! str
       format_autolink! str
+      format_emphasis! str
     end
 
     def format
