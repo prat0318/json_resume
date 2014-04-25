@@ -75,7 +75,7 @@ module JsonResume
 
       add_linkedin_github_url
 
-      self
+      return self
 		end
 
 

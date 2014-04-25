@@ -25,7 +25,7 @@ module JsonResume
     def format
       super
 
-      self
+      return self
     end
   end
 end

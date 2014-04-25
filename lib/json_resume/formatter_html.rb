@@ -37,7 +37,7 @@ module JsonResume
       #make odd listed courses to even
 			["grad_courses", "undergrad_courses"].each { |course| add_padding(course) }
 
-      self
+      return self
     end
 
  end
