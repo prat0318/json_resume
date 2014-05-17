@@ -7,7 +7,7 @@
 
 <%#bio_data%>
 \firstname{<%firstname%>}
-\familyname{<%familyname%>}
+\familyname{\mbox{<%familyname%>}}
 \title{\small <%#stars%><%#items%><%name%><%^last%> $\star$ <%/last%><%/items%><%/stars%>}
 <%#phone%>\phone{<%.%>}<%/phone%>
 <%#email%>\email{<%.%>}<%/email%>
@@ -41,6 +41,15 @@
 \cventry{<%graduation_year%>}{<%degree%><%#major%>, <%major%><%/major%>}{<%institution%>}{}{GPA: <%gpa%>}{}
 <%/schools%>
 <%/education%>
+
+\section{\textsc{Academic Achievements}}
+
+<%#acad_achievements%>
+	<%#items%>
+		% \cvitem{LHS}{RHS}
+		\cvitem{}{<%& .%>}
+	<%/items%>
+<%/acad_achievements%>
 
 <%/bio_data%>
 \end{document}
