@@ -42,14 +42,20 @@
 <%/schools%>
 <%/education%>
 
-\section{\textsc{Academic Achievements}}
-
 <%#acad_achievements%>
+\section{\textsc{Academic Achievements}}
 	<%#items%>
 		% \cvitem{LHS}{RHS}
-		\cvitem{}{<%& .%>}
+		\cvitem{\textbullet}{<%& .%>}
 	<%/items%>
 <%/acad_achievements%>
+
+<%#skills%>
+\section{\textsc{Technical Skills}}
+	<%#details%>
+		\cvitem{<%type%>}{<%#items%><%.%><%^last%>, <%/last%><%/items%>}
+	<%/details%>
+<%/skills%>
 
 <%/bio_data%>
 \end{document}
