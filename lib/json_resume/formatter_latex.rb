@@ -34,6 +34,10 @@ module JsonResume
       format_superscripts str
     end
 
+    def action_on_odd odd_hash
+      odd_hash << {}
+    end
+
     def format
       super
 

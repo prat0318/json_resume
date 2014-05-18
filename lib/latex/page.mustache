@@ -27,6 +27,7 @@
 % command and color used in this document, independently from moderncv 
 \definecolor{see}{rgb}{0.5,0.5,0.5}% for web links
 \newcommand{\up}[1]{\ensuremath{^\textrm{\scriptsize#1}}}% for text subscripts
+\renewcommand{\labelitemi}{$\circ$}
 
 %----------------------------------------------------------------------------------
 %            content
@@ -76,7 +77,6 @@
 	<%/items%>
 <%/experience%>
 
-\renewcommand{\labelitemi}{$\circ$}
 <%#other_projects%>
 \section{\textsc{Other Projects}}
 	<%#items%>
@@ -97,9 +97,9 @@
 	<%/items%>
 <%/other_projects%>
 
+<%#education%>
 \section{\textsc{Education}}
 %    \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
-<%#education%>
 <%#schools%>
 \cventry{<%graduation_year%>}{<%degree%><%#major%>, <%major%><%/major%>}{<%institution%>}{}{GPA: <%gpa%>}{}
 <%/schools%>
@@ -112,6 +112,22 @@
 		\cvitem{\textbullet}{<%& .%>}
 	<%/items%>
 <%/acad_achievements%>
+
+<%#grad_courses%>
+\section{\textsc{Graduate courses taken}}
+	<%#rows%>
+		\cvlistdoubleitem
+		<%#columns%>{<%#name%>\href{<%& url%>}{<%name%>}<%/name%>}<%/columns%>	
+	<%/rows%>
+<%/grad_courses%>
+
+<%#undergrad_courses%>
+\section{\textsc{Undergraduate courses taken}}
+	<%#rows%>
+		\cvlistdoubleitem
+		<%#columns%>{<%#name%>\href{<%& url%>}{<%name%>}<%/name%>}<%/columns%>	
+	<%/rows%>
+<%/undergrad_courses%>
 
 <%/bio_data%>
 \end{document}

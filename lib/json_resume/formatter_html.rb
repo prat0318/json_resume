@@ -21,22 +21,14 @@ module JsonResume
       format_emphasis str
     end
 
-    def add_padding(course)
-      unless @hash["bio_data"].nil? || @hash["bio_data"][course].nil?
-        course_hash = @hash["bio_data"][course]
-        course_hash << { "name"=>"", "url"=>"" } if course_hash.size % 2 == 1 
-        @hash["bio_data"][course] = {
-          "rows" => course_hash.each_slice(2).to_a.map{ |i| { "columns" => i } }
-        }
-      end
-		end
-    
+    def action_on_odd odd_hash
+      odd_hash << {}
+      #odd_hash << { "name"=>"", "url"=>"" } 
+    end
+
     def format
       super
-
-      #make odd listed courses to even
-			["grad_courses", "undergrad_courses"].each { |course| add_padding(course) }
-
+      
       return self
     end
 
