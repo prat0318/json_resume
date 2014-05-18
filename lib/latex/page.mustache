@@ -35,6 +35,68 @@
 \maketitle
 \vspace*{-1cm}
 
+<%#skills%>
+\section{\textsc{Technical Skills}}
+	<%#details%>
+		\cvitem{\textbullet}{\textbf{<%type%>}: <%#items%><%name%><%^last%>, <%/last%><%/items%>}
+	<%/details%>
+<%/skills%>
+
+<%#github_projects%>
+\section{\textsc{Github Projects}}
+	<%#details%>
+		\cvitem{\textbullet}{\textbf{\href{http://github.com/<%project_name%>}{<%project_name%>}}<%#tagline%> - <%& .%><%/tagline%>}
+		\vspace*{-0.15cm}
+		\cvitem{}{
+			{\footnotesize 
+				\begin{itemize}
+				<%#description%>\item <%& .%><%/description%>	
+				\end{itemize}
+			}
+		}
+		\vspace*{-0.5cm}
+	<%/details%>
+<%/github_projects%>
+
+<%#experience%>
+\section{\textsc{Professional Experience}}
+%    \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+	<%#items%>
+		\cventry{<%from%> - <%to%>}{<%title%>}{<%organisation%>}{<%location%>}{}{
+			{\footnotesize 
+				\begin{itemize}
+				<%#details%>\item <%& .%><%/details%>	
+				<%#technology_used%>
+				\item Technologies got to work on:
+				<%#tools%><%name%><%^last%>, <%/last%><%/tools%>
+				<%/technology_used%>
+				\end{itemize}
+			}
+		}
+	<%/items%>
+<%/experience%>
+
+\renewcommand{\labelitemi}{$\circ$}
+<%#other_projects%>
+\section{\textsc{Other Projects}}
+	<%#items%>
+		\cvitem{\textbullet}{<%& headline%>}
+		\vspace*{-0.15cm}
+		\cvitem{}{
+			{\footnotesize 
+				\begin{itemize}
+				<%#points%>\item <%& .%><%/points%>	
+				<%#technology_used%>
+				\item Technologies got to work on:
+				<%#tools%><%name%><%^last%>, <%/last%><%/tools%>
+				<%/technology_used%>
+				\end{itemize}
+			}
+		}
+		\vspace*{-0.5cm}
+	<%/items%>
+<%/other_projects%>
+
 \section{\textsc{Education}}
 %    \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
 <%#education%>
@@ -51,51 +113,7 @@
 	<%/items%>
 <%/acad_achievements%>
 
-<%#skills%>
-\section{\textsc{Technical Skills}}
-	<%#details%>
-		\cvitem{<%type%>}{<%#items%><%name%><%^last%>, <%/last%><%/items%>}
-	<%/details%>
-<%/skills%>
-
-<%#github_projects%>
-\section{\textsc{Github Projects}}
-	<%#details%>
-		\cvitem{\textbullet}{\textbf{\href{http://github.com/<%project_name%>}{<%project_name%>}}<%#tagline%> - <%& .%><%/tagline%>}
-		\cvitem{}{
-			{\footnotesize 
-				\begin{itemize}
-				<%#description%>\item <%& .%><%/description%>	
-				\end{itemize}
-			}
-		}
-		\vspace*{-0.5cm}
-	<%/details%>
-<%/github_projects%>
-
-\renewcommand{\labelitemi}{$\circ$}
-<%#other_projects%>
-\section{\textsc{Other Projects}}
-	<%#items%>
-		\cvitem{\textbullet}{<%& headline%>}
-		\cvitem{}{
-			{\footnotesize 
-				\begin{itemize}
-				<%#points%>\item <%& .%><%/points%>	
-				<%#technology_used%>
-				\item Technologies got to work on:
-				<%#tools%><%name%><%^last%>, <%/last%><%/tools%>
-				<%/technology_used%>
-				\end{itemize}
-			}
-		}
-		\vspace*{-0.5cm}
-	<%/items%>
-<%/other_projects%>
-
 <%/bio_data%>
 \end{document}
-
-
 %% end of file `page.tex'.
 

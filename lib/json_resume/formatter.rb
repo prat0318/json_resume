@@ -51,6 +51,15 @@ module JsonResume
       end
     end
 
+    def add_last_marker_on_field field_name
+      return if @hash['bio_data'][field_name]['items'].nil?
+      @hash['bio_data'][field_name]['items'].each do |item|
+        next if item['technology_used'].nil?
+        item['technology_used']['tools'].map!{|x| {'name' => x} }
+        item['technology_used']['tools'][-1]['last'] = true
+      end
+    end
+
 		def cleanse
 			@hash.delete_if &@hash_proc
       self
@@ -90,7 +99,8 @@ module JsonResume
 
       add_last_marker_on_skills
 
-      add_last_marker_on_tools
+      add_last_marker_on_field 'experience'
+      add_last_marker_on_field 'other_projects'
       
       purge_gpa
 
