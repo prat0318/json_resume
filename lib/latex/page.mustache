@@ -136,6 +136,19 @@
 	<%/rows%>
 <%/undergrad_courses%>
 
+<%#research_experience%>
+\section{\textsc{Research Experience}}
+	<%#items%>
+		\cventry{<%from%> - <%to%>}{<%title%>}{<%organisation%>}{<%location%>}{}{
+			{\footnotesize 
+				\begin{itemize}
+				<%#points%>\item <%& .%><%/points%>	
+				\end{itemize}
+			}
+		}
+	<%/items%>
+<%/research_experience%>
+
 <%/bio_data%>
 \end{document}
 %% end of file `page.tex'.
