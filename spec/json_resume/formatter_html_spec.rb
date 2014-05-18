@@ -13,7 +13,7 @@ describe "#padder" do
     formatter = JsonResume::FormatterHtml.new hash
     formatter.add_padding('test')
     expect(formatter.hash['bio_data']['test']['rows'].size).to eq(2)
-    expect(formatter.hash['bio_data']['test']['rows'][-1]['columns'][-1]).to eq({'name'=>'', 'url'=>''})
+    expect(formatter.hash['bio_data']['test']['rows'][-1]['columns'][-1]).to eq({})
   end
 
   it 'doesn\'t pad a row if items are even' do

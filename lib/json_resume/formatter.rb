@@ -35,7 +35,7 @@ module JsonResume
     end
 
     def add_last_marker_on_skills
-      return if @hash['bio_data']['skills']['details'].nil?
+      return if @hash['bio_data']['skills'].nil?
       @hash['bio_data']['skills']['details'].each do |item|
         item['items'].map!{|x| {'name'=>x} }
         item['items'][-1]['last'] = true        
@@ -43,7 +43,7 @@ module JsonResume
     end
 
     def add_last_marker_on_tools
-      return if @hash['bio_data']['other_projects']['items'].nil?
+      return if @hash['bio_data']['other_projects'].nil?
       @hash['bio_data']['other_projects']['items'].each do |item|
         next if item['technology_used'].nil?
         item['technology_used']['tools'].map!{|x| {'name' => x} }
@@ -52,7 +52,7 @@ module JsonResume
     end
 
     def add_last_marker_on_field field_name
-      return if @hash['bio_data'][field_name]['items'].nil?
+      return if @hash['bio_data'][field_name].nil?
       @hash['bio_data'][field_name]['items'].each do |item|
         next if item['technology_used'].nil?
         item['technology_used']['tools'].map!{|x| {'name' => x} }
