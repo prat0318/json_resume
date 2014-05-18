@@ -190,7 +190,7 @@
         "other_projects": {
             "items": [
                 {
-                    "headline": "Developed gurukools.com<sub>_(offline now)_</sub> to connect alumni and current students of a campus.",
+                    "headline": "Developed gurukools.com<sub>(offline now)</sub> to connect alumni and current students of a campus.",
                     "points": [
                         "Basic framework was a privately hosted IRC daemon to which a client connects through a web login. The motivation was to design a web interface which abstracts IRC technicalities from the user.",
                         "Learned about mail servers, COMET, long polling, trusted connections during development.",

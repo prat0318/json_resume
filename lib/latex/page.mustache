@@ -4,6 +4,7 @@
 \moderncvtheme[black]{classic}
 
 \usepackage[utf8]{inputenc}
+\usepackage[scale=0.8]{geometry}
 
 <%#bio_data%>
 \firstname{<%firstname%>}
@@ -56,6 +57,41 @@
 		\cvitem{<%type%>}{<%#items%><%name%><%^last%>, <%/last%><%/items%>}
 	<%/details%>
 <%/skills%>
+
+<%#github_projects%>
+\section{\textsc{Github Projects}}
+	<%#details%>
+		\cvitem{\textbullet}{\textbf{\href{http://github.com/<%project_name%>}{<%project_name%>}}<%#tagline%> - <%& .%><%/tagline%>}
+		\cvitem{}{
+			{\footnotesize 
+				\begin{itemize}
+				<%#description%>\item <%& .%><%/description%>	
+				\end{itemize}
+			}
+		}
+		\vspace*{-0.5cm}
+	<%/details%>
+<%/github_projects%>
+
+\renewcommand{\labelitemi}{$\circ$}
+<%#other_projects%>
+\section{\textsc{Other Projects}}
+	<%#items%>
+		\cvitem{\textbullet}{<%& headline%>}
+		\cvitem{}{
+			{\footnotesize 
+				\begin{itemize}
+				<%#points%>\item <%& .%><%/points%>	
+				<%#technology_used%>
+				\item Technologies got to work on:
+				<%#tools%><%name%><%^last%>, <%/last%><%/tools%>
+				<%/technology_used%>
+				\end{itemize}
+			}
+		}
+		\vspace*{-0.5cm}
+	<%/items%>
+<%/other_projects%>
 
 <%/bio_data%>
 \end{document}

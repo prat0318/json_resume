@@ -16,15 +16,22 @@ module JsonResume
       str.gsub! /\*\*(.+?)\*\*/, '\textbf{\1}'
     end
 
-    def format_percent str
+    def format_superscripts str
+      str.gsub! /<sup>(.*?)<\/sup>/, '$^{\1}$'
+      str.gsub! /<sub>(.*?)<\/sub>/, '$_{\1}$'
+    end
+
+    def format_symbols str
       str.gsub! /%/, '\%'
+      str.gsub! /_/, '\_'
     end
 
     def format_string str
       format_link str
       format_autolink str
       format_emphasis str
-      format_percent str
+      format_symbols str
+      format_superscripts str
     end
 
     def format
