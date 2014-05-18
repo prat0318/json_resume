@@ -91,8 +91,7 @@ module JsonResume
     def add_padding(course)
       unless @hash["bio_data"].nil? || @hash["bio_data"][course].nil?
         course_hash = @hash["bio_data"][course]
-        yield course_hash if course_hash.size % 2 == 1 
-        #course_hash << { "name"=>"", "url"=>"" } if course_hash.size % 2 == 1 
+        course_hash << {} if course_hash.size % 2 == 1 
         @hash["bio_data"][course] = {
           "rows" => course_hash.each_slice(2).to_a.map{ |i| { "columns" => i } }
         }
@@ -119,7 +118,7 @@ module JsonResume
 
       #make odd listed courses to even
 			["grad_courses", "undergrad_courses"].each do |course| 
-        add_padding(course) {|odd_hash| action_on_odd(odd_hash) }
+        add_padding(course)
       end
 
       return self

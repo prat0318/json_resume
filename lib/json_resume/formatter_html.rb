@@ -21,11 +21,6 @@ module JsonResume
       format_emphasis str
     end
 
-    def action_on_odd odd_hash
-      odd_hash << {}
-      #odd_hash << { "name"=>"", "url"=>"" } 
-    end
-
     def format
       super
       
