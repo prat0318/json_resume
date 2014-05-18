@@ -34,6 +34,14 @@ module JsonResume
 			@hash["bio_data"]["stars"]["items"][-1]["last"] = true
     end
 
+    def add_last_marker_on_skills
+      return if @hash['bio_data']['skills']['details'].nil?
+      @hash['bio_data']['skills']['details'].each do |item|
+        item['items'].map!{|x| {'name'=>x} }
+        item['items'][-1]['last'] = true        
+      end
+    end
+
 		def cleanse
 			@hash.delete_if &@hash_proc
       self
@@ -70,6 +78,8 @@ module JsonResume
       format_to_output_type 
 
       add_last_marker_on_stars
+
+      add_last_marker_on_skills
 
       purge_gpa
 
