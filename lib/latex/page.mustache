@@ -149,6 +149,34 @@
 	<%/items%>
 <%/research_experience%>
 
+<%#patents%>
+\section{\textsc{Patents}}
+	<%#items%>
+		\cvitem{<%patent_id%>}{\href{<%url%>}{<%title%>}, issued <%date%>}
+	<%/items%>
+<%/patents%>
+
+<%#papers%>
+\section{\textsc{Publications}}
+	<%#items%>
+		\cvitem{\textbullet}{<%authors%>, \textit{\href{<%url%>}{<%title%>}} <%misc%>}
+	<%/items%>
+<%/papers%>
+
+<%#memberships%>
+\section{\textsc{Memberships}}
+	<%#memberships%>
+		\cvitem{\textbullet}{\href{<%url%>}{<%name%>} }
+	<%/memberships%>
+<%/memberships%>
+
+<%#extra_curricular%>
+\section{\textsc{Extra Curricular Awards}}
+	<%#items%>
+		\cvitem{\textbullet}{<%& .%>}
+	<%/items%>
+<%/extra_curricular%>
+
 <%/bio_data%>
 \end{document}
 %% end of file `page.tex'.
