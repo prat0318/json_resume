@@ -40,7 +40,7 @@
             "details": [
                 {
                     "project_name": "prat0318/2048-tetris",
-                    "tagline": "Live at [2048-tetris.com]{http://2048-tetris.com}",
+                    "tagline": "Live at [2048-tetris.com](http://2048-tetris.com)",
                     "description": [
                         "Wrote a Tetris variant of 2048 game, 1M+ unique visits",
                         "Made it to the front page of Hacker News for a day(~150 pts), mentioned in TechCrunch."
@@ -48,7 +48,7 @@
                 },
                 {
                     "project_name": "prat0318/gitator",
-                    "tagline": "Live at [Gitator.com]{http://gitator.com}",
+                    "tagline": "Live at [Gitator.com](http://gitator.com)",
                     "description": [
                         "Finds relevant repositories based on an user's GitHub profile."
                     ]
@@ -196,7 +196,7 @@
                 {
                     "headline": "Designed product _Omerta_, a multi-user chat room application in j2me using Sun Wireless Toolkit platform.",
                     "points": [
-                        "Was awarded 1<sup>st</sup> position for the product in [Envision]{http://www.ecell-iitkgp.org/envision.php}, Product Innovation Contest, IIT KGP.",
+                        "Was awarded 1<sup>st</sup> position for the product in [Envision](http://www.ecell-iitkgp.org/envision.php), Product Innovation Contest, IIT KGP.",
                         "Was awarded 1<sup>st</sup> position for the product in Javawise, J2ME s/w Development Contest at IIT Kharagpur, 2008 and 2009 continuously."
                     ]
                 }                
