@@ -50,7 +50,8 @@
                     "project_name": "prat0318/gitator",
                     "tagline": "Live at [Gitator.com](http://gitator.com)",
                     "description": [
-                        "Finds relevant repositories based on an user's GitHub profile."
+                        "Finds relevant repositories based on an user's GitHub profile.",
+		    	"Written in Ruby on Sinatra and uses Github's Octokit gem"
                     ]
                 },
                 {
@@ -267,8 +268,8 @@
 	"papers": {
 	   "items": [
 	   		{
-			"authors":"Michael Douglas, Marcelo Disconzi",
-			"title":"On the boundedness of ective potentials arising from string compactifications",
+			"authors":"Michl Dugls, Mrclo Dsconi",
+			"title":"Some exotic dummy title like potentials arising from string compactifications",
 			"misc":"arXiv: 1206.1885, June 2012"
 			} 
 		   ]
@@ -276,16 +277,16 @@
 	"patents": {
 	   "items": [
 		   	{
-			"patent_id":"US Patent 5,146,634",
+			"patent_id":"US Patent X,XXX,634",
 			"url":"",
 			"issuance_date":"September 15, 1992",
-			"title":"Three zone bed cover with an inflatable human form."
+			"title":"Another exotic title like bed cover with an inflatable human form."
 			}
 		   ]
 	},
 	"memberships": {
 	   "committees": [
-			"Member of the American Mathematical Society, 2008-present"
+			"Member of the ACM awesomest humans secret group, 2008-present"
 		   ]
 	}
     }
