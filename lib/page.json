@@ -214,20 +214,18 @@
             {
                 "name": "Multicore Programming",
                 "url": "http://www.cs.utexas.edu/~pingali/CS395T/2013fa"
-            },
-            {
-                "name": "Database Systems",
-                "url": "http://www.cs.utexas.edu/users/dsb/cs386d/"
-            },
-            {
-                "name": "Engineering Programming Languages",
-                "url": ""
-            },
-            {
-                "name": "Introduction to Mathematical Logic",
-                "url": "http://www.cs.utexas.edu/users/vl/teaching/388L"
             }
          ],
+        "undergrad_courses": [
+            {
+                "name": "Network Systems",
+                "url": "http://www.facweb.iitkgp.ernet.in/~agupta/netlab/"
+            },
+            {
+                "name": "Graph Theory",
+                "url": "http://cse.iitkgp.ac.in/~agupta/graph/"
+            }
+	],
         "research_experience": {
             "items": [
                 {

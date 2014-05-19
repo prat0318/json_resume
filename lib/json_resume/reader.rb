@@ -1,5 +1,6 @@
 require_relative 'formatter_html'
 require_relative 'formatter_latex'
+require_relative 'formatter_md'
 require 'json'
 
 module JsonResume
@@ -24,6 +25,7 @@ module JsonResume
       formatters = {
         :latex => JsonResume::FormatterLatex,
         :html => JsonResume::FormatterHtml,
+        :markdown => JsonResume::FormatterMd,
       }
       type = @output_type.to_sym
       @hash = formatters[type].new(@hash).format.hash

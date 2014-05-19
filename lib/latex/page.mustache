@@ -108,7 +108,7 @@
 \section{\textsc{Education}}
 %    \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
 <%#schools%>
-\cventry{<%graduation_year%>}{<%degree%><%#major%>, <%major%><%/major%>}{<%institution%>}{}{GPA: <%gpa%>}{}
+\cventry{<%graduation_year%>}{<%degree%><%#major%>, <%major%><%/major%>}{<%institution%>}{}{<%#show_gpa%>GPA: <%gpa%><%/show_gpa%>}{}
 <%/schools%>
 <%/education%>
 
@@ -159,7 +159,7 @@
 <%#papers%>
 \section{\textsc{Publications}}
 	<%#items%>
-		\cvitem{\textbullet}{<%authors%>, \textit{\href{<%url%>}{<%title%>}} <%misc%>}
+		\cvitem{\textbullet}{<%authors%>, \textit{\href{<%url%>}{<%title%>}} <%& misc%>}
 	<%/items%>
 <%/papers%>
 

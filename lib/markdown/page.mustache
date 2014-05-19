@@ -1,35 +1,130 @@
-##Prateek Agarwal
-[http://prat0318.github.io](http://prat0318.github.io) prat0318@gmail.com (512)698-3649
+{{#bio_data}}
+##{{firstname}} {{familyname}}
+[{{website}}]({{website}}) {{#email}}`{{email}}`{{/email}} {{#phone}}`{{phone}}`{{/phone}}
 
-Ruby - Python - Git - Cartooning
+{{#stars}}
+{{#items}}{{name}}{{^last}} - {{/last}}{{/items}}
+{{/stars}}
 
+{{#summary}}
 ###Qualifications summary
-* Competent at managing responsibilities in a high-volume atmosphere
-* Hard worker, quick learner, and ability to assume responsibility
+{{#points}}
+* {{{.}}}
+{{/points}}
+{{/summary}}
 
+{{#github_projects}}
 ###GitHub Summary
-* [prat0318/gitator](http://github.com/prat0318/gitator) : Live at [Gitator.com](http://gitator.com)
-    - Finds relevant repositories based on an user's GitHub profile.
+{{#details}}
+* [{{project_name}}](http://github.com/{{project_name}}){{#tagline}} : {{tagline}}{{/tagline}}
+{{#description}}
+    - {{{.}}}
+{{/description}}
+{{/details}}
+{{/github_projects}}
 
+{{#skills}}
 ###Technical Skills
-* **Programming Languages**: `Ruby` `Python` `C++`
-* **Web Frameworks**: `Django` `Rails`
+{{#details}}
+* **{{type}}**: {{#items}}`{{name}}` {{/items}}
+{{/details}}
+{{/skills}}
 
+{{#education}}
 ###Education
-Degree | Major | Institution | Graduation Year | GPA
-:--:|:--:|:--:|:--:|:--:
-Master of Science | Computer Science | University of Texas at Austin | 2015 | 3.33/4
+Degree | Major | Institution | Graduation Year{{#show_gpa}} | GPA{{/show_gpa}}
+:--:|:--:|:--:|:--:{{#show_gpa}}|:--:{{/show_gpa}}
+{{#schools}}
+{{degree}} | {{major}} | {{institution}} | {{graduation_year}}{{#show_gpa}} | {{gpa}}{{/show_gpa}}
+{{/schools}}
+{{/education}}
 
+{{#acad_achievements}}
 ###Academic Achievements
-* Was among the top 5% in the institute merit list of the undergraduate batch at IIT Kharagpur.
+{{#items}}
+* {{{.}}}
+{{/items}}
+{{/acad_achievements}}
 
+{{#experience}}
 ###Professional Experience
-* Graduate Research Assistant at CTR, UT Austin (Sept. 2013 – Jan. 2014)
-    - Developed a common web interface [http://unitydatabase.com](http://unitydatabase.com) to search through different datasets and output aggregate results and ensuring easy pluggability of new datasets.
-    - Technologies got to work on: `Python` `Django` `South` `PostgreSQL`
+{{#items}}
+* {{title}} at {{{organisation}}}{{#location}}, {{{location}}}{{/location}} ({{from}} – {{to}})
+{{#details}}
+    - {{{.}}}
+{{/details}}
+{{#technology_used}}
+    - Technologies got to work on: {{#tools}}`{{name}}` {{/tools}}
+{{/technology_used}}
+{{/items}}
+{{/experience}}
 
+{{#other_projects}}
+###Other Personal Projects
+{{#items}}
+* {{{headline}}}
+{{#points}}
+    - {{{.}}}
+{{/points}}
+{{#technology_used}}
+    - Technologies got to work on: {{#tools}}`{{name}}` {{/tools}}
+{{/technology_used}}
+{{/items}}
+{{/other_projects}}
+
+{{#grad_courses}}
 ###Graduate Courses Taken
-* [Distributed Computing]()
+{{#rows}}
+{{#columns}}
+{{#name}}* [{{name}}]({{url}}){{/name}}
+{{/columns}}
+{{/rows}}
+{{/grad_courses}}
 
+{{#undergrad_courses}}
+###Undergraduate Courses Taken
+{{#rows}}
+{{#columns}}
+{{#name}}* [{{name}}]({{url}}){{/name}}
+{{/columns}}
+{{/rows}}
+{{/undergrad_courses}}
+
+{{#research_experience}}
+###Research Experience
+{{#items}}
+* {{title}} at {{{organisation}}} ({{from}} – {{to}})
+{{#points}}
+    - {{{.}}}
+{{/points}}
+{{/items}}
+{{/research_experience}}
+
+{{#patents}}
 ###Patents
-* US Patent 5,146,634 **Three zone bed cover with an inflatable human form.** ,issued September 15, 1992.
+{{#items}}
+* {{patent_id}} - **[{{title}}]({{url}})**{{#issuance_date}}, issued {{issuance_date}}{{/issuance_date}}.
+{{/items}}
+{{/patents}}
+
+{{#papers}}
+###Publications
+{{#items}}
+* {{authors}} **[{{title}}]({{url}})** {{{misc}}}.
+{{/items}}
+{{/papers}}
+
+{{#memberships}}
+###Memberships
+{{#committees}}
+* {{{.}}}
+{{/committees}}
+{{/memberships}}
+
+{{#extra_curricular}}
+###Extra Curricular Awards
+{{#items}}
+* {{{.}}}
+{{/items}}
+{{/extra_curricular}}
+{{/bio_data}}
