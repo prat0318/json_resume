@@ -152,7 +152,7 @@
 <%#patents%>
 \section{\textsc{Patents}}
 	<%#items%>
-		\cvitem{<%patent_id%>}{\href{<%url%>}{<%title%>}, issued <%date%>}
+		\cvitem{<%patent_id%>}{\textit{\href{<%url%>}{<%title%>}}<%#issuance_date%>, issued <%issuance_date%><%/issuance_date%>.}
 	<%/items%>
 <%/patents%>
 
@@ -165,9 +165,9 @@
 
 <%#memberships%>
 \section{\textsc{Memberships}}
-	<%#memberships%>
-		\cvitem{\textbullet}{\href{<%url%>}{<%name%>} }
-	<%/memberships%>
+	<%#committees%>
+		\cvitem{\textbullet}{<%& .%>}
+	<%/committees%>
 <%/memberships%>
 
 <%#extra_curricular%>

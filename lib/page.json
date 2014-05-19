@@ -30,6 +30,12 @@
         "phone": "+1 (512) 698-3649",
         "website": "http://prat0318.github.io",
         "stars": ["Ruby","Python","Git","Cartooning"],
+	"summary": {
+		"points":[
+		"Competent at managing responsibilities in a high-volume atmosphere",
+		"Hard worker, quick learner, and ability to assume responsibility"
+		]
+	},
         "github_projects": {
             "details": [
                 {
@@ -44,13 +50,12 @@
                     "project_name": "prat0318/gitator",
                     "tagline": "Live at [Gitator.com]{http://gitator.com}",
                     "description": [
-                        "Finds relevant repositories based on an user's GitHub profile.",
-                        "Written in Ruby on Sinatra, designed in Bootstrap."
+                        "Finds relevant repositories based on an user's GitHub profile."
                     ]
                 },
                 {
                     "project_name": "prat0318/json_resume",
-                    "tagline": "Create pretty resumes from json format to .html, .md, etc.",
+                    "tagline": "Convert JSON data to pretty resumes in .html, .tex, .md",
                     "description": [
                         "Static personal page and resume design using Mustache.",
                         "Current resume is generated using json_resume."
@@ -99,7 +104,7 @@
                     "major": "Computer Science",
                     "institution": "University of Texas at Austin",
                     "graduation_year": 2015,
-                    "gpa": "3.33/4"
+                    "gpa": "3.55/4"
                 },
                 {
                     "degree": "Bachelor of Technology (Hons.)",
@@ -174,7 +179,6 @@
                     "to": "Jun. 2011",
                     "details": [
                         "Handled high priority issues for JDBC client driver for IBM Informix database.",
-                        "Developed performance tests for pureQuery Hibernate accelerator’s binding and static features and showcased its improvements over traditional DB2 JDBC driver.",
                         "Was awarded Smart CADian award for resolving an obscure deadlock situation, making Informix JDBC driver more robust."
                     ],
                     "technology_used": {
@@ -189,22 +193,6 @@
         },
         "other_projects": {
             "items": [
-                {
-                    "headline": "Developed gurukools.com<sub>(offline now)</sub> to connect alumni and current students of a campus.",
-                    "points": [
-                        "Basic framework was a privately hosted IRC daemon to which a client connects through a web login. The motivation was to design a web interface which abstracts IRC technicalities from the user.",
-                        "Learned about mail servers, COMET, long polling, trusted connections during development.",
-                        "Wrote couple of bots in Tcl scripting language for channel moderation and word games."
-                    ],
-                    "technology_used": {
-                        "tools": [
-                            "PHP",
-                            "JavaScipt",
-                            "MySQL",
-                            "Eggdrop"
-                        ]
-                    }                    
-                },
                 {
                     "headline": "Designed product _Omerta_, a multi-user chat room application in j2me using Sun Wireless Toolkit platform.",
                     "points": [
@@ -277,6 +265,30 @@
                 "Was awarded 2<sup>nd</sup> position in Bionetics, Coding Event, Genesis 09 at IIT Kharagpur.",
                 "Microsoft Student Partner of IIT Kharagpur from the period July 08 – June 09."
             ]
-        }
+        },
+	"papers": {
+	   "items": [
+	   		{
+			"authors":"Michael Douglas, Marcelo Disconzi",
+			"title":"On the boundedness of ective potentials arising from string compactifications",
+			"misc":"arXiv: 1206.1885, June 2012"
+			} 
+		   ]
+	},
+	"patents": {
+	   "items": [
+		   	{
+			"patent_id":"US Patent 5,146,634",
+			"url":"",
+			"issuance_date":"September 15, 1992",
+			"title":"Three zone bed cover with an inflatable human form."
+			}
+		   ]
+	},
+	"memberships": {
+	   "committees": [
+			"Member of the American Mathematical Society, 2008-present"
+		   ]
+	}
     }
 }

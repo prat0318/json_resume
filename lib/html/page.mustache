@@ -178,8 +178,8 @@
 	<ul>
 		{{#items}}
 		<li>{{patent_id}} 
-			<a href="{{url}}">{{title}},</a> 
-			issued {{date}}.
+			<a href="{{url}}">{{title}}</a> 
+			{{#issuance_date}},issued {{issuance_date}}{{/issuance_date}}.
 		</li>
 		{{/items}}
 	</ul>
@@ -201,7 +201,7 @@
 	<h2><span class="glyphicon glyphicon-globe"></span> Memberships</h2>
 	<ul>
 		{{#committees}}
-		<li><a href="{{url}}">{{name}}</a></li>
+		<li>{{{.}}}</li>
 		{{/committees}}
 	</ul>	
 	{{/memberships}}
