@@ -3,28 +3,6 @@
     "familyname": "Agarwal",
     "linkedin_id": "prat0318",
     "github_id": "prat0318",
-    "tabs": [
-        {
-            "name": "Pdf",
-            "url": "public/resume.pdf",
-            "_blank": true
-        },
-        {
-            "name": "Projects",
-            "url": "http://github.com/prat0318",
-            "_blank": true
-        },
-        {
-            "name": "2048-Tetris",
-            "url": "http://prat0318.github.io/2048-tetris",
-            "_blank": true
-        },
-        {
-            "name": "Caricatures",
-            "url": "caricature.html",
-            "_blank": false
-        }
-    ],
     "bio_data": {
         "email": "prat0318 @ cs.utexas.edu",
         "phone": "+1 (512) 698-3649",
