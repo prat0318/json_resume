@@ -11,9 +11,15 @@ class JsonResumeCLI < Thor
     puts "Hello #{json_input} #{options} #{template}"
   end
 
-  desc "init", "Generates a sample json file in cwd"
-  def init()
-    puts "Init "
+  desc "sample", "Generates a sample json file in cwd"
+  def sample()
+    cwd = Dir.pwd 
+    orig_locn = File.expand_path(File.dirname(__FILE__))
+    json_file_paths = Dir["#{orig_locn}/../examples/*.json"]
+    json_file_names = json_file_paths.map{|x| File.basename(x)}
+    FileUtils.cp json_file_paths, Dir.pwd
+    puts "Generated #{json_file_names.join(" ")} in #{cwd}."
+    puts "You can now modify it and call: json_resume convert <file.json>"
   end
 end
 
