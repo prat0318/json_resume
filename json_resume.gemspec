@@ -10,11 +10,11 @@ Gem::Specification.new do |spec|
   spec.email         = ["prat0318@gmail.com"]
   spec.description   = %q{json_resume creates pretty resume formats from a .json input file. Currently, it can cpnvert to html, tex, markdown and pdf. Customizing the template to your own need is super easy. You just need to change the mustache files for any of these formats.}
   spec.summary       = %q{Generates pretty resume formats out of json input file}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/prat0318/json_resume"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.executables   = ["json_resume"]
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 

@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require "thor"
+
+class JsonResumeCLI < Thor
+  desc "convert /path/to/json/file", "converts the json to pretty resume format"
+  option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md"
+  option :template, :banner=>"template_path", :desc=>"path to customized template (optional)"
+  def convert(json_input)
+    template = options[:template] || "templates/default_#{options[:out]}.mustache"
+    puts "Hello #{json_input} #{options} #{template}"
+  end
+
+  desc "init", "Generates a sample json file in cwd"
+  def init()
+    puts "Init "
+  end
+end
+
+JsonResumeCLI.start(ARGV)
