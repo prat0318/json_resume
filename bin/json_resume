@@ -1,14 +1,29 @@
 #!/usr/bin/env ruby
 
 require "thor"
+require "mustache"
+require_relative "../lib/json_resume"
+
+require 'archive/tar/minitar'
+include Archive::Tar
+require 'zlib'
 
 class JsonResumeCLI < Thor
+
   desc "convert /path/to/json/file", "converts the json to pretty resume format"
   option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md"
   option :template, :banner=>"template_path", :desc=>"path to customized template (optional)"
   def convert(json_input)
-    template = options[:template] || "templates/default_#{options[:out]}.mustache"
-    puts "Hello #{json_input} #{options} #{template}"
+    orig_locn = File.expand_path(File.dirname(__FILE__))
+    template = options[:template] || 
+      "#{orig_locn}/../templates/default_#{options[:out]}.mustache"
+    resume_obj = JsonResume.new(json_input)
+    mustache_obj  = Mustache.render(File.read(template), resume_obj.reader.hash)
+    tgz = Zlib::GzipReader.new(File.open("#{orig_locn}/../extras/resume_html.tar.gz", 'rb'))
+    Minitar.unpack(tgz, '.')
+    File.open('resume/page.html','w') {|f| f.write(mustache_obj) }
+
+    puts "\nGenerated resume/ at #{Dir.pwd}. Place it in /var/www/ to host."
   end
 
   desc "sample", "Generates a sample json file in cwd"
@@ -18,8 +33,8 @@ class JsonResumeCLI < Thor
     json_file_paths = Dir["#{orig_locn}/../examples/*.json"]
     json_file_names = json_file_paths.map{|x| File.basename(x)}
     FileUtils.cp json_file_paths, Dir.pwd
-    puts "Generated #{json_file_names.join(" ")} in #{cwd}."
-    puts "You can now modify it and call: json_resume convert <file.json>"
+    puts "Generated #{json_file_names.join(" ")} in #{cwd}/"
+    puts "\nYou can now modify it and call: json_resume convert <file.json>"
   end
 end
 
