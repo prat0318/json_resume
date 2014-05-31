@@ -7,6 +7,7 @@ require_relative "../lib/json_resume"
 require 'archive/tar/minitar'
 include Archive::Tar
 require 'zlib'
+require 'pdfkit'
 
 class JsonResumeCLI < Thor
 
@@ -14,28 +15,74 @@ class JsonResumeCLI < Thor
   option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md"
   option :template, :banner=>"template_path", :desc=>"path to customized template (optional)"
   def convert(json_input)
-    orig_locn = File.expand_path(File.dirname(__FILE__))
-    template = options[:template] || 
-      "#{orig_locn}/../templates/default_#{options[:out]}.mustache"
-    resume_obj = JsonResume.new(json_input)
-    mustache_obj  = Mustache.render(File.read(template), resume_obj.reader.hash)
-    tgz = Zlib::GzipReader.new(File.open("#{orig_locn}/../extras/resume_html.tar.gz", 'rb'))
-    Minitar.unpack(tgz, '.')
-    File.open('resume/page.html','w') {|f| f.write(mustache_obj) }
-
-    puts "\nGenerated resume/ at #{Dir.pwd}. Place it in /var/www/ to host."
+    puts "Generating the #{options[:out]} type.,,"
+    puts send('convert_to_'+options[:out], json_input, get_template(options))
   end
 
   desc "sample", "Generates a sample json file in cwd"
   def sample()
     cwd = Dir.pwd 
-    orig_locn = File.expand_path(File.dirname(__FILE__))
-    json_file_paths = Dir["#{orig_locn}/../examples/*.json"]
+    json_file_paths = Dir["#{@@orig_locn}/../examples/*.json"]
     json_file_names = json_file_paths.map{|x| File.basename(x)}
     FileUtils.cp json_file_paths, Dir.pwd
-    puts "Generated #{json_file_names.join(" ")} in #{cwd}/"
-    puts "\nYou can now modify it and call: json_resume convert <file.json>"
+    msg = "Generated #{json_file_names.join(" ")} in #{cwd}/"
+    msg += "\nYou can now modify it and call: json_resume convert <file.json>"
   end
+
+  no_commands do
+    @@orig_locn = File.expand_path(File.dirname(__FILE__))
+
+    def get_template(options)
+      out_type = options[:out].split('_').first #html for both html, html_pdf
+      options[:template] || "#{@@orig_locn}/../templates/default_#{out_type}.mustache"
+    end
+
+    def convert_to_html(json_input, template, dest=Dir.pwd, dir_name='resume')
+      resume_obj = JsonResume.new(json_input)
+      mustache_obj  = Mustache.render(File.read(template), resume_obj.reader.hash)
+      tgz = Zlib::GzipReader.new(File.open("#{@@orig_locn}/../extras/resume_html.tar.gz", 'rb'))
+      Minitar.unpack(tgz, "#{dest}/#{dir_name}")
+      File.open("#{dest}/#{dir_name}/page.html",'w') {|f| f.write(mustache_obj) }
+      msg = "\nGenerated #{dir_name}/ at #{dest}. Place it in /var/www/ to host."
+    end
+
+    def convert_to_html_pdf(json_input, template, dest=Dir.pwd)
+      tmp_dir = ".tmp_resume"
+      convert_to_html(json_input, template, dest, tmp_dir)
+      PDFKit.configure do |config|
+        config.default_options = {
+          :footer_right => "Page [page] of [toPage]    .\n",
+          :footer_font_size => 10,
+          :footer_font_name => "Georgia"   
+        }
+      end
+      html_file = File.new("#{dest}/#{tmp_dir}/core-page.html")
+
+      pdf_options = {
+        :margin_top => 2.0,
+        :margin_left=> 0.0, 
+        :margin_right => 0.0,
+        :margin_bottom => 4.0,
+        :page_size => 'Letter'
+      }
+      kit = PDFKit.new(html_file, pdf_options)
+
+      kit.to_file(dest+"/resume.pdf")
+      FileUtils.rm_rf "#{dest}/#{tmp_dir}"
+      msg = "\nGenerated resume.pdf at #{dest}."
+    end
+
+    def convert_to_tex(json_input, template)
+    end
+
+    def convert_to_tex_pdf(json_input, template)
+    end
+
+    def convert_to_md(json_input, template)
+    end
+
+  end
+
 end
 
 JsonResumeCLI.start(ARGV)
