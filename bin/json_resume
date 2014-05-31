@@ -15,7 +15,7 @@ class JsonResumeCLI < Thor
   option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md"
   option :template, :banner=>"template_path", :desc=>"path to customized template (optional)"
   def convert(json_input)
-    puts "Generating the #{options[:out]} type.,,"
+    puts "Generating the #{options[:out]} type..."
     puts send('convert_to_'+options[:out], json_input, get_template(options))
   end
 
@@ -78,7 +78,11 @@ class JsonResumeCLI < Thor
     def convert_to_tex_pdf(json_input, template)
     end
 
-    def convert_to_md(json_input, template)
+    def convert_to_md(json_input, template, dest=Dir.pwd)
+      resume_obj = JsonResume.new(json_input, {"output_type"=>"markdown"})
+      mustache_obj  = Mustache.render(File.read(template), resume_obj.reader.hash)
+      File.open("#{dest}/page.md",'w') {|f| f.write(mustache_obj) }
+      msg = "\nGenerated page.md at #{dest}."
     end
 
   end
