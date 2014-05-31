@@ -1,14 +1,15 @@
 #!/usr/bin/env ruby
 
-require "thor"
-require "mustache"
-require_relative "../lib/json_resume"
-
+require 'thor'
+require 'mustache'
+require_relative '../lib/json_resume'
 require 'archive/tar/minitar'
 include Archive::Tar
 require 'zlib'
 require 'pdfkit'
+require 'rest_client'
 
+WL_URL = "https://www.writelatex.com/docs"
 class JsonResumeCLI < Thor
 
   desc "convert /path/to/json/file", "converts the json to pretty resume format"
@@ -27,6 +28,7 @@ class JsonResumeCLI < Thor
     FileUtils.cp json_file_paths, Dir.pwd
     msg = "Generated #{json_file_names.join(" ")} in #{cwd}/"
     msg += "\nYou can now modify it and call: json_resume convert <file.json>"
+    puts msg
   end
 
   no_commands do
@@ -38,12 +40,10 @@ class JsonResumeCLI < Thor
     end
 
     def convert_to_html(json_input, template, dest=Dir.pwd, dir_name='resume')
-      resume_obj = JsonResume.new(json_input)
-      mustache_obj  = Mustache.render(File.read(template), resume_obj.reader.hash)
       tgz = Zlib::GzipReader.new(File.open("#{@@orig_locn}/../extras/resume_html.tar.gz", 'rb'))
       Minitar.unpack(tgz, "#{dest}/#{dir_name}")
-      File.open("#{dest}/#{dir_name}/page.html",'w') {|f| f.write(mustache_obj) }
-      msg = "\nGenerated #{dir_name}/ at #{dest}. Place it in /var/www/ to host."
+      msg = generate_file(json_input, template, "html", "#{dest}/#{dir_name}/page.html")
+      msg += " Place it in /var/www/ to host."
     end
 
     def convert_to_html_pdf(json_input, template, dest=Dir.pwd)
@@ -72,17 +72,29 @@ class JsonResumeCLI < Thor
       msg = "\nGenerated resume.pdf at #{dest}."
     end
 
-    def convert_to_tex(json_input, template)
+    def convert_to_tex(json_input, template, dest=Dir.pwd, filename="resume.tex")
+      generate_file(json_input, template, "latex", "#{dest}/#{filename}")
     end
 
-    def convert_to_tex_pdf(json_input, template)
+    def convert_to_tex_pdf(json_input, template, dest=Dir.pwd)
+      #ToDo: Test for presence of pdflatex
+      convert_to_tex(json_input, template, dest, ".tmp_resume.tex")
+      tex_file = File.read("#{dest}/.tmp_resume.tex")
+      RestClient.post(WL_URL, :snip => tex_file, :splash => "none") do |response, req, res, &bb| 
+        FileUtils.rm "#{dest}/.tmp_resume.tex"
+        msg = "\nPDF is ready at #{response.headers[:location]}"
+      end
     end
 
     def convert_to_md(json_input, template, dest=Dir.pwd)
-      resume_obj = JsonResume.new(json_input, {"output_type"=>"markdown"})
+      generate_file(json_input, template, "markdown", "#{dest}/resume.md")
+    end
+
+    def generate_file(json_input, template, output_type, dest)
+      resume_obj = JsonResume.new(json_input, "output_type" => output_type)
       mustache_obj  = Mustache.render(File.read(template), resume_obj.reader.hash)
-      File.open("#{dest}/page.md",'w') {|f| f.write(mustache_obj) }
-      msg = "\nGenerated page.md at #{dest}."
+      File.open(dest,'w') {|f| f.write(mustache_obj) }
+      return "\nGenerated files present at #{dest}"
     end
 
   end
