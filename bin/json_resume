@@ -7,7 +7,7 @@ require 'archive/tar/minitar'
 include Archive::Tar
 require 'zlib'
 require 'pdfkit'
-require 'rest_client'
+require 'rest-client'
 
 WL_URL = "https://www.writelatex.com/docs"
 class JsonResumeCLI < Thor
