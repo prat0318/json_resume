@@ -40,7 +40,7 @@ describe '#urlformatter' do
   context 'when given a link for html output' do
     it 'converts link to href' do
       formatter = JsonResume::FormatterHtml.new({})
-      str = "test [Hello]{http://google.com}"
+      str = "test [Hello](http://google.com)"
       formatter.format_link str 
       expect(str).to eq('test <a href="http://google.com">Hello</a>')
     end
@@ -54,7 +54,7 @@ describe '#urlformatter' do
     
     it 'converts links and autolinks to url' do
       formatter = JsonResume::FormatterHtml.new({})
-      str = "test <<http://google.com>> [Hello]{http://google.com} <<http://google.com>>"
+      str = "test <<http://google.com>> [Hello](http://google.com) <<http://google.com>>"
       formatter.format_string str 
       expect(str).to eq('test <a href="http://google.com">http://google.com</a> <a href="http://google.com">Hello</a> <a href="http://google.com">http://google.com</a>')
     end
