@@ -1,6 +1,6 @@
 # JsonResume
 
-TODO: Write a gem description
+JsonResume helps in creating different versions of resume from a single JSON input file. It is different from present solutions as the output is more prettier and much customized to modern resume templates. Also, there is a ton of customization to the templates possible, to make your own version of resume created super quickly.
 
 ## Installation
 
