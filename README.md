@@ -4,21 +4,53 @@ TODO: Write a gem description
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'json_resume'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install json_resume
 
 ## Usage
 
-TODO: Write usage instructions here
+### Create a sample JSON input file to start
+
+    $ json_resume sample
+    
+A sample `prateek_cv.json` will be generated in the current working directory(cwd).
+    
+Modify it as per your needs, and remove or keep rest of the fields empty.
+    
+### Conversion
+
+* Default (HTML) version
+
+```
+    $ json_resume convert prateek_cv.json
+```
+
+A directory `resume/` will be generated in cwd, which can be put hosted on /var/www or on github pages.
+
+* PDF version from HTML
+
+```
+    $ json_resume convert --out=html_pdf prateek_cv.json
+```
+
+* LaTeX version
+
+```
+    $ json_resume convert --out=tex prateek_cv.json
+```
+
+* PDF version from LaTeX
+
+```
+    $ json_resume convert --out=tex_pdf prateek_cv.json
+```
+
+* Markdown version
+
+```
+    $ json_resume convert --out=md prateek_cv.json
+```
+
+## Customization
 
 ## Contributing
 
