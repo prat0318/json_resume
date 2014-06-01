@@ -43,7 +43,7 @@ class JsonResumeCLI < Thor
       tgz = Zlib::GzipReader.new(File.open("#{@@orig_locn}/../extras/resume_html.tar.gz", 'rb'))
       Minitar.unpack(tgz, "#{dest}/#{dir_name}")
       msg = generate_file(json_input, template, "html", "#{dest}/#{dir_name}/page.html")
-      msg += " Place #{dest}/#{dir_name}/ in /var/www/ to host."
+      msg += "\nPlace #{dest}/#{dir_name}/ in /var/www/ to host."
     end
 
     def convert_to_html_pdf(json_input, template, dest=Dir.pwd)
