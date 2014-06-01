@@ -43,7 +43,7 @@ class JsonResumeCLI < Thor
       tgz = Zlib::GzipReader.new(File.open("#{@@orig_locn}/../extras/resume_html.tar.gz", 'rb'))
       Minitar.unpack(tgz, "#{dest}/#{dir_name}")
       msg = generate_file(json_input, template, "html", "#{dest}/#{dir_name}/page.html")
-      msg += " Place it in /var/www/ to host."
+      msg += " Place #{dest}/#{dir_name}/ in /var/www/ to host."
     end
 
     def convert_to_html_pdf(json_input, template, dest=Dir.pwd)
@@ -77,11 +77,38 @@ class JsonResumeCLI < Thor
     end
 
     def convert_to_tex_pdf(json_input, template, dest=Dir.pwd)
-      #ToDo: Test for presence of pdflatex
-      convert_to_tex(json_input, template, dest, ".tmp_resume.tex")
-      tex_file = File.read("#{dest}/.tmp_resume.tex")
+      file1 = "resume"; filename = "#{file1}.tex"
+      convert_to_tex(json_input, template, dest, filename)
+      if `which pdflatex` == ""
+        puts "It looks like pdflatex is not installed..."
+        puts "Either install it with instructions at..."
+        puts "http://dods.ipsl.jussieu.fr/fast/pdflatex_install.html"
+        return use_write_latex(dest, filename)
+      end
+      if `kpsewhich moderncv.cls` == ""
+        puts "It looks liks moderncv package for tex is not installed"
+        puts "Read about it here: http://ctan.org/pkg/moderncv"
+        return use_write_latex(dest, filename)
+      end
+      system("pdflatex -shell-escape -interaction=nonstopmode #{dest}/#{filename}")
+      [".tex",".out",".aux",".log"].each do |ext|
+        FileUtils.rm "#{dest}/#{file1}#{ext}"
+      end
+      msg = "\nPDF is ready at #{dest}/#{file1}.pdf"
+    end
+
+    def use_write_latex(dest, filename)
+       reply = ask "Create PDF online using writeLatex ([y]n)?"
+       if reply == "" || reply == "y"
+          return convert_using_writeLatex(dest, filename)  
+       end
+       msg = "Latex file created at #{dest}/#{filename}"
+    end
+
+    def convert_using_writeLatex(dest, filename)
+      tex_file = File.read("#{dest}/#{filename}")
       RestClient.post(WL_URL, :snip => tex_file, :splash => "none") do |response, req, res, &bb| 
-        FileUtils.rm "#{dest}/.tmp_resume.tex"
+        FileUtils.rm "#{dest}/#{filename}"
         msg = "\nPDF is ready at #{response.headers[:location]}"
       end
     end
