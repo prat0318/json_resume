@@ -5,10 +5,10 @@
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="Json resume : Generates pretty HTML, LaTeX, markdown, with biodata feeded as input in JSON" />
-
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/liquid-slider.css">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Json resume</title>
+  <title>Json resume</title>
   </head>
 
   <body>
@@ -19,44 +19,28 @@
           <a id="forkme_banner" href="https://github.com/prat0318/json_resume">View on GitHub</a>
 
           <h1 id="project_title">Json resume</h1>
-          <h2 id="project_tagline">Generates pretty HTML, LaTeX, markdown, with biodata feeded as input in JSON</h2>
+          <h2 id="project_tagline">Generate pretty HTML, LaTeX, markdown versions<br/> from a single JSON format</h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/prat0318/json_resume/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/prat0318/json_resume/tarball/master">Download this project as a tar.gz file</a>
-            </section>
         </header>
     </div>
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<div class="liquid-slider" id="slider-id">
+     <div>
+     <h2 class="title"><i class="glyphicon glyphicon-search"></i> JSON</h2>
+ <script src="https://gist.github.com/prat0318/6e57f270bcf710a9087f.js"></script>
+     </div>
+     <div>
+          <h2 class="title">Markdown</h2>
+<script src="https://gist.github.com/prat0318/9c6e36fdcfd6a854f1f9.js"></script>
+     </div>
+     <div>
+          <h2 class="title">HTML</h2>
+          // Content goes here
+     </div>
+</div>
 
 <h3>
 <a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
@@ -67,17 +51,20 @@ $ git checkout gh-pages
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Json resume maintained by <a href="https://github.com/prat0318">prat0318</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
     </div>
-
-              <script type="text/javascript">
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="javascripts/jquery.touchSwipe.min.js"></script>
+<script src="javascripts/jquery.liquid-slider.min.js"></script>
+     <script type="text/javascript">
+$('#slider-id').liquidSlider({
+		 hideSideArrows: true,
+		  includeTitle: false,
+		 dynamicTabsAlign: "center",
+		 continuous: false,
+		 slideEaseDuration: 550});
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
             try {
               var pageTracker = _gat._getTracker("UA-51541241-1");
             pageTracker._trackPageview();
