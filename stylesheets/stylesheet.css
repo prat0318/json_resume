@@ -422,6 +422,10 @@ Small Device Styles
   }
 }
 
+#project_tagline {
+	 font-family:"Helvetica Neue, Helvetica, Liberation Sans, Arial, sans-serif";
+ }
+
 /* Better styles for embedding GitHub Gists */
   .gist .gist-file .gist-data { font-family: 'Lucida Grande','Calibri',Helvetica,Arial,sans-serif; padding: 1em !important }
   pre, code{background-color: #EFEFF7}
