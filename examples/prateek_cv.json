@@ -1,4 +1,7 @@
 {
+    "settings": {
+        "glyphicons" : true
+    },
     "firstname": "Prateek",
     "familyname": "Agarwal",
     "linkedin_id": "prat0318",

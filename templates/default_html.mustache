@@ -1,3 +1,11 @@
+{{#settings}}
+	{{#glyphicons}}
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<script>document.getElementById('github-png').innerHTML = '<img src="public/images/github.png" style="width:22px"></img> ';
+		</script>
+	{{/glyphicons}}
+{{/settings}}
+<link rel="stylesheet" type="text/css" href="public/css/screen.css" />
 <div id="page">
 {{#bio_data}}
 	<div class="contact-details">
@@ -33,7 +41,7 @@
 	{{/summary}}
 
 	{{#github_projects}}
-	<h2><img src="public/images/github.png" style="width:22px"></img> GitHub Projects</h2>
+	<h2><span id="github-png"></span>GitHub Projects</h2>
 	<ul>
 	{{#details}}
 		<li><a href="https://github.com/{{project_name}}">{{project_name}}</a>
