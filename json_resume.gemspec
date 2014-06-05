@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = JsonResume::VERSION
   spec.authors       = ["Prateek Agarwal"]
   spec.email         = ["prat0318@gmail.com"]
-  spec.description   = %q{json_resume creates pretty resume formats from a .json input file. Currently, it can cpnvert to html, tex, markdown and pdf. Customizing the template to your own need is super easy. You just need to change the mustache files for any of these formats.}
+  spec.description   = %q{json_resume creates pretty resume formats from a .json input file. Currently, it can cpnvert to html, tex, markdown and pdf. Customizing the templates to your own needs is also super easy.}
   spec.summary       = %q{Generates pretty resume formats out of json input file}
   spec.homepage      = "http://github.com/prat0318/json_resume"
   spec.license       = "MIT"
