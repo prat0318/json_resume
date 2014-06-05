@@ -1,6 +1,7 @@
 require_relative 'formatter_html'
 require_relative 'formatter_latex'
 require_relative 'formatter_md'
+require 'rest-client'
 require 'json'
 
 module JsonResume
@@ -11,6 +12,7 @@ module JsonResume
       output_type = options[:output_type] || "html" #default html, others latex, md
 			@json_string = case json_input
 						   when /\.json$/i then File.read(json_input)
+               when /^(http|https|www)/ then RestClient.get(json_input)
 						   else json_input
 						   end
       @output_type = output_type
