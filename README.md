@@ -91,7 +91,7 @@ Generating the html type...
         from /Users/abhiramk/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/json-1.8.1/lib/json/common.rb:155:in `new'
 ```
 
-Looks like locale problem. Add the following to the environment : `export LC_CTYPE=en_US.UTF-8` ( Thanks to @viswamitra )
+Looks like locale problem. Add the following to the environment : `export LC_CTYPE=en_US.UTF-8` ( Thanks to [@viswamitra](https://github.com/viswamitra) )
 
 ## Customization
 
