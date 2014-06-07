@@ -3,6 +3,7 @@
 
   <head>
     <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="Json resume : Generates pretty HTML, LaTeX, markdown, with biodata feeded as input in JSON" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -27,19 +28,34 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
+	      <div style="padding-bottom:20px; margin: auto; display: block; width: 300px">
+		      <div class="tooltip-wrapper" data-title="JSON format: Version Controllable" style="display:inline"><button type="button" class="btn btn-default" style="padding: 6px" disabled><div style="background: url('images/github_black.png') no-repeat 0% 50%;display:block;height:35px;width:38px;margin-left:4px"/></button></div>
+			      <div class="tooltip-wrapper" data-title="Data remains in your machine"  style="display:inline"><button type="button" class="btn btn-default" disabled><i class="glyphicon glyphicon-user" style="font-size:30px"></i></button></div>
+		      <div class="tooltip-wrapper" data-title="Pretty designs with various format options" style="display:inline"><button type="button" class="btn btn-default" disabled><i class="glyphicon glyphicon-heart" style="font-size:30px"></i></button></div>
+		      <div class="tooltip-wrapper" data-title="Mustache Templates: Totally Customizable" style="display:inline"><button type="button" class="btn btn-default" disabled><i class="glyphicon glyphicon-edit" style="font-size:30px"></i></button></div>
+		      <div class="tooltip-wrapper" data-title="PDF conversion option available" style="display:inline"><button type="button" class="btn btn-default" disabled><i class="glyphicon glyphicon-file" style="font-size:30px"></i></button></div>
+      </div>
 <div class="liquid-slider" id="slider-id">
      <div>
-     <h2 class="title"><i class="glyphicon glyphicon-search"></i> JSON</h2>
+     <h5 class="title">JSON</h5>
  <script src="https://gist.github.com/prat0318/6e57f270bcf710a9087f.js"></script>
      </div>
      <div>
-          <h2 class="title">Markdown</h2>
-<script src="https://gist.github.com/prat0318/9c6e36fdcfd6a854f1f9.js"></script>
+          <h5 class="title">Mdown</h5>
+	<script src="https://gist.github.com/prat0318/9c6e36fdcfd6a854f1f9.js"></script>
      </div>
      <div>
-          <h2 class="title">HTML</h2>
-          // Content goes here
-     </div>
+          <h5 class="title">HTML</h5>
+     <iframe id="frame" src="http://prat0318.github.io"frameborder="0"  width="100%" height="2450px"></iframe>
+	</div>
+     <div>
+          <h5 class="title">HTML*</h5>
+     <iframe id="frame" src="http://prat0318.github.io"frameborder="0"  width="100%" height="2450px"></iframe>
+	</div>
+     <div>
+          <h5 class="title">LaTeX</h5>
+	  <div id="the-canvas" height="1800px" style="margin-left:-40px;"/>
+	</div>
 </div>
 
 <h3>
@@ -52,25 +68,28 @@
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
     </div>
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="javascripts/jquery.touchSwipe.min.js"></script>
 <script src="javascripts/jquery.liquid-slider.min.js"></script>
-     <script type="text/javascript">
+<script src="javascripts/pdf.js"></script>
+<script src="javascripts/latex.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
 $('#slider-id').liquidSlider({
 		 hideSideArrows: true,
 		  includeTitle: false,
 		 dynamicTabsAlign: "center",
 		 continuous: false,
 		 slideEaseDuration: 550});
+
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
             try {
               var pageTracker = _gat._getTracker("UA-51541241-1");
             pageTracker._trackPageview();
             } catch(err) {}
-          </script>
-
-
+	$('.tooltip-wrapper').tooltip()
+   </script>
   </body>
 </html>
