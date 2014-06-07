@@ -22,6 +22,7 @@ module JsonResume
 		end
 
     def add_linkedin_github_url
+      @hash["raw_website"] = @hash["bio_data"]["website"].sub(/^https?:\/\//,'') if @hash["bio_data"] && @hash["bio_data"]["website"]
       @hash["linkedin_url"] = "http://linkedin.com/in/" + @hash["linkedin_id"] if @hash["linkedin_id"]
       @hash["github_url"] = "http://github.com/" + @hash["github_id"] if @hash["github_id"]
     end
