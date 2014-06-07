@@ -81,7 +81,7 @@
   background: #d8d8d8;
   color: #333333;
   margin-right: 1px;
-  padding: 10px 15px;  
+  padding: 5px 5px;  
   outline:0;
 }
 .ls-nav a:hover {
@@ -125,7 +125,7 @@
   appearance:none;
   background: transparent;
   padding: 5px;
-  font-size: 110%;
+  font-size: 90%;
   border: none;
   height: 35px;
   cursor:pointer;

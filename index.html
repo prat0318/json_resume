@@ -28,13 +28,14 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-	      <div style="padding-bottom:20px; margin: auto; display: block; width: 300px">
-		      <div class="tooltip-wrapper" data-title="JSON format: Version Controllable" style="display:inline"><button type="button" class="btn btn-default" style="padding: 6px" disabled><div style="background: url('images/github_black.png') no-repeat 0% 50%;display:block;height:35px;width:38px;margin-left:4px"/></button></div>
-			      <div class="tooltip-wrapper" data-title="Data remains in your machine"  style="display:inline"><button type="button" class="btn btn-default" disabled><i class="glyphicon glyphicon-user" style="font-size:30px"></i></button></div>
-		      <div class="tooltip-wrapper" data-title="Pretty designs with various format options" style="display:inline"><button type="button" class="btn btn-default" disabled><i class="glyphicon glyphicon-heart" style="font-size:30px"></i></button></div>
-		      <div class="tooltip-wrapper" data-title="Mustache Templates: Totally Customizable" style="display:inline"><button type="button" class="btn btn-default" disabled><i class="glyphicon glyphicon-edit" style="font-size:30px"></i></button></div>
-		      <div class="tooltip-wrapper" data-title="PDF conversion option available" style="display:inline"><button type="button" class="btn btn-default" disabled><i class="glyphicon glyphicon-file" style="font-size:30px"></i></button></div>
+	      <div style="padding-bottom:2px; margin: auto; display: block; width: 300px">
+		      <div class="tooltip-wrapper" data-title="JSON format: Version Controllable" style="display:inline"><button type="button" class="btn btn-default" style="padding: 6px" ><div style="background: url('images/github_black.png') no-repeat 0% 50%;display:block;height:35px;width:38px;margin-left:4px;opacity:0.8"/></button></div>
+			      <div class="tooltip-wrapper" data-title="Data remains in your machine"  style="display:inline"><button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-user" style="font-size:30px"></i></button></div>
+		      <div class="tooltip-wrapper" data-title="Pretty designs with various format options" style="display:inline"><button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-heart" style="font-size:30px"></i></button></div>
+		      <div class="tooltip-wrapper" data-title="Mustache Templates: Totally Customizable" style="display:inline"><button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-edit" style="font-size:30px"></i></button></div>
+		      <div class="tooltip-wrapper" data-title="PDF conversion option available" style="display:inline"><button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-file" style="font-size:30px"></i></button></div>
       </div>
+      <div id="tagline" style="padding-bottom:45px; margin: auto; display: block; width: 300px; text-align: center; height: 20px; font-size: 12px"></div>
 <div class="liquid-slider" id="slider-id">
      <div>
      <h5 class="title">JSON</h5>
@@ -46,22 +47,17 @@
      </div>
      <div>
           <h5 class="title">HTML</h5>
-     <iframe id="frame" src="http://prat0318.github.io"frameborder="0"  width="100%" height="2450px"></iframe>
+     <iframe id="frame" src="http://prat0318.github.io/index1.html" frameborder="0"  width="100%" height="2450px"></iframe>
 	</div>
      <div>
           <h5 class="title">HTML*</h5>
-     <iframe id="frame" src="http://prat0318.github.io"frameborder="0"  width="100%" height="2450px"></iframe>
+     <iframe id="frame" src="http://prat0318.github.io/index2.html" frameborder="0"  width="100%" height="2450px"></iframe>
 	</div>
      <div>
           <h5 class="title">LaTeX</h5>
 	  <div id="the-canvas" height="1800px" style="margin-left:-40px;"/>
 	</div>
 </div>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
       </section>
     </div>
 
@@ -74,7 +70,6 @@
 <script src="javascripts/jquery.liquid-slider.min.js"></script>
 <script src="javascripts/pdf.js"></script>
 <script src="javascripts/latex.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $('#slider-id').liquidSlider({
 		 hideSideArrows: true,
@@ -89,7 +84,14 @@ $('#slider-id').liquidSlider({
               var pageTracker = _gat._getTracker("UA-51541241-1");
             pageTracker._trackPageview();
             } catch(err) {}
-	$('.tooltip-wrapper').tooltip()
-   </script>
+	$('.tooltip-wrapper').on('click mouseenter', function(){
+		console.log("asdf")
+		$('#tagline').html($(this)[0].attributes['data-title'].value)
+	});
+	var settag = function() {
+		$('#tagline').html('$ gem install json_resume<br>$ json_resume --help &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;') }
+ 	$('.tooltip-wrapper').on('mouseleave', settag);
+	settag();
+  </script>
   </body>
 </html>

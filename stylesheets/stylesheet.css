@@ -52,7 +52,7 @@ body {
   color:#0B2F3A;
   background: #212121;
   font-size: 16px;
-  font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -61,7 +61,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
   font-weight: 700;
   color:#222222;
-  font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
 
@@ -265,7 +264,7 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 640px;
+  max-width: 720px;
   padding: 20px 10px;
   margin: 0 auto;
 }
@@ -295,7 +294,7 @@ Full-Width Styles
 }
 
 #header_wrap .inner {
-  padding: 50px 10px 30px 10px;
+  padding: 50px 10px 10px 10px;
 }
 
 #project_title {
@@ -308,7 +307,7 @@ Full-Width Styles
 
 #project_tagline {
   color: #fff;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 300;
   background: none;
   text-shadow: #111 0px 0px 10px;
@@ -360,7 +359,7 @@ Full-Width Styles
 }
 
 #main_content {
-  padding-top: 40px;
+  padding-top: 5px;
 }
 
 #footer_wrap {
@@ -423,7 +422,7 @@ Small Device Styles
 }
 
 #project_tagline {
-	 font-family:"Helvetica Neue, Helvetica, Liberation Sans, Arial, sans-serif";
+	font-weight: 100;
  }
 
 /* Better styles for embedding GitHub Gists */
