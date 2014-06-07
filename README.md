@@ -79,6 +79,20 @@ JSON is parsed as per the `markdown` standards. This implies all this works-
 - \[[href](#)\]\(#\), 
 - <<[http://github.com](http://github.com)>>
 
+## FAQs
+
+* I get the following error during `convert` :
+
+```
+Error:
+Generating the html type...
+/Users/myMac/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/json-1.8.1/lib/json/common.rb:155:in `encode': "\xE2" on US-ASCII (Encoding::InvalidByteSequenceError)
+        from /Users/abhiramk/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/json-1.8.1/lib/json/common.rb:155:in `initialize'
+        from /Users/abhiramk/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/json-1.8.1/lib/json/common.rb:155:in `new'
+```
+
+Looks like locale problem. Add the following to the environment : `export LC_CTYPE=en_US.UTF-8` ( Thanks to @viswamitra )
+
 ## Customization
 
 Output is creating using mustache templates. They are located in `templates/`. These can be modified and given as `--template=/path/to/template` to `convert`. For example, the tex template was customized to produced [this new format](https://www.writelatex.com/read/tktqrbmhnyqp).
