@@ -1,0 +1,24 @@
+--- 
+en: 
+  headings: 
+    acad_achievements: "Academic Achievements"
+    degree: Degree
+    education: Education
+    experience: "Professional Experience"
+    extra_curricular: "Extra Curricular Awards"
+    github_projects: "GitHub Projects"
+    gpa: GPA
+    grad_courses: "Graduate Courses Taken"
+    graduation_year: "Graduation Year"
+    institution: Institution
+    issuance_date_msg: "issued on"
+    major: Major
+    memberships: Memberships
+    other_projects: "Other Personal Projects"
+    papers: Publications
+    patents: Patents
+    research_experience: "Research Experience"
+    skills: "Technical Skills"
+    summary: "Qualifications summary"
+    technology_used: "Technologies got to work on"
+    undergrad_courses: "Undergraduate Courses Taken"
