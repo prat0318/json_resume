@@ -3,6 +3,12 @@ require_relative 'formatter'
 module JsonResume
   class FormatterLatex < Formatter
 
+		def format_slashes str
+			str.gsub!(/\\/, '\textbackslash')
+			str.gsub!(/\{/, '\{')
+			str.gsub!(/\}/, '\}')
+		end
+
     def format_link str
         str.gsub! /\[(.*?)\]\((.*?)\)/, '{\color{see} \href{\2}{\1}}'
     end
@@ -22,11 +28,16 @@ module JsonResume
     end
 
     def format_symbols str
+			str.gsub! /#/, '\#'
+			str.gsub! /\$/, '\$'
+			str.gsub! /&/, '\\\\&'
+		  str.gsub! /\|/, '\textbar'
       str.gsub! /%/, '\%'
       str.gsub! /_/, '\_'
     end
 
     def format_string str
+			format_slashes str
       format_link str
       format_autolink str
       format_emphasis str
