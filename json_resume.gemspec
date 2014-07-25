@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = JsonResume::VERSION
   spec.authors       = ["Prateek Agarwal"]
   spec.email         = ["prat0318@gmail.com"]
-  spec.description   = %q{json_resume creates pretty resume formats from a .json input file. Currently, it can cpnvert to html, tex, markdown and pdf. Customizing the templates to your own needs is also super easy.}
+  spec.description   = %q{json_resume creates pretty resume formats from a .json input file. Currently, it can convert to html, tex, markdown and pdf. Customizing the templates to your own needs is also super easy.}
   spec.summary       = %q{Generates pretty resume formats out of json input file}
   spec.homepage      = "http://github.com/prat0318/json_resume"
   spec.license       = "MIT"
@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
 
+  spec.add_dependency "i18n"
   spec.add_dependency "pdfkit"
   spec.add_dependency "thor"
   spec.add_dependency "mustache"

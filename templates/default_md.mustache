@@ -7,14 +7,14 @@
 {{/stars}}
 
 {{#summary}}
-###Qualifications summary
+### ##summary##
 {{#points}}
 * {{{.}}}
 {{/points}}
 {{/summary}}
 
 {{#github_projects}}
-###GitHub Projects
+### ##github_projects##
 {{#details}}
 * [{{project_name}}](http://github.com/{{project_name}}){{#tagline}} : {{tagline}}{{/tagline}}
 {{#description}}
@@ -24,15 +24,15 @@
 {{/github_projects}}
 
 {{#skills}}
-###Technical Skills
+### ##skills##
 {{#details}}
 * **{{type}}**: {{#items}}`{{name}}` {{/items}}
 {{/details}}
 {{/skills}}
 
 {{#education}}
-###Education
-Degree | Major | Institution | Graduation Year{{#show_gpa}} | GPA{{/show_gpa}}
+### ##education##
+ ##degree## | ##major## | ##institution## | ##graduation_year##{{#show_gpa}} | ##gpa##{{/show_gpa}}
 :--:|:--:|:--:|:--:{{#show_gpa}}|:--:{{/show_gpa}}
 {{#schools}}
 {{degree}} | {{major}} | {{institution}} | {{graduation_year}}{{#show_gpa}} | {{gpa}}{{/show_gpa}}
@@ -40,40 +40,40 @@ Degree | Major | Institution | Graduation Year{{#show_gpa}} | GPA{{/show_gpa}}
 {{/education}}
 
 {{#acad_achievements}}
-###Academic Achievements
+### ##acad_achievements##
 {{#items}}
 * {{{.}}}
 {{/items}}
 {{/acad_achievements}}
 
 {{#experience}}
-###Professional Experience
+### ##experience##
 {{#items}}
-* {{title}} at {{{organisation}}}{{#location}}, {{{location}}}{{/location}} ({{from}} – {{to}})
+* {{title}}, {{{organisation}}}{{#location}}, {{{location}}}{{/location}} ({{from}} – {{to}})
 {{#details}}
     - {{{.}}}
 {{/details}}
 {{#technology_used}}
-    - Technologies got to work on: {{#tools}}`{{name}}` {{/tools}}
+    - ##technology_used##: {{#tools}}`{{name}}` {{/tools}}
 {{/technology_used}}
 {{/items}}
 {{/experience}}
 
 {{#other_projects}}
-###Other Personal Projects
+### ##other_projects##
 {{#items}}
 * {{{headline}}}
 {{#points}}
     - {{{.}}}
 {{/points}}
 {{#technology_used}}
-    - Technologies got to work on: {{#tools}}`{{name}}` {{/tools}}
+    - ##technology_used##: {{#tools}}`{{name}}` {{/tools}}
 {{/technology_used}}
 {{/items}}
 {{/other_projects}}
 
 {{#grad_courses}}
-###Graduate Courses Taken
+### ##grad_courses##
 {{#rows}}
 {{#columns}}
 {{#name}}* [{{name}}]({{url}}){{/name}}
@@ -82,7 +82,7 @@ Degree | Major | Institution | Graduation Year{{#show_gpa}} | GPA{{/show_gpa}}
 {{/grad_courses}}
 
 {{#undergrad_courses}}
-###Undergraduate Courses Taken
+### ##undergrad_courses##
 {{#rows}}
 {{#columns}}
 {{#name}}* [{{name}}]({{url}}){{/name}}
@@ -91,9 +91,9 @@ Degree | Major | Institution | Graduation Year{{#show_gpa}} | GPA{{/show_gpa}}
 {{/undergrad_courses}}
 
 {{#research_experience}}
-###Research Experience
+### ##research_experience##
 {{#items}}
-* {{title}} at {{{organisation}}} ({{from}} – {{to}})
+* {{title}}, {{{organisation}}} ({{from}} – {{to}})
 {{#points}}
     - {{{.}}}
 {{/points}}
@@ -101,28 +101,28 @@ Degree | Major | Institution | Graduation Year{{#show_gpa}} | GPA{{/show_gpa}}
 {{/research_experience}}
 
 {{#patents}}
-###Patents
+### ##patents##
 {{#items}}
-* {{patent_id}} - **[{{title}}]({{url}})**{{#issuance_date}}, issued {{issuance_date}}{{/issuance_date}}.
+* {{patent_id}} - **[{{title}}]({{url}})**{{#issuance_date}}, ##issuance## {{issuance_date}}{{/issuance_date}}.
 {{/items}}
 {{/patents}}
 
 {{#papers}}
-###Publications
+### ##papers##
 {{#items}}
 * {{authors}} **[{{title}}]({{url}})** {{{misc}}}.
 {{/items}}
 {{/papers}}
 
 {{#memberships}}
-###Memberships
+### ##memberships##
 {{#committees}}
 * {{{.}}}
 {{/committees}}
 {{/memberships}}
 
 {{#extra_curricular}}
-###Extra Curricular Awards
+### ##extra_curricular##
 {{#items}}
 * {{{.}}}
 {{/items}}
