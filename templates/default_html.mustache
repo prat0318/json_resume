@@ -72,97 +72,99 @@
 
 	{{#education}}
 	<h2><i class="fa fa-book"></i> Education</h2>
-	<table class="table education">
-		<tr>
-			<th>Degree</th><th>Major</th><th>Institution</th><th nowrap>Graduation Year</th>{{#show_gpa}}<th>GPA</th>{{/show_gpa}}
-		</tr>
-		{{#schools}}
-		<tr>
-			<td>{{degree}}</td><td>{{major}}</td><td>{{institution}}</td><td align="center">{{graduation_year}}</td>{{#show_gpa}}<td>{{gpa}}</td>{{/show_gpa}}
-		</tr>
-		{{/schools}}
-	</table>
+	<div class="table-responsive">
+		<table class="table education">
+			<tr>
+				<th>Degree</th><th>Major</th><th>Institution</th><th nowrap>Graduation Year</th>{{#show_gpa}}<th>GPA</th>{{/show_gpa}}
+			</tr>
+			{{#schools}}
+			<tr>
+				<td>{{degree}}</td><td>{{major}}</td><td>{{institution}}</td><td align="center">{{graduation_year}}</td>{{#show_gpa}}<td>{{gpa}}</td>{{/show_gpa}}
+			</tr>
+			{{/schools}}
+		</table>
+	</div>
 	{{/education}}
 
-	{{#acad_achievements}}
-	<h2><i class="fa fa-graduation-cap"></i> Academic Achievements</h2>
-	<ul>
-		{{#items}}
-		<li>{{{.}}}</li>
-		{{/items}}
-	</ul>
-	{{/acad_achievements}}
+		{{#acad_achievements}}
+		<h2><i class="fa fa-graduation-cap"></i> Academic Achievements</h2>
+		<ul>
+			{{#items}}
+			<li>{{{.}}}</li>
+			{{/items}}
+		</ul>
+		{{/acad_achievements}}
 
-	{{#experience}}
-	<h2><i class="fa fa-briefcase"></i> Professional Experience</h2>
-	<ul>
-		{{#items}}
-		<li>{{title}} at {{{organisation}}}{{#location}}, {{{location}}}{{/location}}
-			<span class="right">({{from}} – {{to}})</span>
-			<ul>
-				{{#details}}
-				<li>{{{.}}}</li>
-				{{/details}}
-				{{#technology_used}}
-				<li>Technologies got to work on: 
-					{{#tools}}
-					<span class="label label-default">{{name}}</span>
-					{{/tools}}
-				</li>
-				{{/technology_used}}
-			</ul>
-		</li>
-		{{/items}}
-	</ul>
-	{{/experience}}
+		{{#experience}}
+		<h2><i class="fa fa-briefcase"></i> Professional Experience</h2>
+		<ul>
+			{{#items}}
+			<li>{{title}} at {{{organisation}}}{{#location}}, {{{location}}}{{/location}}
+				<span class="right">({{from}} – {{to}})</span>
+				<ul>
+					{{#details}}
+					<li>{{{.}}}</li>
+					{{/details}}
+					{{#technology_used}}
+					<li>Technologies got to work on: 
+						{{#tools}}
+						<span class="label label-default">{{name}}</span>
+						{{/tools}}
+					</li>
+					{{/technology_used}}
+				</ul>
+			</li>
+			{{/items}}
+		</ul>
+		{{/experience}}
 
-	{{#other_projects}}
-	<h2><i class="fa fa-gear"></i> Other Personal Projects</h2>
-	<ul>
-		{{#items}}
-		<li>
-			{{{headline}}}
-			<ul>
-				{{#points}}
-				<li>{{{.}}}</li>
-				{{/points}}
-				{{#technology_used}}
-				<li>Technologies got to work on: 
-					{{#tools}}
-					<span class="label label-default">{{name}}</span>
-					{{/tools}}
-				</li>
-				{{/technology_used}}			
-			</ul>
-		</li>
-		{{/items}}
-	</ul>
-	{{/other_projects}}
+		{{#other_projects}}
+		<h2><i class="fa fa-gear"></i> Other Personal Projects</h2>
+		<ul>
+			{{#items}}
+			<li>
+				{{{headline}}}
+				<ul>
+					{{#points}}
+					<li>{{{.}}}</li>
+					{{/points}}
+					{{#technology_used}}
+					<li>Technologies got to work on: 
+						{{#tools}}
+						<span class="label label-default">{{name}}</span>
+						{{/tools}}
+					</li>
+					{{/technology_used}}			
+				</ul>
+			</li>
+			{{/items}}
+		</ul>
+		{{/other_projects}}
 
-	{{#grad_courses}}
-	<h2><i class="fa fa-university"></i> Graduate Courses Taken</h2>
-	<table class="table education">
-		{{#rows}}
-		<tr>
-			{{#columns}}
-			<td><a href="{{url}}">{{name}}</a></td>
-			{{/columns}}
-		</tr>
-		{{/rows}}
-	</table>
-	{{/grad_courses}}
+		{{#grad_courses}}
+		<h2><i class="fa fa-university"></i> Graduate Courses Taken</h2>
+		<table class="table education">
+			{{#rows}}
+			<tr>
+				{{#columns}}
+				<td><a href="{{url}}">{{name}}</a></td>
+				{{/columns}}
+			</tr>
+			{{/rows}}
+		</table>
+		{{/grad_courses}}
 
-	{{#undergrad_courses}}
-	<h2><i class="fa fa-bookmark"></i> Undergraduate Courses Taken</h2>
-	<table class="table education">
-		{{#rows}}
-		<tr>
-			{{#columns}}
-			<td><a href="{{url}}">{{name}}</a></td>
-			{{/columns}}
-		</tr>
-		{{/rows}}
-	</table>
+		{{#undergrad_courses}}
+		<h2><i class="fa fa-bookmark"></i> Undergraduate Courses Taken</h2>
+		<table class="table education">
+			{{#rows}}
+			<tr>
+				{{#columns}}
+				<td><a href="{{url}}">{{name}}</a></td>
+				{{/columns}}
+			</tr>
+			{{/rows}}
+		</table>
 	{{/undergrad_courses}}
 
 	{{#research_experience}}
