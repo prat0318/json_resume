@@ -32,7 +32,7 @@
 	<br/>
 
 	{{#summary}}
-	<h2><span class="glyphicon glyphicon-compressed"></span> Qualification Summary</h2>
+	<h2><span class="glyphicon glyphicon-compressed"></span> ##summary##</h2>
 	<ul>
 		{{#points}}
 		<li>{{{.}}}</li>
@@ -41,7 +41,7 @@
 	{{/summary}}
 
 	{{#github_projects}}
-	<h2><span id="github-png"></span>GitHub Projects</h2>
+	<h2><span id="github-png"></span>##github_projects##</h2>
 	<ul>
 	{{#details}}
 		<li><a href="https://github.com/{{project_name}}">{{project_name}}</a>
@@ -57,7 +57,7 @@
 	{{/github_projects}}
 
 	{{#skills}}
-	<h2><span class="glyphicon glyphicon-th-list"></span> Technical skills</h2>
+	<h2><span class="glyphicon glyphicon-th-list"></span> ##skills##</h2>
 	<ul class="languages">
 		{{#details}}
 		<li>{{type}}: 
@@ -70,10 +70,10 @@
 	{{/skills}}
 
 	{{#education}}
-	<h2><span class="glyphicon glyphicon-book"></span> Education</h2>
+	<h2><span class="glyphicon glyphicon-book"></span> ##education##</h2>
 	<table class="table education">
 		<tr>
-			<th>Degree</th><th>Major</th><th>Institution</th><th nowrap>Graduation Year</th>{{#show_gpa}}<th>GPA</th>{{/show_gpa}}
+			<th>##degree##</th><th>##major##</th><th>##institution##</th><th nowrap>##graduation_year##</th>{{#show_gpa}}<th>##gpa##</th>{{/show_gpa}}
 		</tr>
 		{{#schools}}
 		<tr>
@@ -84,7 +84,7 @@
 	{{/education}}
 
 	{{#acad_achievements}}
-	<h2><span class="glyphicon glyphicon-tower"></span> Academic Achievements</h2>
+	<h2><span class="glyphicon glyphicon-tower"></span> ##acad_achievements##</h2>
 	<ul>
 		{{#items}}
 		<li>{{{.}}}</li>
@@ -93,17 +93,17 @@
 	{{/acad_achievements}}
 
 	{{#experience}}
-	<h2><span class="glyphicon glyphicon-briefcase"></span> Professional Experience</h2>
+	<h2><span class="glyphicon glyphicon-briefcase"></span> ##experience##</h2>
 	<ul>
 		{{#items}}
-		<li>{{title}} at {{{organisation}}}{{#location}}, {{{location}}}{{/location}}
+		<li>{{title}}, {{{organisation}}}{{#location}}, {{{location}}}{{/location}}
 			<span class="right">({{from}} – {{to}})</span>
 			<ul>
 				{{#details}}
 				<li>{{{.}}}</li>
 				{{/details}}
 				{{#technology_used}}
-				<li>Technologies got to work on: 
+				<li>##technology_used##: 
 					{{#tools}}
 					<span class="label label-default">{{name}}</span>
 					{{/tools}}
@@ -116,7 +116,7 @@
 	{{/experience}}
 
 	{{#other_projects}}
-	<h2><span class="glyphicon glyphicon-cog"></span> Other Personal Projects</h2>
+	<h2><span class="glyphicon glyphicon-cog"></span> ##other_projects##</h2>
 	<ul>
 		{{#items}}
 		<li>
@@ -126,7 +126,7 @@
 				<li>{{{.}}}</li>
 				{{/points}}
 				{{#technology_used}}
-				<li>Technologies got to work on: 
+				<li>##technology_used##: 
 					{{#tools}}
 					<span class="label label-default">{{name}}</span>
 					{{/tools}}
@@ -139,7 +139,7 @@
 	{{/other_projects}}
 
 	{{#grad_courses}}
-	<h2><span class="glyphicon glyphicon-bookmark"></span> Graduate Courses Taken</h2>
+	<h2><span class="glyphicon glyphicon-bookmark"></span> ##grad_courses##</h2>
 	<table class="table education">
 		{{#rows}}
 		<tr>
@@ -152,7 +152,7 @@
 	{{/grad_courses}}
 
 	{{#undergrad_courses}}
-	<h2><span class="glyphicon glyphicon-bookmark"></span> Undergraduate Courses Taken</h2>
+	<h2><span class="glyphicon glyphicon-bookmark"></span> ##undergrad_courses##</h2>
 	<table class="table education">
 		{{#rows}}
 		<tr>
@@ -165,11 +165,11 @@
 	{{/undergrad_courses}}
 
 	{{#research_experience}}
-	<h2><span class="glyphicon glyphicon-pencil"></span> Research Experience</h2>
+	<h2><span class="glyphicon glyphicon-pencil"></span> ##research_experience##</h2>
 	<ul>
 		{{#items}}
 		<li>
-			{{title}} at {{{organisation}}}
+			{{title}}, {{{organisation}}}
 			<span class="right">({{from}} – {{to}})</span>
 			<ul>
 				{{#points}}
@@ -182,19 +182,19 @@
 	{{/research_experience}}
 
 	{{#patents}}
-	<h2><span class="glyphicon glyphicon-file"></span> Patents</h2>
+	<h2><span class="glyphicon glyphicon-file"></span> ##patents##</h2>
 	<ul>
 		{{#items}}
 		<li>{{patent_id}} 
 			<a href="{{url}}">{{title}}</a> 
-			{{#issuance_date}}, issued {{issuance_date}}{{/issuance_date}}.
+			{{#issuance_date}}, ##issuance## {{issuance_date}}{{/issuance_date}}.
 		</li>
 		{{/items}}
 	</ul>
 	{{/patents}}
 
 	{{#papers}}
-	<h2><span class="glyphicon glyphicon-edit"></span> Publications</h2>
+	<h2><span class="glyphicon glyphicon-edit"></span> ##papers##</h2>
 	<ul>
 		{{#items}}
 		<li>{{authors}} 
@@ -206,7 +206,7 @@
 	{{/papers}}
 
 	{{#memberships}}
-	<h2><span class="glyphicon glyphicon-globe"></span> Memberships</h2>
+	<h2><span class="glyphicon glyphicon-globe"></span> ##memberships##</h2>
 	<ul>
 		{{#committees}}
 		<li>{{{.}}}</li>
@@ -215,7 +215,7 @@
 	{{/memberships}}
 	
 	{{#extra_curricular}}
-	<h2><span class="glyphicon glyphicon-music"></span> Extra Curricular Awards</h2>
+	<h2><span class="glyphicon glyphicon-music"></span> ##extra_curricular##</h2>
 	<ul>
 		{{#items}}
 		<li>{{{.}}}</li>
