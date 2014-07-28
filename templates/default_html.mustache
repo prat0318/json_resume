@@ -33,7 +33,7 @@
 	<br/>
 
 	{{#summary}}
-	<h2><i class="fa fa-user"></i> Qualification Summary</h2>
+	<h2><i class="fa fa-user"></i> ##summary##</h2>
 	<ul>
 		{{#points}}
 		<li>{{{.}}}</li>
@@ -42,7 +42,7 @@
 	{{/summary}}
 
 	{{#github_projects}}
-	<h2><i class="fa fa-github fa-lg"></i> GitHub Projects</h2>
+	<h2><i class="fa fa-github fa-lg"></i> ##github_projects##</h2>
 	<ul>
 	{{#details}}
 		<li><a href="https://github.com/{{project_name}}">{{project_name}}</a>
@@ -58,7 +58,7 @@
 	{{/github_projects}}
 
 	{{#skills}}
-	<h2><i class="fa fa-th-list"></i> Technical skills</h2>
+	<h2><i class="fa fa-th-list"></i> #skills#</h2>
 	<ul class="languages">
 		{{#details}}
 		<li>{{type}}: 
@@ -71,7 +71,7 @@
 	{{/skills}}
 
 	{{#education}}
-	<h2><i class="fa fa-book"></i> Education</h2>
+	<h2><i class="fa fa-book"></i> ##education##</h2>
 	<div class="table-responsive">
 		<table class="table education">
 			<tr>
@@ -87,7 +87,7 @@
 	{{/education}}
 
 		{{#acad_achievements}}
-		<h2><i class="fa fa-graduation-cap"></i> Academic Achievements</h2>
+		<h2><i class="fa fa-graduation-cap"></i> ##acad_achievements##</h2>
 		<ul>
 			{{#items}}
 			<li>{{{.}}}</li>
@@ -96,7 +96,7 @@
 		{{/acad_achievements}}
 
 		{{#experience}}
-		<h2><i class="fa fa-briefcase"></i> Professional Experience</h2>
+		<h2><i class="fa fa-briefcase"></i> ##experience##</h2>
 		<ul>
 			{{#items}}
 			<li>{{title}} at {{{organisation}}}{{#location}}, {{{location}}}{{/location}}
@@ -119,7 +119,7 @@
 		{{/experience}}
 
 		{{#other_projects}}
-		<h2><i class="fa fa-gear"></i> Other Personal Projects</h2>
+		<h2><i class="fa fa-gear"></i> ##other_projects##</h2>
 		<ul>
 			{{#items}}
 			<li>
@@ -142,7 +142,7 @@
 		{{/other_projects}}
 
 		{{#grad_courses}}
-		<h2><i class="fa fa-university"></i> Graduate Courses Taken</h2>
+		<h2><i class="fa fa-university"></i> ##grad_courses##</h2>
 		<table class="table education">
 			{{#rows}}
 			<tr>
@@ -155,7 +155,7 @@
 		{{/grad_courses}}
 
 		{{#undergrad_courses}}
-		<h2><i class="fa fa-bookmark"></i> Undergraduate Courses Taken</h2>
+		<h2><i class="fa fa-bookmark"></i> ##undergrad_courses##</h2>
 		<table class="table education">
 			{{#rows}}
 			<tr>
@@ -168,11 +168,11 @@
 	{{/undergrad_courses}}
 
 	{{#research_experience}}
-	<h2><i class="fa fa-pencil"></i> Research Experience</h2>
+	<h2><i class="fa fa-pencil"></i> ##research_experience##</h2>
 	<ul>
 		{{#items}}
 		<li>
-			{{title}} at {{{organisation}}}
+			{{title}}, {{{organisation}}}
 			<span class="right">({{from}} – {{to}})</span>
 			<ul>
 				{{#points}}
@@ -185,19 +185,19 @@
 	{{/research_experience}}
 
 	{{#patents}}
-	<h2><i class="fa fa-file"></i> Patents</h2>
+	<h2><i class="fa fa-file"></i> ##patents##</h2>
 	<ul>
 		{{#items}}
 		<li>{{patent_id}} 
 			<a href="{{url}}">{{title}}</a> 
-			{{#issuance_date}}, issued {{issuance_date}}{{/issuance_date}}.
+			{{#issuance_date}}, ##issuance## {{issuance_date}}{{/issuance_date}}.
 		</li>
 		{{/items}}
 	</ul>
 	{{/patents}}
 
 	{{#papers}}
-	<h2><i class="fa fa-pencil-square-o"></i> Publications</h2>
+	<h2><i class="fa fa-pencil-square-o"></i> ##papers##</h2>
 	<ul>
 		{{#items}}
 		<li>{{authors}} 
@@ -209,7 +209,7 @@
 	{{/papers}}
 
 	{{#memberships}}
-	<h2><i class="fa fa-globe"></i> Memberships</h2>
+	<h2><i class="fa fa-globe"></i> ##memberships##</h2>
 	<ul>
 		{{#committees}}
 		<li>{{{.}}}</li>
@@ -218,7 +218,7 @@
 	{{/memberships}}
 	
 	{{#extra_curricular}}
-	<h2><i class="fa fa-music"></i> Extra Curricular Awards</h2>
+	<h2><i class="fa fa-music"></i> ##extra_curricular##</h2>
 	<ul>
 		{{#items}}
 		<li>{{{.}}}</li>

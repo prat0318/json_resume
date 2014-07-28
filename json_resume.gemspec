@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
 
+  spec.add_dependency "i18n"
   spec.add_dependency "pdfkit"
   spec.add_dependency "thor"
   spec.add_dependency "mustache"

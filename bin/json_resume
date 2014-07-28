@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'i18n'
 require 'thor'
 require 'mustache'
 require_relative '../lib/json_resume'
@@ -15,7 +16,9 @@ class JsonResumeCLI < Thor
   desc "convert /path/to/json/file", "converts the json to pretty resume format"
   option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md"
   option :template, :banner=>"template_path", :desc=>"path to customized template (optional)"
+	option :locale, :default=>"en", :banner=>"locale", :desc=>"en|es|pt"
   def convert(json_input)
+		set_i18n(options[:locale])
     puts "Generating the #{options[:out]} type..."
     puts send('convert_to_'+options[:out], json_input, get_template(options))
   end
@@ -117,9 +120,19 @@ class JsonResumeCLI < Thor
       generate_file(json_input, template, "markdown", "#{dest}/resume.md")
     end
 
+		def set_i18n(locale)
+			I18n.load_path = Dir["#{@@orig_locn}/../locale/*.yml"]
+			I18n.enforce_available_locales = true
+			I18n.locale = options[:locale].to_sym
+		end
+
+		def i18n(text)
+			text.gsub(/##(\w*?)##/) { I18n.t! Regexp.last_match[1], :scope => 'headings' }
+		end
+
     def generate_file(json_input, template, output_type, dest)
       resume_obj = JsonResume.new(json_input, "output_type" => output_type)
-      mustache_obj  = Mustache.render(File.read(template), resume_obj.reader.hash)
+      mustache_obj  = Mustache.render(i18n(File.read(template)), resume_obj.reader.hash)
       File.open(dest,'w') {|f| f.write(mustache_obj) }
       return "\nGenerated files present at #{dest}"
     end

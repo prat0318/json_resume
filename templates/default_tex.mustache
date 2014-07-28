@@ -37,21 +37,21 @@
 \vspace*{-1cm}
 
 <%#summary%>
-\section{\textsc{Qualification Summary}}
+\section{\textsc{##summary##}}
 	<%#points%>
 		\cvitem{\textbullet}{<%& .%>}
 	<%/points%>
 <%/summary%>
 
 <%#skills%>
-\section{\textsc{Technical Skills}}
+\section{\textsc{##skills##}}
 	<%#details%>
 		\cvitem{\textbullet}{\textbf{<%type%>}: <%#items%><%name%><%^last%>, <%/last%><%/items%>}
 	<%/details%>
 <%/skills%>
 
 <%#github_projects%>
-\section{\textsc{Github Projects}}
+\section{\textsc{##github_projects##}}
 	<%#details%>
 		\cvitem{\textbullet}{\textbf{\href{http://github.com/<%project_name%>}{<%project_name%>}}<%#tagline%> - <%& .%><%/tagline%>}
 		\vspace*{-0.15cm}
@@ -67,7 +67,7 @@
 <%/github_projects%>
 
 <%#experience%>
-\section{\textsc{Professional Experience}}
+\section{\textsc{##experience##}}
 %    \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
 	<%#items%>
 		\cventry{<%from%> - <%to%>}{<%title%>}{<%organisation%>}{<%location%>}{}{
@@ -75,7 +75,7 @@
 				\begin{itemize}
 				<%#details%>\item <%& .%><%/details%>	
 				<%#technology_used%>
-				\item Technologies got to work on:
+				\item ##technology_used##:
 				<%#tools%><%name%><%^last%>, <%/last%><%/tools%>
 				<%/technology_used%>
 				\end{itemize}
@@ -85,7 +85,7 @@
 <%/experience%>
 
 <%#other_projects%>
-\section{\textsc{Other Projects}}
+\section{\textsc{##other_projects##}}
 	<%#items%>
 		\cvitem{\textbullet}{<%& headline%>}
 		\vspace*{-0.15cm}
@@ -94,7 +94,7 @@
 				\begin{itemize}
 				<%#points%>\item <%& .%><%/points%>	
 				<%#technology_used%>
-				\item Technologies got to work on:
+				\item ##technology_used##:
 				<%#tools%><%name%><%^last%>, <%/last%><%/tools%>
 				<%/technology_used%>
 				\end{itemize}
@@ -105,15 +105,15 @@
 <%/other_projects%>
 
 <%#education%>
-\section{\textsc{Education}}
+\section{\textsc{##education##}}
 %    \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
 <%#schools%>
-\cventry{<%graduation_year%>}{<%degree%><%#major%>, <%major%><%/major%>}{<%institution%>}{}{<%#show_gpa%>GPA: <%gpa%><%/show_gpa%>}{}
+\cventry{<%graduation_year%>}{<%degree%><%#major%>, <%major%><%/major%>}{<%institution%>}{}{<%#show_gpa%>##gpa##: <%gpa%><%/show_gpa%>}{}
 <%/schools%>
 <%/education%>
 
 <%#acad_achievements%>
-\section{\textsc{Academic Achievements}}
+\section{\textsc{##acad_achievements##}}
 	<%#items%>
 		% \cvitem{LHS}{RHS}
 		\cvitem{\textbullet}{<%& .%>}
@@ -121,7 +121,7 @@
 <%/acad_achievements%>
 
 <%#grad_courses%>
-\section{\textsc{Graduate courses taken}}
+\section{\textsc{##grad_courses##}}
 	<%#rows%>
 		\cvlistdoubleitem
 		<%#columns%>{<%#name%>\href{<%& url%>}{<%name%>}<%/name%>}<%/columns%>	
@@ -129,7 +129,7 @@
 <%/grad_courses%>
 
 <%#undergrad_courses%>
-\section{\textsc{Undergraduate courses taken}}
+\section{\textsc{##undergrad_courses##}}
 	<%#rows%>
 		\cvlistdoubleitem
 		<%#columns%>{<%#name%>\href{<%& url%>}{<%name%>}<%/name%>}<%/columns%>	
@@ -137,7 +137,7 @@
 <%/undergrad_courses%>
 
 <%#research_experience%>
-\section{\textsc{Research Experience}}
+\section{\textsc{##research_experience##}}
 	<%#items%>
 		\cventry{<%from%> - <%to%>}{<%title%>}{<%organisation%>}{<%location%>}{}{
 			{\footnotesize 
@@ -150,28 +150,28 @@
 <%/research_experience%>
 
 <%#patents%>
-\section{\textsc{Patents}}
+\section{\textsc{##patents##}}
 	<%#items%>
-		\cvitem{<%patent_id%>}{\textit{\href{<%url%>}{<%title%>}}<%#issuance_date%>, issued <%issuance_date%><%/issuance_date%>.}
+		\cvitem{<%patent_id%>}{\textit{\href{<%url%>}{<%title%>}}<%#issuance_date%>, ##issuance## <%issuance_date%><%/issuance_date%>.}
 	<%/items%>
 <%/patents%>
 
 <%#papers%>
-\section{\textsc{Publications}}
+\section{\textsc{##papers##}}
 	<%#items%>
 		\cvitem{\textbullet}{<%authors%>, \textit{\href{<%url%>}{<%title%>}} <%& misc%>}
 	<%/items%>
 <%/papers%>
 
 <%#memberships%>
-\section{\textsc{Memberships}}
+\section{\textsc{##memberships##}}
 	<%#committees%>
 		\cvitem{\textbullet}{<%& .%>}
 	<%/committees%>
 <%/memberships%>
 
 <%#extra_curricular%>
-\section{\textsc{Extra Curricular Awards}}
+\section{\textsc{##extra_curricular##}}
 	<%#items%>
 		\cvitem{\textbullet}{<%& .%>}
 	<%/items%>
@@ -180,4 +180,3 @@
 <%/bio_data%>
 \end{document}
 %% end of file `page.tex'.
-
