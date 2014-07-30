@@ -1,11 +1,7 @@
 {{#settings}}
 	{{#icons}}
-	<script>
-	    /* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
-	    window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!!t.document.createElementNS&&!!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect&&!!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1"),A=function(A){var o=t.document.createElement("link"),r=t.document.getElementsByTagName("script")[0];o.rel="stylesheet",o.href=e[A&&n?0:A?1:2],r.parentNode.insertBefore(o,r)},o=new t.Image;o.onerror=function(){A(!1)},o.onload=function(){A(1===o.width&&1===o.height)},o.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
-	    grunticon( [ "public/css/icons.data.svg.css", "public/css/icons.data.png.css", "public/css/icons.fallback.css" ] );
-	    </script>
-	    <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css" />
+	<script src="public/js/grunticon.js"></script>
+	<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css" />
 	{{/icons}}
 {{/settings}}
 <link rel="stylesheet" type="text/css" href="public/css/screen.css" />
@@ -14,13 +10,13 @@
 	<span class="hidden-xs">
 		<div class="contact-details">
 			{{#email}}
-			<div class="icon-envelope" style="width: 16px; height: 16px; display:inline-block"></div> {{email}}<br />
+			<div class="icon-envelope icon-square"></div> {{email}}<br />
 			{{/email}}
 			{{#phone}}
-			<div class="icon-phone" style="width: 16px; height: 16px; display:inline-block"></div> {{phone}}<br />
+			<div class="icon-phone icon-square"></div> {{phone}}<br />
 			{{/phone}}
 			{{#website}}
-			<div class="icon-globe" style="width: 16px; height: 16px; display:inline-block"></div><a href="{{website}}"> {{website}}</a>
+			<div class="icon-globe icon-square"></div><a href="{{website}}"> {{website}}</a>
 			{{/website}}
 		</div>
 	</span>
@@ -36,7 +32,7 @@
 	<br/>
 
 	{{#summary}}
-	<h2><div class="icon-user" style="width: 16px; height: 16px; display:inline-block"></div> ##summary##</h2>
+	<h2><div class="icon-user icon-square"></div> ##summary##</h2>
 	<ul>
 		{{#points}}
 		<li>{{{.}}}</li>
@@ -45,7 +41,7 @@
 	{{/summary}}
 
 	{{#github_projects}}
-	<h2><div class="icon-github" style="width: 16px; height: 16px; display:inline-block"></div> ##github_projects##</h2>
+	<h2><div class="icon-github icon-square"></div> ##github_projects##</h2>
 	<ul>
 	{{#details}}
 		<li><a href="https://github.com/{{project_name}}">{{project_name}}</a>
@@ -61,7 +57,7 @@
 	{{/github_projects}}
 
 	{{#skills}}
-	<h2><div class="icon-th-list" style="width: 16px; height: 16px; display:inline-block"></div> ##skills##</h2>
+	<h2><div class="icon-th-list icon-square"></div> ##skills##</h2>
 	<ul class="languages">
 		{{#details}}
 		<li>{{type}}: 
@@ -74,7 +70,7 @@
 	{{/skills}}
 
 	{{#education}}
-	<h2><div class="icon-th-list" style="width: 16px; height: 16px; display:inline-block"></div> ##education##</h2>
+	<h2><div class="icon-th-list icon-square"></div> ##education##</h2>
 	<div class="table-responsive">
 		<table class="table education">
 			<tr>
@@ -90,7 +86,7 @@
 	{{/education}}
 
 	{{#acad_achievements}}
-	<h2><div class="icon-mortar-board" style="width: 21px; height: 16px; display:inline-block"></div> ##acad_achievements##</h2>
+	<h2><div class="icon-mortar-board icon-rect"></div> ##acad_achievements##</h2>
 	<ul>
 		{{#items}}
 		<li>{{{.}}}</li>
@@ -99,7 +95,7 @@
 	{{/acad_achievements}}
 
 	{{#experience}}
-	<h2><div class="icon-briefcase" style="width: 16px; height: 16px; display:inline-block"></div> ##experience##</h2>
+	<h2><div class="icon-briefcase icon-square"></div> ##experience##</h2>
 	<ul>
 		{{#items}}
 		<li>{{title}}, {{{organisation}}}{{#location}}, {{{location}}}{{/location}}
@@ -122,7 +118,7 @@
 	{{/experience}}
 
 	{{#other_projects}}
-	<h2><div class="icon-gear" style="width: 16px; height: 16px; display:inline-block"></div> ##other_projects##</h2>
+	<h2><div class="icon-gear icon-square"></div> ##other_projects##</h2>
 	<ul>
 		{{#items}}
 		<li>
@@ -132,7 +128,7 @@
 				<li>{{{.}}}</li>
 				{{/points}}
 				{{#technology_used}}
-				<li>Technologies got to work on: 
+				<li>##technology_used##: 
 					{{#tools}}
 					<span class="label label-default">{{name}}</span>
 					{{/tools}}
@@ -145,7 +141,7 @@
 	{{/other_projects}}
 
 	{{#grad_courses}}
-	<h2><div class="icon-institution" style="width: 16px; height: 16px; display:inline-block"></div> ##grad_courses##</h2>
+	<h2><div class="icon-institution icon-square"></div> ##grad_courses##</h2>
 	<table class="table education">
 		{{#rows}}
 		<tr>
@@ -158,7 +154,7 @@
 	{{/grad_courses}}
 
 	{{#undergrad_courses}}
-	<h2><div class="icon-bookmark" style="width: 16px; height: 16px; display:inline-block"></div> ##undergrad_courses##</h2>
+	<h2><div class="icon-bookmark icon-square"></div> ##undergrad_courses##</h2>
 	<table class="table education">
 		{{#rows}}
 		<tr>
@@ -171,7 +167,7 @@
 	{{/undergrad_courses}}
 
 	{{#research_experience}}
-	<h2><div class="icon-edit" style="width: 16px; height: 16px; display:inline-block"></div> ##research_experience##</h2>
+	<h2><div class="icon-edit icon-square"></div> ##research_experience##</h2>
 	<ul>
 		{{#items}}
 		<li>
@@ -188,7 +184,7 @@
 	{{/research_experience}}
 
 	{{#patents}}
-	<h2><div class="icon-file" style="width: 16px; height: 16px; display:inline-block"></div> ##patents##</h2>
+	<h2><div class="icon-file icon-square"></div> ##patents##</h2>
 	<ul>
 		{{#items}}
 		<li>{{patent_id}} 
@@ -200,7 +196,7 @@
 	{{/patents}}
 
 	{{#papers}}
-	<h2><div class="icon-edit" style="width: 16px; height: 16px; display:inline-block"></div> ##papers##</h2>
+	<h2><div class="icon-edit icon-square"></div> ##papers##</h2>
 	<ul>
 		{{#items}}
 		<li>{{authors}} 
@@ -212,7 +208,7 @@
 	{{/papers}}
 
 	{{#memberships}}
-	<h2><div class="icon-globe" style="width: 16px; height: 16px; display:inline-block"></div> ##memberships##</h2>
+	<h2><div class="icon-globe icon-square"></div> ##memberships##</h2>
 	<ul>
 		{{#committees}}
 		<li>{{{.}}}</li>
@@ -221,7 +217,7 @@
 	{{/memberships}}
 	
 	{{#extra_curricular}}
-	<h2><div class="icon-music" style="width: 16px; height: 16px; display:inline-block"></div> ##extra_curricular##</h2>
+	<h2><div class="icon-music icon-square"></div> ##extra_curricular##</h2>
 	<ul>
 		{{#items}}
 		<li>{{{.}}}</li>
@@ -232,13 +228,13 @@
 	<br />
 	<span class="visible-xs" text-size="80%">
 		{{#email}}
-		<div class="icon-envelope" style="width: 16px; height: 16px; display:inline-block"></div> {{email}}<br />
+		<div class="icon-envelope icon-square"></div> {{email}}<br />
 		{{/email}}
 		{{#phone}}
-		<div class="icon-phone" style="width: 16px; height: 16px; display:inline-block"></div> {{phone}}<br />
+		<div class="icon-phone icon-square"></div> {{phone}}<br />
 		{{/phone}}
 		{{#website}}
-		<div class="icon-globe" style="width: 16px; height: 16px; display:inline-block"></div><a href="{{website}}"> {{website}}</a>
+		<div class="icon-globe icon-square></div><a href="{{website}}"> {{website}}</a>
 		{{/website}}
 	</div></span>
 
