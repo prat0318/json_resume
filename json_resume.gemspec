@@ -25,7 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "pdfkit"
   spec.add_dependency "thor"
   spec.add_dependency "mustache"
-  spec.add_dependency "archive-tar-minitar"
   spec.add_dependency "rest-client"
 
 end

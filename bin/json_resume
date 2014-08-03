@@ -4,8 +4,6 @@ require 'i18n'
 require 'thor'
 require 'mustache'
 require_relative '../lib/json_resume'
-require 'archive/tar/minitar'
-include Archive::Tar
 require 'zlib'
 require 'pdfkit'
 require 'rest-client'
@@ -43,10 +41,11 @@ class JsonResumeCLI < Thor
     end
 
     def convert_to_html(json_input, template, dest=Dir.pwd, dir_name='resume')
-      tgz = Zlib::GzipReader.new(File.open("#{@@orig_locn}/../extras/resume_html.tar.gz", 'rb'))
-      Minitar.unpack(tgz, "#{dest}/#{dir_name}")
-      msg = generate_file(json_input, template, "html", "#{dest}/#{dir_name}/page.html")
-      msg += "\nPlace #{dest}/#{dir_name}/ in /var/www/ to host."
+			dest_dir = "#{dest}/#{dir_name}"
+			FileUtils.mkdir_p dest_dir
+			FileUtils.cp_r(Dir["#{@@orig_locn}/../extras/resume_html/*"], dest_dir)
+      msg = generate_file(json_input, template, "html", "#{dest_dir}/page.html")
+      msg += "\nPlace #{dest_dir}/ in /var/www/ to host."
     end
 
     def convert_to_html_pdf(json_input, template, dest=Dir.pwd)
