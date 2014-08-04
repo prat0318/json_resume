@@ -41,7 +41,7 @@ class JsonResumeCLI < Thor
       out_type = options[:out].split('_').first #html for both html, html_pdf
 			theme = options[:theme]
 			template_path = "#{@@orig_locn}/../templates/#{theme}_#{out_type}.mustache"
-			unless File.exists? template_path and theme != 'default'
+			if !(File.exists? template_path) and theme != 'default'
 				puts "Theme #{theme} doesn't exist for #{options[:out]} type yet! Using default..."
 				template_path = "#{@@orig_locn}/../templates/default_#{out_type}.mustache"
 			end
