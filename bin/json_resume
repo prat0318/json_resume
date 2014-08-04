@@ -15,6 +15,7 @@ class JsonResumeCLI < Thor
   option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md"
   option :template, :banner=>"template_path", :desc=>"path to customized template (optional)"
 	option :locale, :default=>"en", :banner=>"locale", :desc=>"en|es|pt"
+	option :theme, :default=>"default", :banner=>"theme", :desc=>"default|classic"
   def convert(json_input)
 		set_i18n(options[:locale])
     puts "Generating the #{options[:out]} type..."
@@ -36,8 +37,15 @@ class JsonResumeCLI < Thor
     @@orig_locn = File.expand_path(File.dirname(__FILE__))
 
     def get_template(options)
+      return options[:template] if options[:template]
       out_type = options[:out].split('_').first #html for both html, html_pdf
-      options[:template] || "#{@@orig_locn}/../templates/default_#{out_type}.mustache"
+			theme = options[:theme]
+			template_path = "#{@@orig_locn}/../templates/#{theme}_#{out_type}.mustache"
+			unless File.exists? template_path and theme != 'default'
+				puts "Theme #{theme} doesn't exist for #{options[:out]} type yet! Using default..."
+				template_path = "#{@@orig_locn}/../templates/default_#{out_type}.mustache"
+			end
+			return template_path
     end
 
     def convert_to_html(json_input, template, dest=Dir.pwd, dir_name='resume')

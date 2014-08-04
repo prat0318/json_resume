@@ -1,0 +1,209 @@
+{{=<% %>=}}
+\documentclass[letterpaper,11pt]{article}
+
+<%#bio_data%>
+%-----------------------------------------------------------
+\usepackage[empty]{fullpage}
+\usepackage{color}
+\definecolor{mygrey}{gray}{0.80}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Adjust margins to 0.5in on all sides
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+\usepackage{multicol}
+\usepackage{hyperref}
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{7.0in}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+%-----------------------------------------------------------
+
+% command and color used in this document, independently from moderncv
+\definecolor{see}{rgb}{0.5,0.5,0.5}% for web links
+
+\begin{document}
+
+\begin{tabular*}{7.5in}{l@{\extracolsep{\fill}}r}
+\textbf{\large <%&firstname%> <%&familyname%>}  & <%#phone%><%.%> (phone)<%/phone%>\\
+<%#stars%><%#items%><%name%><%^last%> $\star$ <%/last%><%/items%><%/stars%> & <%#email%><%.%><%/email%>\\
+<%#website%> & <%& .%><%/website%>\\
+\end{tabular*}
+\\
+
+\vspace{0.1in}
+
+<%#summary%>
+\resheading{##summary##}
+\begin{itemize}
+<%#points%>
+	\resitem{<%& .%>}
+<%/points%>
+\end{itemize}
+<%/summary%>
+
+
+<%#github_projects%>
+\resheading{##github_projects##}
+\begin{itemize}
+<%#details%>
+\item
+	\ressubheading{\href{http://github.com/<%project_name%>}{<%project_name%>}}{}{<%#tagline%> - <%& .%><%/tagline%>}{}
+    \begin{itemize}
+	<%#description%>
+		\resitem{<%& .%>}
+        <%/description%>
+    \end{itemize}
+<%/details%>
+\end{itemize}
+<%/github_projects%>
+
+<%#skills%>
+\resheading{##skills##}
+\begin{description}
+<%#details%>
+	\item[<%type%>:] <%#items%><%name%><%^last%>, <%/last%><%/items%>
+<%/details%>
+\end{description}
+<%/skills%>
+
+<%#education%>
+\resheading{##education##}
+\begin{itemize}
+<%#schools%>
+\item
+	\ressubheading{<%institution%>}{<%graduation_year%>}{<%degree%><%#major%>, <%major%><%/major%>}{<%#show_gpa%>##gpa##: <%gpa%><%/show_gpa%>}
+<%/schools%>
+\end{itemize}
+<%/education%>
+
+<%#acad_achievements%>
+\resheading{##acad_achievements##}
+\begin{itemize}
+<%#items%>
+	\item{<%& .%>}
+<%/items%>
+\end{itemize}
+<%/acad_achievements%>
+
+<%#experience%>
+\resheading{##experience##}
+\begin{itemize}
+<%#items%>
+\item
+	\ressubheading{<%organisation%>}{<%location%>}{<%title%>}{<%from%> – <%to%>}
+	\begin{itemize}
+		<%#details%>\resitem{<%& .%>}<%/details%>
+		<%#technology_used%>
+		\resitem{##technology_used##: <%#tools%><%name%><%^last%>, <%/last%><%/tools%>}
+		<%/technology_used%>
+	\end{itemize}
+<%/items%>
+
+\end{itemize}
+<%/experience%>
+
+<%#other_projects%>
+\resheading{##other_projects##}
+\begin{itemize}
+<%#items%>
+	\resitem{<%& headline%>}
+		\begin{itemize}
+		<%#points%>\resitem{<%& .%>}<%/points%>
+		<%#technology_used%>
+		\resitem{##technology_used##: <%#tools%><%name%><%^last%>, <%/last%><%/tools%>}
+		<%/technology_used%>
+		\end{itemize}
+<%/items%>
+\end{itemize}
+<%/other_projects%>
+
+<%#grad_courses%>
+\resheading{##grad_courses##}
+\begin{multicols}{2}
+\begin{itemize}
+	<%#rows%>
+		<%#columns%>
+			    \item[] <%#name%>\href{<%& url%>}{<%name%>}<%/name%>
+		<%/columns%>
+	<%/rows%>
+\end{itemize}
+\end{multicols}
+<%/grad_courses%>
+
+<%#undergrad_courses%>
+\resheading{##undergrad_courses##}
+\begin{multicols}{2}
+\begin{itemize}
+	<%#rows%>
+		<%#columns%>
+			    \item[] <%#name%>\href{<%& url%>}{<%name%>}<%/name%>
+		<%/columns%>
+	<%/rows%>
+\end{itemize}
+\end{multicols}
+<%/undergrad_courses%>
+
+<%#research_experience%>
+\resheading{##research_experience##}
+\begin{itemize}
+<%#items%>
+	\resitem{<%title%>, <%organisation%> <%location%> (<%from%> – <%to%>)}
+		\begin{itemize}
+		<%#points%>\resitem{<%& .%>}<%/points%>
+	    \end{itemize}
+<%/items%>
+\end{itemize}
+<%/research_experience%>
+
+
+<%#patents%>
+\resheading{##patents##}
+	<%#items%>
+		\begin{itemize}
+		\resitem{<%patent_id%> - \textit{\href{<%url%>}{<%title%>}}<%#issuance_date%>, ##issuance## <%issuance_date%><%/issuance_date%>.}
+		\end{itemize}
+	<%/items%>
+<%/patents%>
+
+<%#papers%>
+\resheading{##papers##}
+\begin{description}
+	<%#items%>
+		\item["\href{<%url%>}{<%title%>}"]
+		 <%authors%>, \emph{<%&misc%>}.
+	<%/items%>
+\end{description}
+<%/papers%>
+
+<%#memberships%>
+\resheading{##memberships##}
+\begin{itemize}
+	<%#committees%>
+		\resitem{<%& .%>}
+	<%/committees%>
+\end{itemize}
+<%/memberships%>
+
+<%#extra_curricular%>
+\resheading{##extra_curricular##}
+\begin{itemize}
+	<%#items%>
+		\resitem{<%& .%>}
+	<%/items%>
+\end{itemize}
+<%/extra_curricular%>
+
+<%/bio_data%>
+\end{document}
+%% end of file `page.tex'.
