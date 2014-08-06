@@ -78,6 +78,56 @@ sup { line-height: 1ex; }
 	background: white;
 	padding: 3em 3em 1.5em 3em;
 }
+#bottom-contact {
+	display: none;
+}
+.icon-square {
+	width: 16px;
+	height: 16px;
+	display:inline-block;
+
+}
+
+.icon-rect {
+	width: 21px;
+	height: 16px;
+	display:inline-block;
+
+}
+
+/*added for #PAGE */
+@media screen and (max-width: 700px){
+    #page {
+    	padding: 0.5em 1em 0.5em 1em;
+    }
+    #site {
+	max-width: 46em;
+	margin: 0em auto 0em auto;
+	}
+	#bottom-contact {
+	display: inline;
+	}
+	#top-contact {
+	display: none;
+	}
+	.contact-details {
+	float: right;
+	width: 50em;
+	font-size: 80%;
+	}
+}
+/*@media screen and (max-width: 500px){
+    #page {
+    	padding: 0.5em 1em 0.5em 1em;
+    }
+    #site {
+	max-width: 46em;
+	margin: 0em auto 0em auto;
+	}
+	#contact-text {
+		display: none;
+	}
+}*/
 
 /* @group FancyFirst */
 .emphnext + p:first-letter, p.emphfirst:first-letter {
@@ -194,8 +244,8 @@ ul.compact li a {
 	position: relative;
 	font-variant: small-caps;
 	line-height: 1em;
-	margin-top: .25em;
-	margin-bottom: 0.25em;
+	margin-top: 0em;
+	margin-bottom: 0em;
 }
 #header h1 {
 	font-family: Palatino, georgia, "times new roman", serif;
@@ -324,7 +374,7 @@ p.excerpt { margin: 0; }
 pre {
 	margin: 1em 0 1.5em 0;
 	font-size: 0.75em; /* Hack to make code look same size as body font */  
-	line-height: 1.5em;	
+	line-height: 1.5em;
 	color: #111;
 	background: #fffff0;
 	border: 1px solid #ddc;
