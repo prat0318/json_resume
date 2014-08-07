@@ -63,10 +63,12 @@ class JsonResumeCLI < Thor
         config.default_options = {
           :footer_right => "Page [page] of [toPage]    .\n",
           :footer_font_size => 10,
-          :footer_font_name => "Georgia"   
+          :footer_font_name => "Georgia"
         }
       end
       html_file = File.new("#{dest}/#{tmp_dir}/core-page.html")
+      # Purge the mobile css properties so that wkhtmlpdf not uses them.
+      File.open("#{dest}/#{tmp_dir}/public/css/mobile.css", 'w') {}
 
       pdf_options = {
         :margin_top => 2.0,

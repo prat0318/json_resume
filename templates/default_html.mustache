@@ -5,6 +5,7 @@
 	{{/icons}}
 {{/settings}}
 <link rel="stylesheet" type="text/css" href="public/css/screen.css" />
+<link rel="stylesheet" type="text/css" href="public/css/mobile.css" />
 <div id="page">
 {{#bio_data}}
 	<div id="top-contact">
@@ -25,7 +26,7 @@
 	{{#stars}}
 	<span class="stars">
 		 {{#items}}
-		 {{name}} {{^last}}<span class="glyphicon glyphicon-star-empty"></span>{{/last}}
+		 {{name}} {{^last}}<span class="icon-star-o icon-square"></span>{{/last}}
 		 {{/items}}
 	</span>
 	{{/stars}}
@@ -70,7 +71,7 @@
 	{{/skills}}
 
 	{{#education}}
-	<h2><div class="icon-th-list icon-square"></div> ##education##</h2>
+	<h2><div class="icon-mortar-board icon-square"></div> ##education##</h2>
 	<div id="mobile-table">
 		<div class="table-responsive">
 			<table class="table education">
@@ -100,7 +101,7 @@
 	{{/education}}
 
 	{{#acad_achievements}}
-	<h2><div class="icon-mortar-board icon-rect"></div> ##acad_achievements##</h2>
+	<h2><div class="icon-bookmark icon-rect"></div> ##acad_achievements##</h2>
 	<ul>
 		{{#items}}
 		<li>{{{.}}}</li>
