@@ -71,7 +71,21 @@
 
 	{{#education}}
 	<h2><div class="icon-th-list icon-square"></div> ##education##</h2>
-	<div class="table-responsive">
+	<div id="mobile-table">
+		<div class="table-responsive">
+			<table class="table education">
+				<tr>
+					<th>##degree##</th><th>##major##</th><th>##institution##</th><th nowrap>##graduation_year##</th>{{#show_gpa}}<th>##gpa##</th>{{/show_gpa}}
+				</tr>
+				{{#schools}}
+				<tr>
+					<td>{{degree}}</td><td>{{major}}</td><td>{{institution}}</td><td align="center">{{graduation_year}}</td>{{#show_gpa}}<td>{{gpa}}</td>{{/show_gpa}}
+				</tr>
+				{{/schools}}
+			</table>
+		</div>
+	</div>
+	<div id="desktop-table">
 		<table class="table education">
 			<tr>
 				<th>##degree##</th><th>##major##</th><th>##institution##</th><th nowrap>##graduation_year##</th>{{#show_gpa}}<th>##gpa##</th>{{/show_gpa}}

@@ -81,6 +81,10 @@ sup { line-height: 1ex; }
 #bottom-contact {
 	display: none;
 }
+#mobile-table {
+	display: none;
+}
+
 .icon-square {
 	width: 16px;
 	height: 16px;
@@ -109,6 +113,12 @@ sup { line-height: 1ex; }
 	}
 	#top-contact {
 	display: none;
+	}
+	#mobile-table {
+		display: inline;
+	}
+	#desktop-table {
+		display: none;
 	}
 	.contact-details {
 	float: right;
