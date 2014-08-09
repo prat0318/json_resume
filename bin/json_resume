@@ -60,6 +60,8 @@ class JsonResumeCLI < Thor
       tmp_dir = ".tmp_resume"
       convert_to_html(json_input, template, dest, tmp_dir)
       PDFKit.configure do |config|
+        wkhtmltopdf_path = `which wkhtmltopdf`.to_s.strip
+        config.wkhtmltopdf = wkhtmltopdf_path unless wkhtmltopdf_path.empty?
         config.default_options = {
           :footer_right => "Page [page] of [toPage]    .\n",
           :footer_font_size => 10,
