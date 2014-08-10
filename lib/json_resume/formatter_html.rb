@@ -11,7 +11,7 @@ module JsonResume
     end
     
     def format_emphasis str
-      str.gsub! /_(.+?)_/, '<i>\1</i>'
+      str.gsub! /\b_(.+?)_\b/, '<i>\1</i>'
       str.gsub! /\*\*(.+?)\*\*/, '<b>\1</b>'
     end
 
