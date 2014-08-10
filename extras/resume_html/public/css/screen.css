@@ -78,6 +78,33 @@ sup { line-height: 1ex; }
 	background: white;
 	padding: 3em 3em 1.5em 3em;
 }
+#bottom-contact {
+	display: none;
+}
+#mobile-table {
+	display: none;
+}
+
+.icon-square {
+	width: 16px;
+	height: 16px;
+	display:inline-block;
+
+}
+
+.icon-rect {
+	width: 21px;
+	height: 16px;
+	display:inline-block;
+
+}
+
+.icon-star {
+	width: 9px;
+	height: 9px;
+	display:inline-block;
+
+}
 
 /* @group FancyFirst */
 .emphnext + p:first-letter, p.emphfirst:first-letter {
@@ -194,8 +221,8 @@ ul.compact li a {
 	position: relative;
 	font-variant: small-caps;
 	line-height: 1em;
-	margin-top: .25em;
-	margin-bottom: 0.25em;
+	margin-top: 0em;
+	margin-bottom: 0em;
 }
 #header h1 {
 	font-family: Palatino, georgia, "times new roman", serif;
@@ -324,7 +351,7 @@ p.excerpt { margin: 0; }
 pre {
 	margin: 1em 0 1.5em 0;
 	font-size: 0.75em; /* Hack to make code look same size as body font */  
-	line-height: 1.5em;	
+	line-height: 1.5em;
 	color: #111;
 	background: #fffff0;
 	border: 1px solid #ddc;
@@ -470,6 +497,13 @@ img.maruku-png { }
 	font-size: 70%;
 }
 
+.icon-star-o {
+    background-size: 9px;
+    vertical-align: middle;
+    width: 9px;
+    height: 9px;
+}
+
 .languages {
 	line-height: 1.6em;
 }
@@ -484,4 +518,10 @@ img.maruku-png { }
 
 .gray {
   opacity: 0.3
+}
+
+@media print {
+  a[href]:after {
+      content: none !important;
+  }
 }

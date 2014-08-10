@@ -1,0 +1,27 @@
+/*added for #PAGE */
+@media screen and (max-width: 800px){
+    #page {
+    	padding: 0.5em 1em 0.5em 1em;
+    }
+    #site {
+	max-width: 46em;
+	margin: 0em auto 0em auto;
+	}
+	#bottom-contact {
+	display: inline;
+	}
+	#top-contact {
+	display: none;
+	}
+	#mobile-table {
+		display: inline;
+	}
+	#desktop-table {
+		display: none;
+	}
+	.contact-details {
+	float: right;
+	width: 50em;
+	font-size: 80%;
+	}
+}
