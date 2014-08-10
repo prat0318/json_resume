@@ -1,11 +1,3 @@
-{{#settings}}
-	{{#icons}}
-	<script src="public/js/grunticon.js"></script>
-	<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css" />
-	{{/icons}}
-{{/settings}}
-<link rel="stylesheet" type="text/css" href="public/css/screen.css" />
-<link rel="stylesheet" type="text/css" href="public/css/mobile.css" />
 <div id="page">
 {{#bio_data}}
 	<div id="top-contact">
@@ -26,7 +18,7 @@
 	{{#stars}}
 	<span class="stars">
 		 {{#items}}
-		 {{name}} {{^last}}<span class="icon-star-o icon-square"></span>{{/last}}
+		 {{name}} {{^last}}<div class="icon-star-o icon-star"></div>{{/last}}
 		 {{/items}}
 	</span>
 	{{/stars}}
@@ -71,7 +63,7 @@
 	{{/skills}}
 
 	{{#education}}
-	<h2><div class="icon-mortar-board icon-square"></div> ##education##</h2>
+	<h2><div class="icon-mortar-board icon-rect"></div> ##education##</h2>
 	<div id="mobile-table">
 		<div class="table-responsive">
 			<table class="table education">
@@ -255,4 +247,13 @@
 </div>
 
 {{/bio_data}}
+
+{{#settings}}
+	{{#icons}}
+	<script src="public/js/grunticon.js"></script>
+	{{/icons}}
+{{/settings}}
+<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="public/css/screen.css" />
+<link rel="stylesheet" type="text/css" href="public/css/mobile.css" />
 </div><!-- End Page -->
