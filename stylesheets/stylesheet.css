@@ -277,7 +277,7 @@ Full-Width Styles
   z-index: 10;
   padding: 10px 50px 10px 10px;
   color: #fff;
-  background: url('../images/blacktocat.png') #0489B1 no-repeat 95% 50%;
+  background: url('../images/blacktocat.png') #B35C2C no-repeat 95% 50%;
   font-weight: 700;
   box-shadow: 0 0 10px rgba(0,0,0,.5);
   border-bottom-left-radius: 2px;
@@ -285,12 +285,12 @@ Full-Width Styles
 }
 
 #header_wrap {
-  background: #086A87;
-  background: -moz-linear-gradient(top, #0B2F3A, #086A87);
-  background: -webkit-linear-gradient(top, #0B2F3A, #086A87);
-  background: -ms-linear-gradient(top, #0B2F3A, #086A87);
-  background: -o-linear-gradient(top, #0B2F3A, #086A87);
-  background: linear-gradient(top, #0B2F3A, #086A87);
+  background: #EEC188;
+  background: -moz-linear-gradient(top, #CC7A3A, #EEC188);
+  background: -webkit-linear-gradient(top, #CC7A3A, #EEC188);
+  background: -ms-linear-gradient(top, #CC7A3A, #EEC188);
+  background: -o-linear-gradient(top, #CC7A3A, #EEC188);
+  background: linear-gradient(top, #CC7A3A, #EEC188);
 }
 
 #header_wrap .inner {
@@ -353,7 +353,7 @@ Full-Width Styles
 }
 
 #main_content_wrap {
-  background: #f2f2f2;
+  background: #FCF0D2;
   border-top: 1px solid #111;
   border-bottom: 1px solid #111;
 }
