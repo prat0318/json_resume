@@ -99,18 +99,12 @@ sup { line-height: 1ex; }
 
 }
 
-/*@media screen and (max-width: 500px){
-    #page {
-    	padding: 0.5em 1em 0.5em 1em;
-    }
-    #site {
-	max-width: 46em;
-	margin: 0em auto 0em auto;
-	}
-	#contact-text {
-		display: none;
-	}
-}*/
+.icon-star {
+	width: 9px;
+	height: 9px;
+	display:inline-block;
+
+}
 
 /* @group FancyFirst */
 .emphnext + p:first-letter, p.emphfirst:first-letter {
