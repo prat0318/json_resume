@@ -21,7 +21,10 @@ Modify it as per the needs, and remove or keep rest of the fields empty.
 * Syntax
 
 ```
-    json_resume convert [--template=/path/to/custom/template] [--out=html|html_pdf|tex|tex_pdf|md] <json_input>
+    json_resume convert [--template=/path/to/custom/template] 
+                        [--out=html|html_pdf|tex|tex_pdf|md]
+                        [--locale=es|en|pt]
+                        [--theme=default|classic] <json_input>
 
     <json_input> can be /path/to/json OR "{'json':'string'}" OR http://raw.json
 ```
@@ -56,6 +59,7 @@ A directory `resume/` will be generated in cwd, which can be put hosted on /var/
 ```
     $ json_resume convert --out=tex prateek_cv.json
 ```
+  - LaTex also includes a ``classic`` theme. Usage: ``--theme=classic``.
 
 * PDF version from LaTeX ([Sample](https://www.writelatex.com/read/zkkbznbkfkgq))
 
@@ -67,6 +71,14 @@ A directory `resume/` will be generated in cwd, which can be put hosted on /var/
 
 ```
     $ json_resume convert --out=md prateek_cv.json
+```
+
+## i18n Support
+
+Support for ``en``, ``es`` and ``pt`` right now. Pull requests for others are welcome.
+
+```
+    $ json_resume convert --locale=es prateek_cv.json
 ```
 
 ## Markup Language
@@ -96,6 +108,14 @@ Looks like locale problem. Add the following to the environment : `export LC_CTY
 ## Customization
 
 Output is creating using mustache templates. They are located in `templates/`. These can be modified and given as `--template=/path/to/template` to `convert`. For example, the tex template was customized to produced [this new format](https://www.writelatex.com/read/tktqrbmhnyqp).
+
+## Changelog
+
+### v1.0
+* Glyphicons are now replaced by Font-Awesome icons.
+* HTML version has a responsive design.
+* Supports i18n. (Supporting ``es``, ``pt`` right now).
+* New classic theme for latex format.
 
 ## Contributing
 
