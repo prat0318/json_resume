@@ -9,6 +9,12 @@ require 'pdfkit'
 require 'rest-client'
 
 WL_URL = "https://www.writelatex.com/docs"
+
+class String
+        def red;            "\033[31m#{self}\033[0m" end
+        def green;          "\033[32m#{self}\033[0m" end
+end
+
 class JsonResumeCLI < Thor
 
   desc "convert /path/to/json/file", "converts the json to pretty resume format"
@@ -19,7 +25,11 @@ class JsonResumeCLI < Thor
   def convert(json_input)
 		set_i18n(options[:locale])
     puts "Generating the #{options[:out]} type..."
-    puts send('convert_to_'+options[:out], json_input, get_template(options))
+    begin
+      puts send('convert_to_'+options[:out], json_input, get_template(options))
+    rescue Encoding::InvalidByteSequenceError
+      puts "ERROR: You need to 'export LC_CTYPE=en_US.UTF-8' ...".green
+    end
   end
 
   desc "sample", "Generates a sample json file in cwd"
@@ -28,7 +38,7 @@ class JsonResumeCLI < Thor
     json_file_paths = Dir["#{@@orig_locn}/../examples/*.json"]
     json_file_names = json_file_paths.map{|x| File.basename(x)}
     FileUtils.cp json_file_paths, Dir.pwd
-    msg = "Generated #{json_file_names.join(" ")} in #{cwd}/"
+    msg = "Generated #{json_file_names.join(" ")} in #{cwd}/".green
     msg += "\nYou can now modify it and call: json_resume convert <file.json>"
     puts msg
   end
@@ -42,7 +52,7 @@ class JsonResumeCLI < Thor
 			theme = options[:theme]
 			template_path = "#{@@orig_locn}/../templates/#{theme}_#{out_type}.mustache"
 			if !(File.exists? template_path) and theme != 'default'
-				puts "Theme #{theme} doesn't exist for #{options[:out]} type yet! Using default..."
+				puts "Theme #{theme} doesn't exist for #{options[:out]} type yet! Using default...".red
 				template_path = "#{@@orig_locn}/../templates/default_#{out_type}.mustache"
 			end
 			return template_path
@@ -81,9 +91,14 @@ class JsonResumeCLI < Thor
       }
       kit = PDFKit.new(html_file, pdf_options)
 
-      kit.to_file(dest+"/resume.pdf")
+      begin
+        kit.to_file(dest+"/resume.pdf")
+      rescue Errno::ENOENT => e
+        puts "\nTry: sudo apt-get update; sudo apt-get install libxtst6 libfontconfig1".green
+        raise e
+      end
       FileUtils.rm_rf "#{dest}/#{tmp_dir}"
-      msg = "\nGenerated resume.pdf at #{dest}."
+      msg = "\nGenerated resume.pdf at #{dest}.".green
     end
 
     def convert_to_tex(json_input, template, dest=Dir.pwd, filename="resume.tex")
@@ -94,13 +109,13 @@ class JsonResumeCLI < Thor
       file1 = "resume"; filename = "#{file1}.tex"
       convert_to_tex(json_input, template, dest, filename)
       if `which pdflatex` == ""
-        puts "It looks like pdflatex is not installed..."
+        puts "It looks like pdflatex is not installed...".red
         puts "Either install it with instructions at..."
         puts "http://dods.ipsl.jussieu.fr/fast/pdflatex_install.html"
         return use_write_latex(dest, filename)
       end
       if `kpsewhich moderncv.cls` == ""
-        puts "It looks liks moderncv package for tex is not installed"
+        puts "It looks liks moderncv package for tex is not installed".red
         puts "Read about it here: http://ctan.org/pkg/moderncv"
         return use_write_latex(dest, filename)
       end
@@ -116,14 +131,14 @@ class JsonResumeCLI < Thor
        if reply == "" || reply == "y"
           return convert_using_writeLatex(dest, filename)  
        end
-       msg = "Latex file created at #{dest}/#{filename}"
+       msg = "Latex file created at #{dest}/#{filename}".green
     end
 
     def convert_using_writeLatex(dest, filename)
       tex_file = File.read("#{dest}/#{filename}")
       RestClient.post(WL_URL, :snip => tex_file, :splash => "none") do |response, req, res, &bb| 
         FileUtils.rm "#{dest}/#{filename}"
-        msg = "\nPDF is ready at #{response.headers[:location]}"
+        msg = "\nPDF is ready at #{response.headers[:location]}".green
       end
     end
 
@@ -145,7 +160,7 @@ class JsonResumeCLI < Thor
       resume_obj = JsonResume.new(json_input, "output_type" => output_type)
       mustache_obj  = Mustache.render(i18n(File.read(template)), resume_obj.reader.hash)
       File.open(dest,'w') {|f| f.write(mustache_obj) }
-      return "\nGenerated files present at #{dest}"
+      return "\nGenerated files present at #{dest}".green
     end
 
   end
