@@ -49,6 +49,7 @@ class JsonResumeCLI < Thor
     def get_template(options)
       return options[:template] if options[:template]
       out_type = options[:out].split('_').first #html for both html, html_pdf
+      out_type = 'html' if out_type == 'pdf'
 			theme = options[:theme]
 			template_path = "#{@@orig_locn}/../templates/#{theme}_#{out_type}.mustache"
 			if !(File.exists? template_path) and theme != 'default'
@@ -64,6 +65,11 @@ class JsonResumeCLI < Thor
 			FileUtils.cp_r(Dir["#{@@orig_locn}/../extras/resume_html/*"], dest_dir)
       msg = generate_file(json_input, template, "html", "#{dest_dir}/page.html")
       msg += "\nPlace #{dest_dir}/ in /var/www/ to host."
+    end
+
+    def convert_to_pdf(json_input, template, dest=Dir.pwd)
+      puts "Defaulting to 'html_pdf'..."
+      convert_to_html_pdf(json_input, template, dest)
     end
 
     def convert_to_html_pdf(json_input, template, dest=Dir.pwd)
