@@ -11,8 +11,8 @@ module JsonResume
 		def initialize(json_input, options)
       output_type = options[:output_type] || "html" #default html, others latex, md
 			@json_string = case json_input
-						   when /\.json$/i then File.read(json_input)
                when /^(http|https|www)/ then RestClient.get(json_input)
+						   when /\.json$/i then File.read(json_input)
 						   else json_input
 						   end
       @output_type = output_type
