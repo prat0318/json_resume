@@ -19,7 +19,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/prat0318/json_resume">View on GitHub</a>
 
-          <h1 id="project_title"><img src="images/resume-icon.png" style="width: 68px; border: none; box-shadow: none; margin: 0; margin-top: 0px; vertical-align: middle;"/> Json Resume v1.0</h1>
+          <h1 id="project_title"><img src="images/resume-icon.png" style="width: 68px; border: none; box-shadow: none; margin: 0; margin-top: 0px; vertical-align: middle;"/> Json Resume</h1>
           <h2 id="project_tagline">Generate pretty HTML, LaTeX, markdown versions from a single JSON format</h2>
 
         </header>
@@ -28,41 +28,40 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-	      <div style="padding-bottom:2px; margin: auto; display: block; width: 360px">
-		      <div class="tooltip-wrapper" data-title="JSON format: Version Controllable" style="display:inline"><button type="button" class="btn btn-default" style="padding: 6px" ><div style="background: url('images/github_black.png') no-repeat 0% 50%;display:block;height:35px;width:38px;margin-left:4px;opacity:0.8"/></button></div>
-			  <div class="tooltip-wrapper" data-title="Data remains in your machine"  style="display:inline"><button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-user" style="font-size:30px"></i></button></div>
+	      <div style="padding-bottom:2px; margin: auto; display: block; width: 300px">
+			  <div class="tooltip-wrapper" data-title="Data remains on your machine"  style="display:inline"><button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-user" style="font-size:30px"></i></button></div>
 			  <div class="tooltip-wrapper" data-title="Supports i18n - different languages."  style="display:inline"><button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-globe" style="font-size:30px"></i></button></div>
 			  <div class="tooltip-wrapper" data-title="Responsive HTML layouts"  style="display:inline"><button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-phone" style="font-size:30px"></i></button></div>
 		      <div class="tooltip-wrapper" data-title="Pretty designs with various format options" style="display:inline"><button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-heart" style="font-size:30px"></i></button></div>
 		      <div class="tooltip-wrapper" data-title="PDF conversion option available" style="display:inline"><button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-file" style="font-size:30px"></i></button></div>
       </div>
       <div id="tagline" style="padding-bottom:45px; margin: auto; display: block; width: 300px; text-align: center; height: 20px; font-size: 12px"></div>
-<div class="liquid-slider" id="slider-id">
-     <div>
-     <h5 class="title">JSON</h5>
- <script src="https://gist.github.com/prat0318/6e57f270bcf710a9087f.js"></script>
-     </div>
-     <div>
-          <h5 class="title">Mdown</h5>
-	<script src="https://gist.github.com/prat0318/9c6e36fdcfd6a854f1f9.js"></script>
-     </div>
-     <div>
-          <h5 class="title">HTML</h5>
-     <iframe id="frame" src="http://prat0318.github.io/index1.html" frameborder="0"  width="100%" height="2450px"></iframe>
-	</div>
-     <div>
-          <h5 class="title">HTML*</h5>
-     <iframe id="frame" src="http://prat0318.github.io/index2.html" frameborder="0"  width="100%" height="2450px"></iframe>
-	</div>
-     <div>
-          <h5 class="title">LaTeX</h5>
-	  <div id="the-canvas" height="1800px" style="margin-left:-40px;"/>
-	</div>
-     <div>
-          <h5 class="title">LaTeX*</h5>
-	  <div id="the-canvas" height="1800px" style="margin-left:-40px;"/>
-	</div>
-</div>
+    <div class="liquid-slider" id="slider-id">
+         <div>
+             <h5 class="title">JSON</h5>
+             <script src="https://gist.github.com/prat0318/6e57f270bcf710a9087f.js"></script>
+         </div>
+         <div>
+             <h5 class="title">Md</h5>
+             <script src="https://gist.github.com/prat0318/9c6e36fdcfd6a854f1f9.js"></script>
+         </div>
+         <div>
+              <h5 class="title">HTML</h5>
+              <iframe id="frame" src="./html_version/resume_with_icons/page.html" frameborder="0"  width="100%" height="1050px"></iframe>
+        </div>
+         <div>
+              <h5 class="title">HTML*</h5>
+              <iframe id="frame" src="./html_version/resume_without_icons/page.html" frameborder="0"  width="100%" height="1050px"></iframe>
+        </div>
+         <div>
+              <h5 class="title">TeX</h5>
+              <div id="the-canvas" height="1800px" style="margin-left:-40px;"></div>
+        </div>
+         <div>
+              <h5 class="title">TeX*</h5>
+              <div id="the-canvas1" height="1800px" style="margin-left:-20px;"></div>
+        </div>
+    </div>
       </section>
     </div>
 
@@ -78,7 +77,7 @@
 <script type="text/javascript">
 $('#slider-id').liquidSlider({
 		 hideSideArrows: true,
-		  includeTitle: false,
+		 includeTitle: false,
 		 dynamicTabsAlign: "center",
 		 continuous: false,
 		 slideEaseDuration: 550});
@@ -90,7 +89,6 @@ $('#slider-id').liquidSlider({
             pageTracker._trackPageview();
             } catch(err) {}
 	$('.tooltip-wrapper').on('click mouseenter', function(){
-		console.log("asdf")
 		$('#tagline').html($(this)[0].attributes['data-title'].value)
 	});
 	var settag = function() {
