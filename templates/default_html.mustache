@@ -17,15 +17,15 @@
 		</div>
 	</div>
 	
-	<h1 class="emphnext">{{firstname}} {{familyname}}</h1><br/>
+	<h1 class="emphnext">{{firstname}} {{familyname}}</h1>
 	{{#stars}}
-	<span class="stars">
+	<span class="stars" style="clear:left">
 		 {{#items}}
 		 {{name}} {{^last}}<div class="icon-star-o icon-star"></div>{{/last}}
 		 {{/items}}
 	</span>
 	{{/stars}}
-	<br/>
+	<br/><br/>
 
 	{{#summary}}
 	<h2><div class="icon-user icon-square"></div> ##summary##</h2>

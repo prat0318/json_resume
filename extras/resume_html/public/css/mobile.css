@@ -1,5 +1,5 @@
 /*added for #PAGE */
-@media screen and (max-width: 800px){
+@media screen and (max-width: 600px){
     #page {
     	padding: 0.5em 1em 0.5em 1em;
     }
