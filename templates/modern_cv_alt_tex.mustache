@@ -58,8 +58,9 @@
 
 \noindent\spacedlowsmallcaps{Personal Information}\vspace{0.5em} % Personal information heading
 
+<%#birthcity%>
 \NewEntry{}{\textit{Born in <%#birthcity%><%.%><%/birthcity%>,}}{<%#birthday%><%.%><%/birthday%>} % Birthplace and date
-
+<%/birthcity%>
 \NewEntry{email}{\href{mailto: <%#email%><%.%><%/email%>}{<%#email%><%.%><%/email%>}} % Email address
 
 \NewEntry{website}{\href{<%#website%>  <%& .%><%/website%>}{<%#website%>  <%& .%><%/website%>}} % Personal website
@@ -71,9 +72,9 @@
 \vspace{1em} % Extra white space between the personal information section and goal
 
 <%#summary%>
-\noindent\spacedlowsmallcaps{<%points%>}\vspace{1em} % Goal heading, could be used for a quotation or short profile instead
+\noindent\spacedlowsmallcaps{Goal}\vspace{1em} % Goal heading, could be used for a quotation or short profile instead
 
-\Description{Gain fundamental experience in my area of interest and expertise.}\vspace{2em} % Goal text
+\Description{<%#points%><%& .%><%/points%>}\vspace{2em} % Goal text
 <%/summary%>
 
 
