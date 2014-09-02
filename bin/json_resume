@@ -107,6 +107,10 @@ class JsonResumeCLI < Thor
       msg = "\nGenerated resume.pdf at #{dest}.".green
     end
 
+    def convert_to_txt(json_input, template, dest=Dir.pwd, filename="resume.txt")
+      generate_file(json_input, template, "latex", "#{dest}/#{filename}")
+    end
+
     def convert_to_tex(json_input, template, dest=Dir.pwd, filename="resume.tex")
       generate_file(json_input, template, "latex", "#{dest}/#{filename}")
     end
