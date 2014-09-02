@@ -11,17 +11,17 @@ JsonResume creates pretty versions of resume from a single JSON input file. Outp
 ### Create a sample JSON input file to start
 
     $ json_resume sample
-    
+
 A [sample](https://github.com/prat0318/json_resume/blob/master/examples/prateek_cv.json) `prateek_cv.json` is generated in the current working directory(cwd).
-    
+
 Modify it as per the needs, and remove or keep rest of the fields empty.
-    
+
 ### Conversion
 
 * Syntax
 
 ```
-    json_resume convert [--template=/path/to/custom/template] 
+    json_resume convert [--template=/path/to/custom/template]
                         [--out=html|html_pdf|tex|tex_pdf|md]
                         [--locale=es|en|pt]
                         [--theme=default|classic] <json_input>
@@ -85,11 +85,11 @@ Support for ``en``, ``es`` and ``pt`` right now. Pull requests for others are we
 ## Markup Language
 
 JSON is parsed as per the `markdown` standards. This implies all this works-
-- \*\* **bold** \*\*, 
-- \_ _italics_ \_, 
+- \*\* **bold** \*\*,
+- \_ _italics_ \_,
 - script&lt;sup&gt;<sup>sup</sup>&lt;sup/&gt;,
-- script&lt;sub&gt;<sub>sub</sub>&lt;sub/&gt;, 
-- \[[href](#)\]\(#\), 
+- script&lt;sub&gt;<sub>sub</sub>&lt;sub/&gt;,
+- \[[href](#)\]\(#\),
 - <<[http://github.com](http://github.com)>>
 
 ## Customization

@@ -6,8 +6,8 @@ describe "#padder" do
   it 'pads a row if items are odd' do
     hash = {'bio_data' => {'test' => [
                             {'name'=>'sub1', 'url' => 'url1'},
-                            {'name'=>'sub2', 'url' => 'url2'},  
-                            {'name'=>'sub3', 'url' => 'url3'}  
+                            {'name'=>'sub2', 'url' => 'url2'},
+                            {'name'=>'sub3', 'url' => 'url3'}
                           ]}
           }
     formatter = JsonResume::FormatterHtml.new hash
@@ -34,28 +34,28 @@ describe "#padder" do
     formatter.add_padding('test')
     expect(formatter.hash['bio_data']).to eq({})
   end
-end 
+end
 
 describe '#urlformatter' do
   context 'when given a link for html output' do
     it 'converts link to href' do
       formatter = JsonResume::FormatterHtml.new({})
       str = "test [Hello](http://google.com)"
-      formatter.format_link str 
+      formatter.format_link str
       expect(str).to eq('test <a href="http://google.com">Hello</a>')
     end
 
     it 'converts autolink to url' do
       formatter = JsonResume::FormatterHtml.new({})
       str = "test <<http://google.com>>"
-      formatter.format_autolink str 
+      formatter.format_autolink str
       expect(str).to eq('test <a href="http://google.com">http://google.com</a>')
     end
-    
+
     it 'converts links and autolinks to url' do
       formatter = JsonResume::FormatterHtml.new({})
       str = "test <<http://google.com>> [Hello](http://google.com) <<http://google.com>>"
-      formatter.format_string str 
+      formatter.format_string str
       expect(str).to eq('test <a href="http://google.com">http://google.com</a> <a href="http://google.com">Hello</a> <a href="http://google.com">http://google.com</a>')
     end
   end
@@ -91,5 +91,3 @@ describe "#format" do
     formatter.format
   end
 end
-
-

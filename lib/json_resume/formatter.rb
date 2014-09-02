@@ -14,7 +14,7 @@ module JsonResume
 			@hash = hash
 
 			#recursively defined proc
-			@hash_proc = Proc.new do |k,v| 
+			@hash_proc = Proc.new do |k,v|
 				v = k if v.nil? #hack to make it common for hash and array
 				v.delete_if(&@hash_proc) if [Hash,Array].any? { |x| v.instance_of? x }
 				v.empty?
@@ -39,7 +39,7 @@ module JsonResume
 			return if @hash['bio_data']['skills'].nil?
 			@hash['bio_data']['skills']['details'].each do |item|
 				item['items'].map!{|x| {'name'=>x} }
-				item['items'][-1]['last'] = true        
+				item['items'][-1]['last'] = true
 			end
 		end
 
@@ -67,7 +67,7 @@ module JsonResume
 		end
 
 		def format_to_output_type
-			format_proc = Proc.new do |k,v| 
+			format_proc = Proc.new do |k,v|
 				v = k if v.nil?
 				v.each{|x| format_proc.call(x)} if [Hash,Array].any? {|x| v.instance_of? x}
 				format_string v if v.instance_of? String
@@ -86,13 +86,13 @@ module JsonResume
 
 		def purge_gpa
 			return if @hash['bio_data']['education'].nil?
-			@hash["bio_data"]["education"].delete("show_gpa") if is_false?(@hash["bio_data"]["education"]["show_gpa"]) || @hash["bio_data"]["education"]["schools"].all? {|sch| sch["gpa"].nil? || sch["gpa"].empty?} 
+			@hash["bio_data"]["education"].delete("show_gpa") if is_false?(@hash["bio_data"]["education"]["show_gpa"]) || @hash["bio_data"]["education"]["schools"].all? {|sch| sch["gpa"].nil? || sch["gpa"].empty?}
 		end
 
 		def add_padding(course)
 			unless @hash["bio_data"].nil? || @hash["bio_data"][course].nil?
 				course_hash = @hash["bio_data"][course]
-				course_hash << {} if course_hash.size % 2 == 1 
+				course_hash << {} if course_hash.size % 2 == 1
 				@hash["bio_data"][course] = {
 					"rows" => course_hash.each_slice(2).to_a.map{ |i| { "columns" => i } }
 				}
@@ -104,7 +104,7 @@ module JsonResume
 
 			cleanse
 
-			format_to_output_type 
+			format_to_output_type
 
 			add_last_marker_on_stars
 
@@ -118,7 +118,7 @@ module JsonResume
 			add_linkedin_github_url
 
 			#make odd listed courses to even
-			["grad_courses", "undergrad_courses"].each do |course| 
+			["grad_courses", "undergrad_courses"].each do |course|
 				add_padding(course)
 			end
 
@@ -127,5 +127,4 @@ module JsonResume
 
 
 	end
-end    
-
+end

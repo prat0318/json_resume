@@ -3,16 +3,16 @@ require_relative 'formatter'
 module JsonResume
  class FormatterHtml < Formatter
     def format_link str
-        str.gsub! /\[(.*?)\]\((.*?)\)/, '<a href="\2">\1</a>'
+        str.gsub!(/\[(.*?)\]\((.*?)\)/, '<a href="\2">\1</a>')
     end
 
     def format_autolink str
-        str.gsub! /<<(\S*?)>>/, '<a href="\1">\1</a>'
+        str.gsub!(/<<(\S*?)>>/, '<a href="\1">\1</a>')
     end
-    
+
     def format_emphasis str
-      str.gsub! /\b_(.+?)_\b/, '<i>\1</i>'
-      str.gsub! /\*\*(.+?)\*\*/, '<b>\1</b>'
+      str.gsub!(/\b_(.+?)_\b/, '<i>\1</i>')
+      str.gsub!(/\*\*(.+?)\*\*/, '<b>\1</b>')
     end
 
     def format_string str
@@ -23,10 +23,9 @@ module JsonResume
 
     def format
       super
-      
+
       return self
     end
 
  end
 end
-

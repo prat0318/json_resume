@@ -152,15 +152,15 @@ class JsonResumeCLI < Thor
       generate_file(json_input, template, "markdown", "#{dest}/resume.md")
     end
 
-		def set_i18n(locale)
-			I18n.load_path = Dir["#{@@orig_locn}/../locale/*.yml"]
-			I18n.enforce_available_locales = true
-			I18n.locale = options[:locale].to_sym
-		end
+def set_i18n(locale)
+	I18n.load_path = Dir["#{@@orig_locn}/../locale/*.yml"]
+	I18n.enforce_available_locales = true
+	I18n.locale = options[:locale].to_sym
+end
 
-		def i18n(text)
-			text.gsub(/##(\w*?)##/) { I18n.t! Regexp.last_match[1], :scope => 'headings' }
-		end
+def i18n(text)
+	text.gsub(/##(\w*?)##/) { I18n.t! Regexp.last_match[1], :scope => 'headings' }
+end
 
     def generate_file(json_input, template, output_type, dest)
       resume_obj = JsonResume.new(json_input, "output_type" => output_type)

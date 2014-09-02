@@ -30,4 +30,3 @@ describe "#reader" do
     end
   end
 end
-

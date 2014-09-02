@@ -33,5 +33,4 @@ module JsonResume
       @hash = formatters[type].new(@hash).format.hash
     end
 	end
-end    
-
+end
