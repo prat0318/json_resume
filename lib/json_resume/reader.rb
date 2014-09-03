@@ -1,5 +1,6 @@
 require_relative 'formatter_html'
 require_relative 'formatter_latex'
+require_relative 'formatter_txt'
 require_relative 'formatter_md'
 require 'rest-client'
 require 'json'
@@ -25,6 +26,7 @@ module JsonResume
 
     def format!
       formatters = {
+        :txt => JsonResume::FormatterTxt,
         :latex => JsonResume::FormatterLatex,
         :html => JsonResume::FormatterHtml,
         :markdown => JsonResume::FormatterMd,

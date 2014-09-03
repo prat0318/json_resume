@@ -44,6 +44,8 @@
 
 \newcommand{\Description}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\footnotesize{#1}\par\normalsize\vspace{1em}} % Define a command for descriptions of each entry - change spacing and font sizes here
 
+\definecolor{see}{rgb}{0.5,0.5,0.5}% 
+
 %----------------------------------------------------------------------------------------
 
 \begin{document}
@@ -56,33 +58,32 @@
 
 \begin{cv}{\spacedallcaps{<%&firstname%> <%&familyname%>}}\vspace{1.5em} % Your name
 
-\noindent\spacedlowsmallcaps{Personal Information}\vspace{0.5em} % Personal information heading
-
+\noindent\spacedlowsmallcaps{Personal Information}\vspace{0.5em} \newline% Personal information heading
 <%#birthcity%>
 \NewEntry{}{\textit{Born in <%#birthcity%><%.%><%/birthcity%>,}}{<%#birthday%><%.%><%/birthday%>} % Birthplace and date
+\\
 <%/birthcity%>
 \NewEntry{email}{\href{mailto: <%#email%><%.%><%/email%>}{<%#email%><%.%><%/email%>}} % Email address
 
 \NewEntry{website}{\href{<%#website%>  <%& .%><%/website%>}{<%#website%>  <%& .%><%/website%>}} % Personal website
 
-\NewEntry{Github}{\href{<%#gitwebsite%>  <%& .%><%/gitwebsite%>}{<%#gitwebsite%>  <%& .%><%/gitwebsite%>}} % Personal website
+\NewEntry{Github}{\href{<%#gitwebsite%>  <%& .%><%/gitwebsite%>}{<%#github_id%> <%& .%><%/github_id%>}} % github
 
-\NewEntry{phone}{(H) <%#phone%><%.%> <%/phone%>\ \ $\cdotp$\ \ (M) <%#phone%><%.%> <%/phone%>} % Phone number(s)
+\NewEntry{phone}{(H) <%#phone%><%.%> <%/phone%>\ \ <%#mobile%>$\cdotp$\ \ (M) <%.%> <%/mobile%>} % Phone number(s)
 
 \vspace{1em} % Extra white space between the personal information section and goal
 
 <%#summary%>
-\noindent\spacedlowsmallcaps{Goal}\vspace{1em} % Goal heading, could be used for a quotation or short profile instead
-
-\Description{<%#points%><%& .%><%/points%>}\vspace{2em} % Goal text
+\noindent\spacedlowsmallcaps{Goal}\vspace{1em} \newline % Goal heading, could be used for a quotation or short profile instead
+\Description{\MarginText{}<%#points%><%& .%>. <%/points%>}\vspace{2em} % Goal text
 <%/summary%>
 
-
 <%#expertise%>
-\spacedlowsmallcaps{Expertise}\vspace{1em} \newline
+\noindent\spacedlowsmallcaps{Expertise}\vspace{1em} \newline
 <%#items%>
     \Description{\MarginText{<%type%>} <%#expert%><%& .%><%/expert%>}
 <%/items%>
+\vspace{1em} % Extra space between major sections
 <%/expertise%>
 
 %----------------------------------------------------------------------------------------
@@ -90,7 +91,7 @@
 %----------------------------------------------------------------------------------------
 
 <%#education%>
-\spacedlowsmallcaps{##education##}\vspace{1em} \newline
+\noindent\spacedlowsmallcaps{##education##}\vspace{1em} \newline
 <%#schools%>
 \NewEntry{<%graduation_year%>}{<%institution%>}{}
 \Description{\MarginText{<%degree%><%#major%>, <%major%><%/major%>} \newline 
@@ -105,9 +106,9 @@
   <%/areaofstudy%>
 }
 <%/schools%>
+\vspace{1em} % Extra space between major sections
 <%/education%>
 
-\vspace{1em} % Extra space between major sections
 
 
 %----------------------------------------------------------------------------------------
@@ -130,12 +131,9 @@
 				\end{itemize}
 			}
 	<%/items%>
-<%/experience%>
-
 %------------------------------------------------
-
 \vspace{1em} % Extra space between major sections
-
+<%/experience%>
 
 
 
@@ -145,32 +143,32 @@
 
 
 <%#skills%>
-\spacedlowsmallcaps{##skills##}\vspace{1em} \newline
+\noindent\spacedlowsmallcaps{##skills##}\vspace{1em} \newline
 <%#details%>
     \Description{\MarginText{}<%type%>: <%#items%><%name%><%^last%>, <%/last%><%/items%>}
 <%/details%>
-<%/skills%>
-
 %------------------------------------------------
-
 \vspace{1em} % Extra space between major sections
+<%/skills%>
 
 
 <%#papers%>
-\spacedlowsmallcaps{Other Publications}\vspace{1em} \newline
+\noindent\spacedlowsmallcaps{Other Publications}\vspace{1em} \newline
 <%#items%>
     \Description{\MarginText{<%organization%>} <%title%>, <%authors%>, \emph{<%&misc%>}}
 <%/items%>
-<%/papers%>
-
+%------------------------------------------------
 \vspace{1em} % Extra space between major sections
+<%/papers%>
 
 
 <%#awards%>
-\spacedlowsmallcaps{Awards}\vspace{1em} \newline
+\noindent\spacedlowsmallcaps{Awards}\vspace{1em} \newline
 <%#items%>
     \Description{\MarginText{<%organization%>} <%title%>, <%date%>}
 <%/items%>
+%------------------------------------------------
+\vspace{1em} % Extra space between major sections
 <%/awards%>
 
 \end{cv}
