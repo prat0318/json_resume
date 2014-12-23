@@ -20,7 +20,7 @@ class JsonResumeCLI < Thor
   desc "convert /path/to/json/file", "converts the json to pretty resume format"
   option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md"
   option :template, :banner=>"template_path", :desc=>"path to customized template (optional)"
-	option :locale, :default=>"en", :banner=>"locale", :desc=>"en|es|pt|zh_CN"
+	option :locale, :default=>"en", :banner=>"locale", :desc=>"en|es|pt|zh_cn"
 	option :theme, :default=>"default", :banner=>"theme", :desc=>"default|classic"
   def convert(json_input)
 		set_i18n(options[:locale])
