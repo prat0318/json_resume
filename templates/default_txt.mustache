@@ -1,0 +1,113 @@
+{{=<% %>=}}
+<%#bio_data%>
+<%&firstname%> <%&familyname%>
+
+Phone: <%#phone%><%.%><%/phone%>
+Email: <%#email%><%.%><%/email%>
+
+<%#skills%>
+Skills
+--------------------------------------------------------------
+<%type%>
+<%#details%>
+<%type%> : <%#items%><%name%><%^last%>, <%/last%><%/items%>
+<%/details%>
+<%/skills%>
+
+<%#education%>
+##education##
+--------------------------------------------------------------
+<%#schools%>
+<%institution%>, <%institutionlocation%>,<%degree%>,<%#major%> <%major%><%/major%> <%#degreestatus%>**<%& .%>**<%/degreestatus%> <%graduation_month%> <%graduation_year%> 
+	<%#thesis%>
+	 * Thesis : <%& .%> 
+	<%/thesis%>
+	<%#advisor%>
+	 * Advisor : <%& .%> 
+	<%/advisor%>
+	<%#areaofstudy%>
+	 * Area Of Study : <%& .%>
+	<%/areaofstudy%>  
+<%#seconddegree%><%& .%>,<%#secondmajor%><%secondmajor%><%/secondmajor%> <%graduation_month2%> <%graduation_year2%>
+<%/seconddegree%><%/schools%>
+<%/education%>
+
+<%#experience%>
+##experience##
+--------------------------------------------------------------
+<%#items%>
+
+<%organisation%>, <%location%>
+	<%title%>
+            <%from%> to <%to%>
+        <%#details%>* <%& .%><%/details%>	
+	<%#technology_used%>
+	##technology_used##:
+	<%#tools%><%name%><%^last%>, <%/last%><%/tools%>
+	<%/technology_used%>
+<%/items%>
+<%/experience%>
+
+<%#expertise%>
+Expertise
+--------------------------------------------------------------
+<%#items%>
+<%type%> :
+	<%#expert%>
+	* <%& .%>
+	<%/expert%>
+
+<%/items%>
+<%/expertise%>
+
+
+<%#papers%>
+Other Publications
+--------------------------------------------------------------
+<%#items%>
+     <%title%> <%authors%>, <%&misc%>.
+<%/items%>
+<%/papers%>
+
+<%#github_projects%>
+##github_projects##
+--------------------------------------------------------------
+<%#details%>
+	<%project_name%> (http://github.com/<%project_name%>)
+	-<%#tagline%><%& .%><%/tagline%>
+		<%#description%>
+		* <%& .%>
+		<%/description%>
+
+
+<%/details%>
+<%/github_projects%>
+
+<%#grad_courses%>
+Relevant Undergraduate / ##grad_courses##
+--------------------------------------------------------------
+<%#rows%>
+	<%#columns%>
+    * <%#name%><%& .%><%/name%>
+	<%/columns%>
+<%/rows%>
+<%/grad_courses%>
+<%#undergrad_courses%>
+<%#rows%>
+	<%#columns%>
+    * <%#name%><%& .%><%/name%>
+	<%/columns%>
+<%/rows%>
+<%/undergrad_courses%>
+
+<%#awards%>
+Awards
+--------------------------------------------------------------
+<%#items%>
+<%organization%>
+  <%title%>, <%date%>
+
+<%/items%>
+<%/awards%>
+
+<%/bio_data%>

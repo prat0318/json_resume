@@ -18,7 +18,7 @@ end
 class JsonResumeCLI < Thor
 
   desc "convert /path/to/json/file", "converts the json to pretty resume format"
-  option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md"
+  option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md|txt"
   option :template, :banner=>"template_path", :desc=>"path to customized template (optional)"
 	option :locale, :default=>"en", :banner=>"locale", :desc=>"en|es|pt|zh_cn"
 	option :theme, :default=>"default", :banner=>"theme", :desc=>"default|classic"
@@ -105,6 +105,10 @@ class JsonResumeCLI < Thor
       end
       FileUtils.rm_rf "#{dest}/#{tmp_dir}"
       msg = "\nGenerated resume.pdf at #{dest}.".green
+    end
+
+    def convert_to_txt(json_input, template, dest=Dir.pwd, filename="resume.txt")
+      generate_file(json_input, template, "txt", "#{dest}/#{filename}")
     end
 
     def convert_to_tex(json_input, template, dest=Dir.pwd, filename="resume.tex")

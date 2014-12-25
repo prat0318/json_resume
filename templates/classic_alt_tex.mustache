@@ -1,0 +1,177 @@
+{{=<% %>=}}
+\documentclass{scrartcl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classicthesis-Styled CV
+% LaTeX Template
+% Version 1.0 (22/2/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Alessandro Plasmati
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+
+<%#bio_data%>
+%-----------------------------------------------------------
+
+\reversemarginpar % Move the margin to the left of the page 
+
+\newcommand{\MarginText}[1]{\marginpar{\raggedleft\itshape\small#1}} % New command defining the margin text style
+
+\usepackage[nochapters]{classicthesis} % Use the classicthesis style for the style of the document
+\usepackage[LabelsAligned]{currvita} % Use the currvita style for the layout of the document
+
+\renewcommand{\cvheadingfont}{\LARGE\color{Maroon}} % Font color of your name at the top
+
+\usepackage{hyperref} % Required for adding links	and customizing them
+\hypersetup{colorlinks, breaklinks, urlcolor=Maroon, linkcolor=Maroon} % Set link colors
+
+\newlength{\datebox}\settowidth{\datebox}{Spring 2011} % Set the width of the date box in each block
+
+\newcommand{\NewEntry}[3]{\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small \textit{#1}}\hspace{1.5em} #2 #3 % Define a command for each new block - change spacing and font sizes here: #1 is the left margin, #2 is the italic date field and #3 is the position/employer/location field
+\vspace{0.5em}} % Add some white space after each new entry
+
+\newcommand{\Description}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\footnotesize{#1}\par\normalsize\vspace{1em}} % Define a command for descriptions of each entry - change spacing and font sizes here
+
+\definecolor{see}{rgb}{0.5,0.5,0.5}% 
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\thispagestyle{empty} % Stop the page count at the bottom of the first page
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{cv}{\spacedallcaps{<%&firstname%> <%&familyname%>}}\vspace{1.5em} % Your name
+
+\noindent\spacedlowsmallcaps{Personal Information}\vspace{0.5em} \newline% Personal information heading
+<%#birthcity%>
+\NewEntry{}{\textit{Born in <%#birthcity%><%.%><%/birthcity%>,}}{<%#birthday%><%.%><%/birthday%>} % Birthplace and date
+\\
+<%/birthcity%>
+\NewEntry{email}{\href{mailto: <%#email%><%.%><%/email%>}{<%#email%><%.%><%/email%>}} % Email address
+
+\NewEntry{website}{\href{<%#website%>  <%& .%><%/website%>}{<%#website%>  <%& .%><%/website%>}} % Personal website
+
+\NewEntry{Github}{\href{<%#gitwebsite%>  <%& .%><%/gitwebsite%>}{<%#github_id%> <%& .%><%/github_id%>}} % github
+
+\NewEntry{phone}{(H) <%#phone%><%.%> <%/phone%>\ \ <%#mobile%>$\cdotp$\ \ (M) <%.%> <%/mobile%>} % Phone number(s)
+
+\vspace{1em} % Extra white space between the personal information section and goal
+
+<%#summary%>
+\noindent\spacedlowsmallcaps{Goal}\vspace{1em} \newline % Goal heading, could be used for a quotation or short profile instead
+\Description{\MarginText{}<%#points%><%& .%>. <%/points%>}\vspace{2em} % Goal text
+<%/summary%>
+
+<%#expertise%>
+\noindent\spacedlowsmallcaps{Expertise}\vspace{1em} \newline
+<%#items%>
+    \Description{\MarginText{<%type%>} <%#expert%><%& .%><%/expert%>}
+<%/items%>
+\vspace{1em} % Extra space between major sections
+<%/expertise%>
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+<%#education%>
+\noindent\spacedlowsmallcaps{##education##}\vspace{1em} \newline
+<%#schools%>
+\NewEntry{<%graduation_year%>}{<%institution%>}{}
+\Description{\MarginText{<%degree%><%#major%>, <%major%><%/major%>} \newline 
+  <%#thesis%>
+    Thesis : \textit{<%& .%>} \newline
+  <%/thesis%>
+  <%#advisor%>
+    Advisor : <%& .%> \newline
+  <%/advisor%>
+  <%#areaofstudy%>
+    Area Of Study : \textit{<%& .%>} \newline
+  <%/areaofstudy%>
+}
+<%/schools%>
+\vspace{1em} % Extra space between major sections
+<%/education%>
+
+
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+
+<%#experience%>
+\noindent\spacedlowsmallcaps{##experience##}\vspace{1em} \newline
+%    \NewEntry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+	<%#items%>
+		\NewEntry{<%from%> - <%to%>}{\textsc{<%title%>} <%organisation%> <%location%>}{}
+			\Description{\MarginText{<%organisation%>}
+				\begin{itemize}
+				<%#details%>\item <%& .%><%/details%>	
+				<%#technology_used%>
+				\item ##technology_used##:
+				<%#tools%><%name%><%^last%>, <%/last%><%/tools%>
+				<%/technology_used%>
+				\end{itemize}
+			}
+	<%/items%>
+%------------------------------------------------
+\vspace{1em} % Extra space between major sections
+<%/experience%>
+
+
+
+%----------------------------------------------------------------------------------------
+%	COMPUTER SKILLS
+%----------------------------------------------------------------------------------------
+
+
+<%#skills%>
+\noindent\spacedlowsmallcaps{##skills##}\vspace{1em} \newline
+<%#details%>
+    \Description{\MarginText{}<%type%>: <%#items%><%name%><%^last%>, <%/last%><%/items%>}
+<%/details%>
+%------------------------------------------------
+\vspace{1em} % Extra space between major sections
+<%/skills%>
+
+
+<%#papers%>
+\noindent\spacedlowsmallcaps{Other Publications}\vspace{1em} \newline
+<%#items%>
+    \Description{\MarginText{<%organization%>} <%title%>, <%authors%>, \emph{<%&misc%>}}
+<%/items%>
+%------------------------------------------------
+\vspace{1em} % Extra space between major sections
+<%/papers%>
+
+
+<%#awards%>
+\noindent\spacedlowsmallcaps{Awards}\vspace{1em} \newline
+<%#items%>
+    \Description{\MarginText{<%organization%>} <%title%>, <%date%>}
+<%/items%>
+%------------------------------------------------
+\vspace{1em} % Extra space between major sections
+<%/awards%>
+
+\end{cv}
+
+<%/bio_data%>
+\end{document}
