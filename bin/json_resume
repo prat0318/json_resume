@@ -20,13 +20,15 @@ class JsonResumeCLI < Thor
   desc "convert /path/to/json/file", "converts the json to pretty resume format"
   option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md"
   option :template, :banner=>"template_path", :desc=>"path to customized template (optional)"
-	option :locale, :default=>"en", :banner=>"locale", :desc=>"en|es|pt"
-	option :theme, :default=>"default", :banner=>"theme", :desc=>"default|classic"
+  option :locale, :default=>"en", :banner=>"locale", :desc=>"en|es|pt"
+  option :theme, :default=>"default", :banner=>"theme", :desc=>"default|classic"
+  option :dest_dir, :default=>"current", :banner=>"dest_dir", :desc=>"location of dest. dir (optional)"
   def convert(json_input)
 		set_i18n(options[:locale])
     puts "Generating the #{options[:out]} type..."
+    dest = options[:dest_dir] == 'current'? Dir.pwd : options[:dest_dir]
     begin
-      puts send('convert_to_'+options[:out], json_input, get_template(options))
+      puts send('convert_to_'+options[:out], json_input, get_template(options), dest)
     rescue Encoding::InvalidByteSequenceError
       puts "ERROR: You need to 'export LC_CTYPE=en_US.UTF-8' ...".green
     end
@@ -47,24 +49,24 @@ class JsonResumeCLI < Thor
     @@orig_locn = File.expand_path(File.dirname(__FILE__))
 
     def get_template(options)
-      return options[:template] if options[:template]
-      out_type = options[:out].split('_').first #html for both html, html_pdf
-      out_type = 'html' if out_type == 'pdf'
-			theme = options[:theme]
-			template_path = "#{@@orig_locn}/../templates/#{theme}_#{out_type}.mustache"
-			if !(File.exists? template_path) and theme != 'default'
-				puts "Theme #{theme} doesn't exist for #{options[:out]} type yet! Using default...".red
-				template_path = "#{@@orig_locn}/../templates/default_#{out_type}.mustache"
-			end
-			return template_path
+        return options[:template] if options[:template]
+        out_type = options[:out].split('_').first #html for both html, html_pdf
+        out_type = 'html' if out_type == 'pdf'
+        theme = options[:theme]
+        template_path = "#{@@orig_locn}/../templates/#{theme}_#{out_type}.mustache"
+        if !(File.exists? template_path) and theme != 'default'
+            puts "Theme #{theme} doesn't exist for #{options[:out]} type yet! Using default...".red
+            template_path = "#{@@orig_locn}/../templates/default_#{out_type}.mustache"
+        end
+        return template_path
     end
 
     def convert_to_html(json_input, template, dest=Dir.pwd, dir_name='resume')
-			dest_dir = "#{dest}/#{dir_name}"
-			FileUtils.mkdir_p dest_dir
-			FileUtils.cp_r(Dir["#{@@orig_locn}/../extras/resume_html/*"], dest_dir)
-      msg = generate_file(json_input, template, "html", "#{dest_dir}/page.html")
-      msg += "\nPlace #{dest_dir}/ in /var/www/ to host."
+        dest_dir = "#{dest}/#{dir_name}"
+        FileUtils.mkdir_p dest_dir
+        FileUtils.cp_r(Dir["#{@@orig_locn}/../extras/resume_html/*"], dest_dir)
+        msg = generate_file(json_input, template, "html", "#{dest_dir}/page.html")
+        msg += "\nPlace #{dest_dir}/ in /var/www/ to host."
     end
 
     def convert_to_pdf(json_input, template, dest=Dir.pwd)
