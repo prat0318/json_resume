@@ -26,7 +26,7 @@ Note: YAML files are also supported. Try `$ json_resume sample --in=yaml`.
     json_resume convert [--template=/path/to/custom/template]
                         [--out=html|html_pdf|tex|tex_pdf|md]
                         [--locale=es|en|pt|zh_cn]
-			[--dest_dir=/path/to/put/output/files]
+                        [--dest_dir=/path/to/put/output/files]
                         [--theme=default|classic] <json_input>
 
     <json_input> can be /path/to/json OR "{'json':'string'}" OR http://raw.json
