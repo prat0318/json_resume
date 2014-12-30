@@ -8,39 +8,43 @@ require 'zlib'
 require 'pdfkit'
 require 'rest-client'
 
-WL_URL = "https://www.writelatex.com/docs"
+WL_URL = 'https://www.overleaf.com/docs'
 
 class String
-        def red;            "\033[31m#{self}\033[0m" end
-        def green;          "\033[32m#{self}\033[0m" end
+  def red
+    "\033[31m#{self}\033[0m"
+  end
+
+  def green
+    "\033[32m#{self}\033[0m"
+  end
 end
 
 class JsonResumeCLI < Thor
-
-  desc "convert /path/to/json/file", "converts the json to pretty resume format"
-  option :out, :default=>"html", :banner=>"output_type", :desc=>"html|html_pdf|tex|tex_pdf|md"
-  option :template, :banner=>"template_path", :desc=>"path to customized template (optional)"
-  option :locale, :default=>"en", :banner=>"locale", :desc=>"en|es|pt"
-  option :theme, :default=>"default", :banner=>"theme", :desc=>"default|classic"
-  option :dest_dir, :default=>"current", :banner=>"dest_dir", :desc=>"location of dest. dir (optional)"
+  desc 'convert /path/to/json/file', 'converts the json to pretty resume format'
+  option :out, default: 'html', banner: 'output_type', desc: 'html|html_pdf|tex|tex_pdf|md'
+  option :template, banner: 'template_path', desc: 'path to customized template (optional)'
+  option :locale, default: 'en', banner: 'locale', desc: 'en|es|pt'
+  option :theme, default: 'default', banner: 'theme', desc: 'default|classic'
+  option :dest_dir, default: 'current', banner: 'dest_dir', desc: 'location of dest. dir (optional)'
   def convert(json_input)
-		set_i18n(options[:locale])
+    assign_i18n(options[:locale])
     puts "Generating the #{options[:out]} type..."
-    dest = options[:dest_dir] == 'current'? Dir.pwd : options[:dest_dir]
+    dest = options[:dest_dir] == 'current' ? Dir.pwd : options[:dest_dir]
     begin
-      puts send('convert_to_'+options[:out], json_input, get_template(options), dest)
+      puts send('convert_to_' + options[:out], json_input, get_template(options), dest)
     rescue Encoding::InvalidByteSequenceError
       puts "ERROR: You need to 'export LC_CTYPE=en_US.UTF-8' ...".green
     end
   end
 
-  desc "sample", "Generates a sample json file in cwd"
-  def sample()
-    cwd = Dir.pwd 
+  desc 'sample', 'Generates a sample json file in cwd'
+  def sample
+    cwd = Dir.pwd
     json_file_paths = Dir["#{@@orig_locn}/../examples/*.json"]
-    json_file_names = json_file_paths.map{|x| File.basename(x)}
+    json_file_names = json_file_paths.map { |x| File.basename(x) }
     FileUtils.cp json_file_paths, Dir.pwd
-    msg = "Generated #{json_file_names.join(" ")} in #{cwd}/".green
+    msg = "Generated #{json_file_names.join(' ')} in #{cwd}/".green
     msg += "\nYou can now modify it and call: json_resume convert <file.json>"
     puts msg
   end
@@ -49,41 +53,42 @@ class JsonResumeCLI < Thor
     @@orig_locn = File.expand_path(File.dirname(__FILE__))
 
     def get_template(options)
-        return options[:template] if options[:template]
-        out_type = options[:out].split('_').first #html for both html, html_pdf
-        out_type = 'html' if out_type == 'pdf'
-        theme = options[:theme]
-        template_path = "#{@@orig_locn}/../templates/#{theme}_#{out_type}.mustache"
-        if !(File.exists? template_path) and theme != 'default'
-            puts "Theme #{theme} doesn't exist for #{options[:out]} type yet! Using default...".red
-            template_path = "#{@@orig_locn}/../templates/default_#{out_type}.mustache"
-        end
-        return template_path
+      return options[:template] if options[:template]
+      out_type = options[:out].split('_').first # html for both html, html_pdf
+      out_type = 'html' if out_type == 'pdf'
+      theme = options[:theme]
+      template_path = "#{@@orig_locn}/../templates/#{theme}_#{out_type}.mustache"
+      if !(File.exist? template_path) && theme != 'default'
+        puts "Theme #{theme} doesn't exist for #{options[:out]} type yet! Using default...".red
+        template_path = "#{@@orig_locn}/../templates/default_#{out_type}.mustache"
+      end
+      template_path
     end
 
-    def convert_to_html(json_input, template, dest=Dir.pwd, dir_name='resume')
-        dest_dir = "#{dest}/#{dir_name}"
-        FileUtils.mkdir_p dest_dir
-        FileUtils.cp_r(Dir["#{@@orig_locn}/../extras/resume_html/*"], dest_dir)
-        msg = generate_file(json_input, template, "html", "#{dest_dir}/page.html")
-        msg += "\nPlace #{dest_dir}/ in /var/www/ to host."
+    def convert_to_html(json_input, template, dest = Dir.pwd, dir_name = 'resume')
+      dest_dir = "#{dest}/#{dir_name}"
+      FileUtils.mkdir_p dest_dir
+      FileUtils.cp_r(Dir["#{@@orig_locn}/../extras/resume_html/*"], dest_dir)
+      msg = generate_file(json_input, template, 'html', "#{dest_dir}/page.html")
+      msg += "\nPlace #{dest_dir}/ in /var/www/ to host."
+      msg
     end
 
-    def convert_to_pdf(json_input, template, dest=Dir.pwd)
+    def convert_to_pdf(json_input, template, dest = Dir.pwd)
       puts "Defaulting to 'html_pdf'..."
       convert_to_html_pdf(json_input, template, dest)
     end
 
-    def convert_to_html_pdf(json_input, template, dest=Dir.pwd)
-      tmp_dir = ".tmp_resume"
+    def convert_to_html_pdf(json_input, template, dest = Dir.pwd)
+      tmp_dir = '.tmp_resume'
       convert_to_html(json_input, template, dest, tmp_dir)
       PDFKit.configure do |config|
         wkhtmltopdf_path = `which wkhtmltopdf`.to_s.strip
         config.wkhtmltopdf = wkhtmltopdf_path unless wkhtmltopdf_path.empty?
         config.default_options = {
-          :footer_right => "Page [page] of [toPage]    .\n",
-          :footer_font_size => 10,
-          :footer_font_name => "Georgia"
+          footer_right: "Page [page] of [toPage]    .\n",
+          footer_font_size: 10,
+          footer_font_name: 'Georgia'
         }
       end
       html_file = File.new("#{dest}/#{tmp_dir}/core-page.html")
@@ -91,88 +96,92 @@ class JsonResumeCLI < Thor
       File.open("#{dest}/#{tmp_dir}/public/css/mobile.css", 'w') {}
 
       pdf_options = {
-        :margin_top => 2.0,
-        :margin_left=> 0.0, 
-        :margin_right => 0.0,
-        :margin_bottom => 4.0,
-        :page_size => 'Letter'
+        margin_top: 2.0,
+        margin_left: 0.0,
+        margin_right: 0.0,
+        margin_bottom: 4.0,
+        page_size: 'Letter'
       }
       kit = PDFKit.new(html_file, pdf_options)
 
       begin
-        kit.to_file(dest+"/resume.pdf")
+        kit.to_file(dest + '/resume.pdf')
       rescue Errno::ENOENT => e
         puts "\nTry: sudo apt-get update; sudo apt-get install libxtst6 libfontconfig1".green
         raise e
       end
       FileUtils.rm_rf "#{dest}/#{tmp_dir}"
       msg = "\nGenerated resume.pdf at #{dest}.".green
+      msg
     end
 
-    def convert_to_tex(json_input, template, dest=Dir.pwd, filename="resume.tex")
-      generate_file(json_input, template, "latex", "#{dest}/#{filename}")
+    def convert_to_tex(json_input, template, dest = Dir.pwd, filename = 'resume.tex')
+      generate_file(json_input, template, 'latex', "#{dest}/#{filename}")
     end
 
-    def convert_to_tex_pdf(json_input, template, dest=Dir.pwd)
-      file1 = "resume"; filename = "#{file1}.tex"
+    def convert_to_tex_pdf(json_input, template, dest = Dir.pwd)
+      file1 = 'resume'
+      filename = "#{file1}.tex"
       convert_to_tex(json_input, template, dest, filename)
-      if `which pdflatex` == ""
-        puts "It looks like pdflatex is not installed...".red
-        puts "Either install it with instructions at..."
-        puts "http://dods.ipsl.jussieu.fr/fast/pdflatex_install.html"
+      if `which pdflatex` == ''
+        puts 'It looks like pdflatex is not installed...'.red
+        puts 'Either install it with instructions at...'
+        puts 'http://dods.ipsl.jussieu.fr/fast/pdflatex_install.html'
         return use_write_latex(dest, filename)
       end
-      if `kpsewhich moderncv.cls` == ""
-        puts "It looks liks moderncv package for tex is not installed".red
-        puts "Read about it here: http://ctan.org/pkg/moderncv"
+      if `kpsewhich moderncv.cls` == ''
+        puts 'It looks liks moderncv package for tex is not installed'.red
+        puts 'Read about it here: http://ctan.org/pkg/moderncv'
         return use_write_latex(dest, filename)
       end
       system("pdflatex -shell-escape -interaction=nonstopmode #{dest}/#{filename}")
-      [".tex",".out",".aux",".log"].each do |ext|
+      ['.tex', '.out', '.aux', '.log'].each do |ext|
         FileUtils.rm "#{dest}/#{file1}#{ext}"
       end
       msg = "\nPDF is ready at #{dest}/#{file1}.pdf"
+      msg
     end
 
     def use_write_latex(dest, filename)
-       reply = ask "Create PDF online using writeLatex ([y]n)?"
-       if reply == "" || reply == "y"
-          return convert_using_writeLatex(dest, filename)  
-       end
-       msg = "Latex file created at #{dest}/#{filename}".green
+      reply = ask 'Create PDF online using writeLatex/overleaf ([y]n)?'
+      if reply == '' || reply == 'y'
+        return convert_using_write_latex(dest, filename)
+      end
+      msg = "Latex file created at #{dest}/#{filename}".green
+      msg
     end
 
-    def convert_using_writeLatex(dest, filename)
+    def convert_using_write_latex(dest, filename)
       tex_file = File.read("#{dest}/#{filename}")
-      RestClient.post(WL_URL, :snip => tex_file, :splash => "none") do |response, req, res, &bb| 
+      msg = ''
+      RestClient.post(WL_URL, snip: tex_file, splash: 'none') do |response, _, _, &_|
         FileUtils.rm "#{dest}/#{filename}"
         msg = "\nPDF is ready at #{response.headers[:location]}".green
       end
+      msg
     end
 
-    def convert_to_md(json_input, template, dest=Dir.pwd)
-      generate_file(json_input, template, "markdown", "#{dest}/resume.md")
+    def convert_to_md(json_input, template, dest = Dir.pwd)
+      generate_file(json_input, template, 'markdown', "#{dest}/resume.md")
     end
 
-def set_i18n(locale)
-	I18n.load_path = Dir["#{@@orig_locn}/../locale/*.yml"]
-	I18n.enforce_available_locales = true
-	I18n.locale = options[:locale].to_sym
-end
+    def assign_i18n(locale)
+      I18n.load_path = Dir["#{@@orig_locn}/../locale/*.yml"]
+      I18n.enforce_available_locales = true
+      I18n.locale = locale.to_sym
+    end
 
-def i18n(text)
-	text.gsub(/##(\w*?)##/) { I18n.t! Regexp.last_match[1], :scope => 'headings' }
-end
+    def i18n(text)
+      text.gsub(/##(\w*?)##/) { I18n.t! Regexp.last_match[1], scope: 'headings' }
+    end
 
     def generate_file(json_input, template, output_type, dest)
-      resume_obj = JsonResume.new(json_input, "output_type" => output_type)
+      resume_obj = JsonResume.new(json_input, 'output_type' => output_type)
       mustache_obj  = Mustache.render(i18n(File.read(template)), resume_obj.reader.hash)
-      File.open(dest,'w') {|f| f.write(mustache_obj) }
-      return "\nGenerated files present at #{dest}".green
+      File.open(dest, 'w') { |f| f.write(mustache_obj) }
+      "\nGenerated files present at #{dest}".green
     end
-
   end
-
 end
 
 JsonResumeCLI.start(ARGV)

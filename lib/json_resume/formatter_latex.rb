@@ -2,32 +2,31 @@ require_relative 'formatter'
 
 module JsonResume
   class FormatterLatex < Formatter
-
-    def format_slashes str
-        str.gsub!(/\\/, '\textbackslash')
-        str.gsub!(/\{/, '\{')
-        str.gsub!(/\}/, '\}')
+    def format_slashes(str)
+      str.gsub!(/\\/, '\textbackslash')
+      str.gsub!(/\{/, '\{')
+      str.gsub!(/\}/, '\}')
     end
 
-    def format_link str
-        str.gsub!(/\[(.*?)\]\((.*?)\)/, '{\color{see} \href{\2}{\1}}')
+    def format_link(str)
+      str.gsub!(/\[(.*?)\]\((.*?)\)/, '{\color{see} \href{\2}{\1}}')
     end
 
-    def format_autolink str
-        str.gsub!(/<<(\S*?)>>/, '{\color{see} \url{\1}}')
+    def format_autolink(str)
+      str.gsub!(/<<(\S*?)>>/, '{\color{see} \url{\1}}')
     end
 
-    def format_emphasis str
+    def format_emphasis(str)
       str.gsub!(/\b_(.+?)_\b/, '\textit{\1}')
       str.gsub!(/\*\*(.+?)\*\*/, '\textbf{\1}')
     end
 
-    def format_superscripts str
+    def format_superscripts(str)
       str.gsub!(/<sup>(.*?)<\/sup>/, '$^{\1}$')
       str.gsub!(/<sub>(.*?)<\/sub>/, '$_{\1}$')
     end
 
-    def format_symbols str
+    def format_symbols(str)
       str.gsub!(/#/, '\#')
       str.gsub!(/\$/, '\$')
       str.gsub!(/&/, '\\\\&')
@@ -36,7 +35,7 @@ module JsonResume
       str.gsub!(/_/, '\_')
     end
 
-    def format_string str
+    def format_string(str)
       format_slashes str
       format_link str
       format_autolink str
@@ -48,7 +47,7 @@ module JsonResume
     def format
       super
 
-      return self
+      self
     end
   end
 end
