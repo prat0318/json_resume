@@ -7,6 +7,8 @@ require_relative '../lib/json_resume'
 require 'zlib'
 require 'pdfkit'
 require 'rest-client'
+require 'json'
+require 'yaml'
 
 WL_URL = 'https://www.overleaf.com/docs'
 
@@ -27,7 +29,6 @@ class JsonResumeCLI < Thor
   option :locale, default: 'en', banner: 'locale', desc: 'en|es|pt|zh_cn'
   option :theme, default: 'default', banner: 'theme', desc: 'default|classic'
   option :dest_dir, default: 'current', banner: 'dest_dir', desc: 'location of dest. dir (optional)'
-
   def convert(json_input)
     assign_i18n(options[:locale])
     puts "Generating the #{options[:out]} type..."
@@ -40,18 +41,35 @@ class JsonResumeCLI < Thor
   end
 
   desc 'sample', 'Generates a sample json file in cwd'
+  option :in, default: 'json', banner: 'input_type', desc: 'json|yaml'
   def sample
     cwd = Dir.pwd
-    json_file_paths = Dir["#{@@orig_locn}/../examples/*.json"]
-    json_file_names = json_file_paths.map { |x| File.basename(x) }
-    FileUtils.cp json_file_paths, Dir.pwd
-    msg = "Generated #{json_file_names.join(' ')} in #{cwd}/".green
+    file_names = []
+    if options[:in] == 'yaml'
+      file_names = convert_sample_to_yaml
+    else
+      json_file_paths = Dir["#{@@orig_locn}/../examples/*.json"]
+      file_names = json_file_paths.map { |x| File.basename(x) }
+      FileUtils.cp json_file_paths, cwd
+    end
+    msg = "Generated #{file_names.join(' ')} in #{cwd}/".green
     msg += "\nYou can now modify it and call: json_resume convert <file.json>"
     puts msg
   end
 
   no_commands do
     @@orig_locn = File.expand_path(File.dirname(__FILE__))
+
+    def convert_sample_to_yaml
+      cwd = Dir.pwd
+      json_file_paths = Dir["#{@@orig_locn}/../examples/*.json"]
+      json_file_paths.map do |json_file_path|
+        dest = File.basename(json_file_path).gsub(/json$/, 'yaml')
+        yaml_string = (JSON.parse(File.read(json_file_path))).to_yaml
+        File.open("#{cwd}/#{dest}", 'w') { |f| f.write(yaml_string) }
+        dest
+      end
+    end
 
     def get_template(options)
       return options[:template] if options[:template]

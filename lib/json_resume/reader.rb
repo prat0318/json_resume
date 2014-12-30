@@ -3,6 +3,7 @@ require_relative 'formatter_latex'
 require_relative 'formatter_md'
 require 'rest-client'
 require 'json'
+require 'yaml'
 
 module JsonResume
   class Reader
@@ -13,6 +14,7 @@ module JsonResume
       @json_string = case json_input
                      when /^(http|https|www)/ then RestClient.get(json_input)
                      when /\.json$/i then File.read(json_input)
+                     when /\.ya?ml$/i then JSON.dump(YAML.load_file(json_input))
                      else json_input
            end
       @output_type = output_type

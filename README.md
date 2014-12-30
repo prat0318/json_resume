@@ -16,6 +16,8 @@ A [sample](https://github.com/prat0318/json_resume/blob/master/examples/prateek_
 
 Modify it as per the needs, and remove or keep rest of the fields empty.
 
+Note: YAML files are also supported. Try `$ json_resume sample --in=yaml`.
+
 ### Conversion
 
 * Syntax
@@ -23,11 +25,14 @@ Modify it as per the needs, and remove or keep rest of the fields empty.
 ```
     json_resume convert [--template=/path/to/custom/template]
                         [--out=html|html_pdf|tex|tex_pdf|md]
-                        [--locale=es|en|pt]
+                        [--locale=es|en|pt|zh_cn]
+			[--dest_dir=/path/to/put/output/files]
                         [--theme=default|classic] <json_input>
 
     <json_input> can be /path/to/json OR "{'json':'string'}" OR http://raw.json
 ```
+
+    NEW: YAML files are also supported. Pass path/to/yaml file (must have .yaml or .yml).
 
 * Default (HTML) version
 
