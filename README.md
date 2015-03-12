@@ -81,7 +81,7 @@ A directory `resume/` will be generated in cwd, which can be put hosted on /var/
 
 ## i18n Support
 
-Support for ``en``, ``es`` and ``pt`` right now. Pull requests for others are welcome.
+Support for ``en``, ``es``, ``fi`` and ``pt`` right now. Pull requests for others are welcome.
 
 ```
     $ json_resume convert --locale=es prateek_cv.json
