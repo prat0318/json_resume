@@ -40,6 +40,6 @@ pl:
     # "Qualifications summary"
     summary: "Podsumowanie kwalifikacji"
     # "Technologies got to work on"
-    technology_used: "Używane technologie"
+    technology_used: "Środowisko techniczne"
     # "Undergraduate Courses Taken"
     undergrad_courses: "Studia licencjackie"
