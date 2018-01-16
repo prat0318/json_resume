@@ -24,7 +24,7 @@ pl:
     # "issued on"
     issuance: "opublikowany w"
     # "Major"
-    major: "Specjalizacja"
+    major: "Kierunek"
     # "Memberships"
     memberships: "Członkostwo"
     # "Other Personal Projects"
