@@ -158,7 +158,7 @@ class JsonResumeCLI < Thor
       ['.tex', '.out', '.aux', '.log'].each do |ext|
         FileUtils.rm "#{dest}/#{file1}#{ext}"
       end
-      msg = "\nPDF is ready at #{dest}/#{file1}.pdf"
+      msg = "\nPDF is ready at #{dest}/#{file1}.pdf".green
       msg
     end
 
