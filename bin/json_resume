@@ -26,6 +26,7 @@ class JsonResumeCLI < Thor
   desc 'convert /path/to/json/file', 'converts the json to pretty resume format'
   option :out, default: 'html', banner: 'output_type', desc: 'html|html_pdf|tex|tex_pdf|md'
   option :template, banner: 'template_path', desc: 'path to customized template (optional)'
+  option :locale_dir, desc: 'path to locale definitions (optional)'
   option :locale, default: 'en', banner: 'locale', desc: 'en|ge|es|pl|pt|zh_cn'
   option :theme, default: 'default', banner: 'theme', desc: 'default|classic'
   option :dest_dir, default: 'current', banner: 'dest_dir', desc: 'location of dest. dir (optional)'
@@ -185,7 +186,13 @@ class JsonResumeCLI < Thor
     end
 
     def assign_i18n(locale)
-      I18n.load_path = Dir["#{@@orig_locn}/../locale/*.yml"]
+      if options[:locale_dir]
+        locale_dir = "#{File.expand_path(options[:locale_dir])}/*.yml"
+      else
+        locale_dir = "#{@@orig_locn}/../locale/*.yml"
+      end
+      puts "Using #{locale_dir} for locale files"
+      I18n.load_path = Dir[locale_dir]
       I18n.enforce_available_locales = true
       I18n.locale = locale.to_sym
     end

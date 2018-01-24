@@ -87,6 +87,12 @@ Support for ``en``, ``ge``, ``es``, ``fi``, ``pl`` and ``pt`` right now. Pull re
     $ json_resume convert --locale=es prateek_cv.json
 ```
 
+It is also possible to define a custom location for locale definitions.
+Pass the option `--locale_dir=path/to/defs`.
+In this location there should be the definitions available.
+The default one is `en.yml`, others may be provided as well.
+This is useful if you want to define new headings.
+
 ## Markup Language
 
 JSON is parsed as per the `markdown` standards. This implies all this works-
