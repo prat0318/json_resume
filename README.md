@@ -25,7 +25,7 @@ Note: YAML files are also supported. Try `$ json_resume sample --in=yaml`.
 ```
     json_resume convert [--template=/path/to/custom/template]
                         [--out=html|html_pdf|tex|tex_pdf|md]
-                        [--locale=es|en|ge|fi|pt|zh_cn]
+                        [--locale=es|en|ge|fi|pl|pt|zh_cn]
                         [--dest_dir=/path/to/put/output/files]
                         [--theme=default|classic] <json_input>
 
@@ -81,7 +81,7 @@ A directory `resume/` will be generated in cwd, which can be put hosted on /var/
 
 ## i18n Support
 
-Support for ``en``, ``ge``, ``es``, ``fi`` and ``pt`` right now. Pull requests for others are welcome.
+Support for ``en``, ``ge``, ``es``, ``fi``, ``pl`` and ``pt`` right now. Pull requests for others are welcome.
 
 ```
     $ json_resume convert --locale=es prateek_cv.json
