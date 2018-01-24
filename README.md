@@ -133,3 +133,8 @@ Many awesome formats can be created by writing new mustache templates. We :heart
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+### Installation of local fork
+If you want to checkout your local changes do the following:
+1. `gem build json_resume.gemspec`
+2. `sudo gem install ./json_resume-x.y.z.gem`
