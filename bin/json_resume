@@ -27,7 +27,7 @@ class JsonResumeCLI < Thor
   option :out, default: 'html', banner: 'output_type', desc: 'html|html_pdf|tex|tex_pdf|md'
   option :template, banner: 'template_path', desc: 'path to customized template (optional)'
   option :locale_dir, desc: 'path to locale definitions (optional)'
-  option :locale, default: 'en', banner: 'locale', desc: 'en|ge|es|pl|pt|zh_cn'
+  option :locale, default: 'en', banner: 'locale', desc: 'en|ge|es|pl|pt|zh_cn|ja'
   option :theme, default: 'default', banner: 'theme', desc: 'default|classic'
   option :dest_dir, default: 'current', banner: 'dest_dir', desc: 'location of dest. dir (optional)'
   def convert(json_input)
