@@ -25,7 +25,7 @@ Note: YAML files are also supported. Try `$ json_resume sample --in=yaml`.
 ```
     json_resume convert [--template=/path/to/custom/template]
                         [--out=html|html_pdf|tex|tex_pdf|md]
-                        [--locale=es|en|ge|fi|pl|pt|zh_cn]
+                        [--locale=es|en|ge|fi|pl|pt|zh_cn|ja]
                         [--dest_dir=/path/to/put/output/files]
                         [--theme=default|classic] <json_input>
 
